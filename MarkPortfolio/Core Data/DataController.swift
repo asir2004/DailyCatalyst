@@ -7,6 +7,15 @@
 
 import CoreData
 
+enum SortType: String {
+    case dateCreated = "creationDate"
+    case dateModified = "modificationDate"
+}
+
+enum Status {
+    case all, open, archived
+}
+
 class DataController: ObservableObject {
     let container: NSPersistentCloudKitContainer
     
@@ -14,6 +23,13 @@ class DataController: ObservableObject {
     @Published var selectedCatalyst: Catalyst?
     
     @Published var filterText = ""
+    @Published var filterTokens = [Tag]()
+    
+    @Published var filterEnabled = false
+    @Published var filterHappiness = -1 // Means any happiness
+    @Published var filterStatus = Status.all
+    @Published var sortType = SortType.dateCreated
+    @Published var sortNewestFirst = true
     
     private var saveTask: Task<Void, Error>?
     
@@ -122,24 +138,65 @@ class DataController: ObservableObject {
     
     func catalystsForSelectedFilter() -> [Catalyst] {
         let filter = selectedFilter ?? .all
-        var allCatalysts: [Catalyst]
+        var predicates = [NSPredicate]()
         
         if let tag = filter.tag {
-            allCatalysts = tag.catalysts?.allObjects as? [Catalyst] ?? []
+            let tagPredicate = NSPredicate(format: "tags CONTAINS %@", tag)
+            predicates.append(tagPredicate)
         } else {
-            let request = Catalyst.fetchRequest()
-            request.predicate = NSPredicate(format: "modificationDate > %@", filter.minModificationDate as NSDate)
-            allCatalysts = (try? container.viewContext.fetch(request)) ?? []
+            let datePredicate = NSPredicate(format: "modificationDate > %@", filter.minModificationDate as NSDate)
+            predicates.append(datePredicate)
         }
         
         let trimmedFilterText = filterText.trimmingCharacters(in: .whitespaces)
         
         if trimmedFilterText.isEmpty == false {
-            allCatalysts = allCatalysts.filter {
-                $0.catalystTitle.localizedCaseInsensitiveContains(filterText) || $0 .catalystEffect.localizedCaseInsensitiveContains(filterText)
+            let titlePredicate = NSPredicate(format: "title CONTAINS[c] %@", trimmedFilterText)
+            let effectPredicate = NSPredicate(format: "effect CONTAINS[c] %@", trimmedFilterText)
+            let combinedPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [titlePredicate, effectPredicate])
+            predicates.append(combinedPredicate)
+        }
+        
+        if filterTokens.isEmpty == false {
+            for filterToken in filterTokens {
+                let tokenPredicate = NSPredicate(format: "tags CONTAINS %@", filterToken)
+                predicates.append(tokenPredicate)
             }
         }
         
+        if filterEnabled {
+            if filterHappiness >= 0 {
+                let happinessFilter = NSPredicate(format: "happiness = %d", filterHappiness)
+                predicates.append(happinessFilter)
+            }
+
+            if filterStatus != .all {
+                let lookForArchived = filterStatus == .archived
+                let statusFilter = NSPredicate(format: "archived = %@", NSNumber(value: lookForArchived))
+                predicates.append(statusFilter)
+            }
+        }
+        
+        let request = Catalyst.fetchRequest()
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        request.sortDescriptors = [NSSortDescriptor(key: sortType.rawValue, ascending: sortNewestFirst)]
+        
+        let allCatalysts = (try? container.viewContext.fetch(request)) ?? []
         return allCatalysts.sorted()
+    }
+    
+    var suggestedFilterTokens: [Tag] {
+        guard filterText.starts(with: "#") else {
+            return []
+        }
+
+        let trimmedFilterText = String(filterText.dropFirst()).trimmingCharacters(in: .whitespaces)
+        let request = Tag.fetchRequest()
+
+        if trimmedFilterText.isEmpty == false {
+            request.predicate = NSPredicate(format: "name CONTAINS[c] %@", trimmedFilterText)
+        }
+
+        return (try? container.viewContext.fetch(request).sorted()) ?? []
     }
 }

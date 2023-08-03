@@ -26,11 +26,11 @@ struct CatalystView: View {
                 }
                 
                 Picker("Happiness", selection: $catalyst.happiness) {
-                    Text("Joy").tag(Int16(1))
-                    Text("Happy").tag(Int16(2))
+                    Text("Joy").tag(Int16(5))
+                    Text("Happy").tag(Int16(4))
                     Text("Apathetic").tag(Int16(3))
-                    Text("Boring").tag(Int16(4))
-                    Text("Exhausted").tag(Int16(5))
+                    Text("Boring").tag(Int16(2))
+                    Text("Exhausted").tag(Int16(1))
                 }
                 
                 Menu {
