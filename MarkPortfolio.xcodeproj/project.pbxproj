@@ -21,6 +21,7 @@
 		EAD51F012A790FFD00A777E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD51F002A790FFD00A777E7 /* Preview Assets.xcassets */; };
 		EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
 		EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
+		EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADE562B2A7E83A300F28948 /* NewCatalystView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		EAD51F002A790FFD00A777E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EAD51F082A79100700A777E7 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		EAD51F0A2A79119400A777E7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		EADE562B2A7E83A300F28948 /* NewCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCatalystView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				EAB7FCDB2A7AC07F0022F01D /* DetailView.swift */,
 				EA398E4F2A7B907A00530474 /* CatalystView.swift */,
 				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
+				EADE562B2A7E83A300F28948 /* NewCatalystView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */,
 				EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */,
 				EAB7FCDA2A7AC0780022F01D /* SidebarView.swift in Sources */,
+				EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */,
 				EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */,
 				EAD51EFC2A790FFC00A777E7 /* ContentView.swift in Sources */,
 				EAD51EFA2A790FFC00A777E7 /* MarkPortfolioApp.swift in Sources */,
