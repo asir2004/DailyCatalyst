@@ -10,6 +10,7 @@ import CoreData
 enum SortType: String {
     case dateCreated = "creationDate"
     case dateModified = "modificationDate"
+    case dateHappened = "happeningDate"
 }
 
 enum Status {
@@ -76,6 +77,7 @@ class DataController: ObservableObject {
                 catalyst.title = "Catalyst \(i)-\(j)"
                 catalyst.effect = "Description goes here."
                 catalyst.creationDate = .now
+                catalyst.happeningDate = .now
                 catalyst.archived = Bool.random()
                 catalyst.happiness = Int16.random(in: 1...5)
                 tag.addToCatalysts(catalyst)

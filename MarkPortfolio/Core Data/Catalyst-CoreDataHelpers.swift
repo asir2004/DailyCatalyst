@@ -22,6 +22,10 @@ extension Catalyst {
         creationDate ?? .now
     }
     
+    var catalystHappeningDate: Date {
+        happeningDate ?? .now
+    }
+    
     var catalystModificationDate: Date {
         modificationDate ?? .now
     }
@@ -58,6 +62,7 @@ extension Catalyst {
         catalyst.effect = "Example Effect"
         catalyst.happiness = Int16.random(in: 1...5)
         catalyst.creationDate = .now
+        catalyst.happeningDate = .now.addingTimeInterval(86400)
         return catalyst
     }
 }
