@@ -11,6 +11,8 @@ struct SidebarView: View {
     @EnvironmentObject var dataController: DataController
     let smartFilters: [Filter] = [.all, .recent]
     
+    @State private var showNewCatalyst = false
+    
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var tags: FetchedResults<Tag>
     
     var tagFilters: [Filter] {
@@ -39,12 +41,23 @@ struct SidebarView: View {
                 .onDelete(perform: delete)
             }
         }
+        .sheet(isPresented: $showNewCatalyst) {
+            NavigationStack {
+                NewCatalystView()
+            }
+            .presentationDetents([.medium, .large])
+        }
         .toolbar {
+//            Button {
+//                dataController.deleteAll()
+//                dataController.createSampleData()
+//            } label: {
+//                Label("ADD SAMPLES", systemImage: "flame")
+//            }
             Button {
-                dataController.deleteAll()
-                dataController.createSampleData()
+                showNewCatalyst = true
             } label: {
-                Label("ADD SAMPLES", systemImage: "flame")
+                Image(systemName: "plus")
             }
         }
     }
