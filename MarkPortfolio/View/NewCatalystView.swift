@@ -77,16 +77,10 @@ struct NewCatalystView: View {
         newCatalyst.effect = newCatalystEffect
         newCatalyst.happeningDate = newCatalystDate
         newCatalyst.creationDate = .now
-        newCatalyst.modificationDate = .now
         newCatalyst.happiness = Int16(newCatalystHappiness)
         newCatalyst.archived = false
         
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Failed to save Core Data changes: \(nsError.localizedDescription)")
-        }
+        try? viewContext.save()
         dismiss()
     }
 }

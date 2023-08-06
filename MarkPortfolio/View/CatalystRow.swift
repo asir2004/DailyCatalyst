@@ -14,7 +14,7 @@ struct CatalystRow: View {
     var body: some View {
         NavigationLink(value: catalyst) {
             HStack {
-                Image(systemName: "exclamationmark.circle")
+                Image(systemName: "iphone")
                     .imageScale(.large)
                     .opacity(Double(catalyst.happiness) * 0.2)
                 

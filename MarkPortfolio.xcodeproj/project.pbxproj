@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EA398E502A7B907A00530474 /* CatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E4F2A7B907A00530474 /* CatalystView.swift */; };
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
+		EA6D6F4D2A7FE9CF008B43AB /* NewTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewTagView.swift */; };
 		EAB7FCDA2A7AC0780022F01D /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCD92A7AC0780022F01D /* SidebarView.swift */; };
 		EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDB2A7AC07F0022F01D /* DetailView.swift */; };
 		EAB7FCDE2A7AC18E0022F01D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDD2A7AC18E0022F01D /* Filter.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		EA398E4F2A7B907A00530474 /* CatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystView.swift; sourceTree = "<group>"; };
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
+		EA6D6F4C2A7FE9CF008B43AB /* NewTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagView.swift; sourceTree = "<group>"; };
 		EAB7FCD72A7ABF8D0022F01D /* MarkPortfolio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarkPortfolio.entitlements; sourceTree = "<group>"; };
 		EAB7FCD82A7ABF960022F01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EAB7FCD92A7AC0780022F01D /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				EA398E4F2A7B907A00530474 /* CatalystView.swift */,
 				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EADE562B2A7E83A300F28948 /* NewCatalystView.swift */,
+				EA6D6F4C2A7FE9CF008B43AB /* NewTagView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				EA398E502A7B907A00530474 /* CatalystView.swift in Sources */,
 				EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */,
 				EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */,
+				EA6D6F4D2A7FE9CF008B43AB /* NewTagView.swift in Sources */,
 				EAB7FCDA2A7AC0780022F01D /* SidebarView.swift in Sources */,
 				EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */,
 				EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */,
