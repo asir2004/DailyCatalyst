@@ -1,13 +1,11 @@
 //
 //  NewCatalystView.swift
-//  MarkPortfolio
+//  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/5/23.
 //
 
 import SwiftUI
-
-// IT CAN'T WORK!!! LLDB THINGS…
 
 struct happiness: Hashable {
     var level: Int

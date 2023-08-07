@@ -1,6 +1,6 @@
 //
 //  DataController.swift
-//  MarkPortfolio
+//  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/1/23.
 //
@@ -136,6 +136,13 @@ class DataController: ObservableObject {
         let difference = allTagsSet.symmetricDifference(catalyst.catalystTags)
         
         return difference.sorted()
+    }
+    
+    func allTags() -> [Tag] {
+        let request = Tag.fetchRequest()
+        let allTags = (try? container.viewContext.fetch(request)) ?? []
+        
+        return allTags.sorted()
     }
     
     func catalystsForSelectedFilter() -> [Catalyst] {

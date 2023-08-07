@@ -1,6 +1,6 @@
 //
 //  Catalyst-CoreDataHelpers.swift
-//  MarkPortfolio
+//  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/3/23.
 //

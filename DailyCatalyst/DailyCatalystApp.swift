@@ -1,6 +1,6 @@
 //
-//  MarkPortfolioApp.swift
-//  MarkPortfolio
+//  DailyCatalystApp.swift
+//  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/1/23.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct MarkPortfolioApp: App {
+struct DailyCatalystApp: App {
     @StateObject var dataController = DataController()
     @Environment(\.scenePhase) var scenePhase
     

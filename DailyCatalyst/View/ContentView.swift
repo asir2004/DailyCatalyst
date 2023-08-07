@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  MarkPortfolio
+//  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/1/23.
 //

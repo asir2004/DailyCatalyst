@@ -1,6 +1,6 @@
 //
 //  SidebarView.swift
-//  MarkPortfolio
+//  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/3/23.
 //
@@ -12,6 +12,7 @@ struct SidebarView: View {
     let smartFilters: [Filter] = [.all, .recent]
     
     @State private var showNewCatalyst = false
+    @State private var showNewTag = false
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var tags: FetchedResults<Tag>
     
@@ -47,6 +48,12 @@ struct SidebarView: View {
             }
             .presentationDetents([.medium, .large])
         }
+        .sheet(isPresented: $showNewTag) {
+            NavigationStack {
+                NewTagView()
+            }
+            .presentationDetents([.medium, .large])
+        }
         .toolbar {
 //            Button {
 //                dataController.deleteAll()
@@ -54,10 +61,19 @@ struct SidebarView: View {
 //            } label: {
 //                Label("ADD SAMPLES", systemImage: "flame")
 //            }
-            Button {
-                showNewCatalyst = true
-            } label: {
-                Image(systemName: "plus")
+            Menu("Add") {
+                Button {
+                    showNewCatalyst = true
+                } label: {
+                    Image(systemName: "flask")
+                    Text("Catalyst")
+                }
+                Button {
+                    showNewTag = true
+                } label: {
+                    Image(systemName: "tag")
+                    Text("Tag")
+                }
             }
         }
     }

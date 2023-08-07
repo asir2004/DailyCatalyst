@@ -16,7 +16,7 @@
 		EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */; };
 		EABD657F2A7AF671002A0BDC /* Tag-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657E2A7AF671002A0BDC /* Tag-CoreDataHelpers.swift */; };
 		EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */; };
-		EAD51EFA2A790FFC00A777E7 /* MarkPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51EF92A790FFC00A777E7 /* MarkPortfolioApp.swift */; };
+		EAD51EFA2A790FFC00A777E7 /* DailyCatalystApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51EF92A790FFC00A777E7 /* DailyCatalystApp.swift */; };
 		EAD51EFC2A790FFC00A777E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51EFB2A790FFC00A777E7 /* ContentView.swift */; };
 		EAD51EFE2A790FFD00A777E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD51EFD2A790FFD00A777E7 /* Assets.xcassets */; };
 		EAD51F012A790FFD00A777E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD51F002A790FFD00A777E7 /* Preview Assets.xcassets */; };
@@ -29,7 +29,7 @@
 		EA398E4F2A7B907A00530474 /* CatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystView.swift; sourceTree = "<group>"; };
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagView.swift; sourceTree = "<group>"; };
-		EAB7FCD72A7ABF8D0022F01D /* MarkPortfolio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarkPortfolio.entitlements; sourceTree = "<group>"; };
+		EAB7FCD72A7ABF8D0022F01D /* DailyCatalyst.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyCatalyst.entitlements; sourceTree = "<group>"; };
 		EAB7FCD82A7ABF960022F01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EAB7FCD92A7AC0780022F01D /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		EAB7FCDB2A7AC07F0022F01D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -37,8 +37,8 @@
 		EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Catalyst-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		EABD657E2A7AF671002A0BDC /* Tag-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystRow.swift; sourceTree = "<group>"; };
-		EAD51EF62A790FFC00A777E7 /* MarkPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAD51EF92A790FFC00A777E7 /* MarkPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkPortfolioApp.swift; sourceTree = "<group>"; };
+		EAD51EF62A790FFC00A777E7 /* DailyCatalyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyCatalyst.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD51EF92A790FFC00A777E7 /* DailyCatalystApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCatalystApp.swift; sourceTree = "<group>"; };
 		EAD51EFB2A790FFC00A777E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EAD51EFD2A790FFD00A777E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAD51F002A790FFD00A777E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		EAD51EED2A790FFC00A777E7 = {
 			isa = PBXGroup;
 			children = (
-				EAD51EF82A790FFC00A777E7 /* MarkPortfolio */,
+				EAD51EF82A790FFC00A777E7 /* DailyCatalyst */,
 				EAD51EF72A790FFC00A777E7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,23 +69,23 @@
 		EAD51EF72A790FFC00A777E7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EAD51EF62A790FFC00A777E7 /* MarkPortfolio.app */,
+				EAD51EF62A790FFC00A777E7 /* DailyCatalyst.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EAD51EF82A790FFC00A777E7 /* MarkPortfolio */ = {
+		EAD51EF82A790FFC00A777E7 /* DailyCatalyst */ = {
 			isa = PBXGroup;
 			children = (
 				EAB7FCD82A7ABF960022F01D /* Info.plist */,
-				EAB7FCD72A7ABF8D0022F01D /* MarkPortfolio.entitlements */,
-				EAD51EF92A790FFC00A777E7 /* MarkPortfolioApp.swift */,
+				EAB7FCD72A7ABF8D0022F01D /* DailyCatalyst.entitlements */,
+				EAD51EF92A790FFC00A777E7 /* DailyCatalystApp.swift */,
 				EAFF97E82A7BD47500887FCB /* Core Data */,
 				EAFF97E72A7BD1FA00887FCB /* View */,
 				EAD51EFD2A790FFD00A777E7 /* Assets.xcassets */,
 				EAD51EFF2A790FFD00A777E7 /* Preview Content */,
 			);
-			path = MarkPortfolio;
+			path = DailyCatalyst;
 			sourceTree = "<group>";
 		};
 		EAD51EFF2A790FFD00A777E7 /* Preview Content */ = {
@@ -126,9 +126,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EAD51EF52A790FFC00A777E7 /* MarkPortfolio */ = {
+		EAD51EF52A790FFC00A777E7 /* DailyCatalyst */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAD51F042A790FFD00A777E7 /* Build configuration list for PBXNativeTarget "MarkPortfolio" */;
+			buildConfigurationList = EAD51F042A790FFD00A777E7 /* Build configuration list for PBXNativeTarget "DailyCatalyst" */;
 			buildPhases = (
 				EAD51EF22A790FFC00A777E7 /* Sources */,
 				EAD51EF32A790FFC00A777E7 /* Frameworks */,
@@ -138,9 +138,9 @@
 			);
 			dependencies = (
 			);
-			name = MarkPortfolio;
+			name = DailyCatalyst;
 			productName = MarkPortfolio;
-			productReference = EAD51EF62A790FFC00A777E7 /* MarkPortfolio.app */;
+			productReference = EAD51EF62A790FFC00A777E7 /* DailyCatalyst.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -158,7 +158,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EAD51EF12A790FFC00A777E7 /* Build configuration list for PBXProject "MarkPortfolio" */;
+			buildConfigurationList = EAD51EF12A790FFC00A777E7 /* Build configuration list for PBXProject "DailyCatalyst" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -171,7 +171,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EAD51EF52A790FFC00A777E7 /* MarkPortfolio */,
+				EAD51EF52A790FFC00A777E7 /* DailyCatalyst */,
 			);
 		};
 /* End PBXProject section */
@@ -206,7 +206,7 @@
 				EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */,
 				EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */,
 				EAD51EFC2A790FFC00A777E7 /* ContentView.swift in Sources */,
-				EAD51EFA2A790FFC00A777E7 /* MarkPortfolioApp.swift in Sources */,
+				EAD51EFA2A790FFC00A777E7 /* DailyCatalystApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,14 +334,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MarkPortfolio/MarkPortfolio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DailyCatalyst/DailyCatalyst.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MarkPortfolio/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DailyCatalyst/Preview Content\"";
 				DEVELOPMENT_TEAM = TMC46L5FQM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MarkPortfolio/Info.plist;
+				INFOPLIST_FILE = DailyCatalyst/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Daily Catalyst";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -353,8 +354,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.Bygud.Mark.MarkPortfolio;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.markview.markportfolio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.markview.dailycatalyst;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -370,14 +370,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MarkPortfolio/MarkPortfolio.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DailyCatalyst/DailyCatalyst.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MarkPortfolio/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DailyCatalyst/Preview Content\"";
 				DEVELOPMENT_TEAM = TMC46L5FQM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MarkPortfolio/Info.plist;
+				INFOPLIST_FILE = DailyCatalyst/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Daily Catalyst";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -389,8 +390,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = me.Bygud.Mark.MarkPortfolio;
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = com.markview.markportfolio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.markview.dailycatalyst;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -404,7 +404,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EAD51EF12A790FFC00A777E7 /* Build configuration list for PBXProject "MarkPortfolio" */ = {
+		EAD51EF12A790FFC00A777E7 /* Build configuration list for PBXProject "DailyCatalyst" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EAD51F022A790FFD00A777E7 /* Debug */,
@@ -413,7 +413,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EAD51F042A790FFD00A777E7 /* Build configuration list for PBXNativeTarget "MarkPortfolio" */ = {
+		EAD51F042A790FFD00A777E7 /* Build configuration list for PBXNativeTarget "DailyCatalyst" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EAD51F052A790FFD00A777E7 /* Debug */,
