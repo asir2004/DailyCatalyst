@@ -33,13 +33,22 @@ struct NewTagView: View {
                 }
             }
             Section("Tags") {
-                ForEach(dataController.allTags()) { tag in
-                    Text("\(tag.tagName)")
+                ScrollView(.horizontal) {
+                    LazyHStack(spacing: 5) {
+                        ForEach(dataController.allTags(), id: \.self) { tag in
+                            Text("\(tag.tagName)")
+                                .foregroundStyle(.white)
+                                .padding(5)
+                                .background(.blue)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                    }
                 }
-                .onDelete(perform: delete)
+//                .onDelete(perform: delete)
             }
         }
         .navigationTitle("New Tag")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button("Done") {
                 dismiss()
