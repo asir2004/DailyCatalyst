@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var dataController: DataController
     
-    
     var body: some View {
         List(selection: $dataController.selectedCatalyst) {
             ForEach(dataController.catalystsForSelectedFilter()) { catalyst in
