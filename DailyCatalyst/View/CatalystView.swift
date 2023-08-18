@@ -26,7 +26,8 @@ struct CatalystView: View {
                         .font(.title)
                 }
             }
-            .frame(maxHeight: 150)
+            .frame(maxHeight: 100)
+            
             Form {
                 Section {
                     VStack(alignment: .leading) {
