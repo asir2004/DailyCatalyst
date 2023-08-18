@@ -75,6 +75,7 @@ struct NewTagView: View {
     private func save() {
         withAnimation {
             let newTag = Tag(context: viewContext)
+            newTag.id = UUID()
             newTag.name = newTagName
             
             try? viewContext.save()

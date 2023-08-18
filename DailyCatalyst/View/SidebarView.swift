@@ -42,6 +42,7 @@ struct SidebarView: View {
                 .onDelete(perform: delete)
             }
         }
+        .navigationTitle("Daily Catalyst")
         .sheet(isPresented: $showNewCatalyst) {
             NavigationStack {
                 NewCatalystView()
@@ -55,13 +56,17 @@ struct SidebarView: View {
             .presentationDetents([.medium, .large])
         }
         .toolbar {
-//            Button {
-//                dataController.deleteAll()
-//                dataController.createSampleData()
-//            } label: {
-//                Label("ADD SAMPLES", systemImage: "flame")
-//            }
             Menu("Add") {
+                Button {
+                    dataController.createSampleData()
+                } label: {
+                    Label("Add Samples", systemImage: "flame")
+                }
+                Button {
+                    dataController.deleteAll()
+                } label: {
+                    Label("Delete All", systemImage: "trash")
+                }
                 Button {
                     showNewCatalyst = true
                 } label: {
