@@ -16,7 +16,7 @@ struct CatalystView: View {
             GeometryReader { geo in
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(.yellow)
+                        .foregroundStyle(catalyst.happiness == 1 ? .white : .yellow)
                         .foregroundStyle( .ultraThinMaterial)
                         .opacity(Double(catalyst.happiness) * 0.05)
                         .frame(height: geo.size.height / 2)
