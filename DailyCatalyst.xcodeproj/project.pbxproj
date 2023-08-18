@@ -10,6 +10,7 @@
 		EA398E502A7B907A00530474 /* CatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E4F2A7B907A00530474 /* CatalystView.swift */; };
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewTagView.swift */; };
+		EAB6E8A72A8F54A600986A61 /* SingleTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6E8A62A8F54A600986A61 /* SingleTag.swift */; };
 		EAB7FCDA2A7AC0780022F01D /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCD92A7AC0780022F01D /* SidebarView.swift */; };
 		EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDB2A7AC07F0022F01D /* DetailView.swift */; };
 		EAB7FCDE2A7AC18E0022F01D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDD2A7AC18E0022F01D /* Filter.swift */; };
@@ -29,6 +30,7 @@
 		EA398E4F2A7B907A00530474 /* CatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystView.swift; sourceTree = "<group>"; };
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTagView.swift; sourceTree = "<group>"; };
+		EAB6E8A62A8F54A600986A61 /* SingleTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTag.swift; sourceTree = "<group>"; };
 		EAB7FCD72A7ABF8D0022F01D /* DailyCatalyst.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyCatalyst.entitlements; sourceTree = "<group>"; };
 		EAB7FCD82A7ABF960022F01D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EAB7FCD92A7AC0780022F01D /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EADE562B2A7E83A300F28948 /* NewCatalystView.swift */,
 				EA6D6F4C2A7FE9CF008B43AB /* NewTagView.swift */,
+				EAB6E8A62A8F54A600986A61 /* SingleTag.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				EAB7FCDE2A7AC18E0022F01D /* Filter.swift in Sources */,
 				EABD657F2A7AF671002A0BDC /* Tag-CoreDataHelpers.swift in Sources */,
 				EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */,
+				EAB6E8A72A8F54A600986A61 /* SingleTag.swift in Sources */,
 				EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */,
 				EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */,
 				EA398E502A7B907A00530474 /* CatalystView.swift in Sources */,

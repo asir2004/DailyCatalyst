@@ -34,7 +34,7 @@ struct CatalystView: View {
                 }
                 
                 Menu {
-                    ForEach(catalyst.catalystTags) { tag in
+                    ForEach(catalyst.catalystTags, id: \.self) { tag in
                         Button {
                             catalyst.removeFromTags(tag)
                         } label: {

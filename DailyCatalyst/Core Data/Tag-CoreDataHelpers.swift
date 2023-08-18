@@ -28,6 +28,7 @@ extension Tag {
         let tag = Tag(context: viewContext)
         tag.id = UUID()
         tag.name = "Example Tag"
+        tag.color = "Green"
         return tag
     }
 }
