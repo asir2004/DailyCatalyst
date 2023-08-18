@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NoCatalystView: View {
     @EnvironmentObject var dataController: DataController
+    @State private var showNewCatalyst = false
     
     var body: some View {
         VStack {
@@ -16,9 +17,14 @@ struct NoCatalystView: View {
                 .font(.title)
                 .foregroundStyle(.secondary)
             Button {
-                // Create New One View
+                showNewCatalyst = true
             } label: {
                 Text("Create New")
+            }
+        }
+        .sheet(isPresented: $showNewCatalyst) {
+            NavigationStack {
+                NewCatalystView()
             }
         }
     }

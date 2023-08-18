@@ -14,10 +14,18 @@ struct ContentView: View {
         List(selection: $dataController.selectedCatalyst) {
             ForEach(dataController.catalystsForSelectedFilter()) { catalyst in
                 CatalystRow(catalyst: catalyst)
+                    .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
+                        Button {
+                            catalyst.archived.toggle()
+                        } label: {
+                            Label(catalyst.archived ? "Mark Open" : "Archive", systemImage: catalyst.archived ? "envelope.open" : "envelope")
+                                .tint(catalyst.archived ? .blue : .red)
+                        }
+                    })
             }
             .onDelete(perform: delete)
         }
-        .navigationTitle("Catalysts")
+        .navigationTitle(dataController.selectedFilter?.name ?? "Catalysts")
         .searchable(text: $dataController.filterText, tokens: $dataController.filterTokens, suggestedTokens: .constant(dataController.suggestedFilterTokens), prompt: "Filter catalysts, or type # to add tags") { tag in
             Text(tag.tagName)
         }

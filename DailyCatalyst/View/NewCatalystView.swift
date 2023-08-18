@@ -17,10 +17,10 @@ struct NewCatalystView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     let happinessLevels = [
-        happiness(level: 1, emoji: "🥲"),
-        happiness(level: 2, emoji: "😐"),
-        happiness(level: 3, emoji: "🙂"),
-        happiness(level: 4, emoji: "😀"),
+        happiness(level: 1, emoji: "😐"),
+        happiness(level: 2, emoji: "🙂"),
+        happiness(level: 3, emoji: "😀"),
+        happiness(level: 4, emoji: "😁"),
         happiness(level: 5, emoji: "😆")
     ]
     
