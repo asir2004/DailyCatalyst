@@ -13,20 +13,7 @@ struct CatalystView: View {
     
     var body: some View {
         VStack {
-            GeometryReader { geo in
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(catalyst.happiness == 1 ? .white : .yellow)
-                        .foregroundStyle( .ultraThinMaterial)
-                        .opacity(Double(catalyst.happiness) * 0.05)
-                        .frame(height: geo.size.height / 2)
-                        .padding(20)
-                    
-                    Text("\(CatalystRow(catalyst: catalyst).emoji)")
-                        .font(.title)
-                }
-            }
-            .frame(maxHeight: 100)
+            EmojiCard(happiness: catalyst.happiness)
             
             Form {
                 Section {

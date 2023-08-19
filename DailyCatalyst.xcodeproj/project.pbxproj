@@ -23,6 +23,7 @@
 		EAD51F012A790FFD00A777E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD51F002A790FFD00A777E7 /* Preview Assets.xcassets */; };
 		EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
 		EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
+		EADD7CDE2A9068FD00541B76 /* EmojiCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */; };
 		EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADE562B2A7E83A300F28948 /* NewCatalystView.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		EAD51F002A790FFD00A777E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EAD51F082A79100700A777E7 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		EAD51F0A2A79119400A777E7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCard.swift; sourceTree = "<group>"; };
 		EADE562B2A7E83A300F28948 /* NewCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCatalystView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +100,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		EADD7CDC2A9068CA00541B76 /* View Components */ = {
+			isa = PBXGroup;
+			children = (
+				EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */,
+				EAB6E8A62A8F54A600986A61 /* SingleTag.swift */,
+			);
+			path = "View Components";
+			sourceTree = "<group>";
+		};
 		EAFF97E72A7BD1FA00887FCB /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +120,7 @@
 				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EADE562B2A7E83A300F28948 /* NewCatalystView.swift */,
 				EA6D6F4C2A7FE9CF008B43AB /* NewTagView.swift */,
-				EAB6E8A62A8F54A600986A61 /* SingleTag.swift */,
+				EADD7CDC2A9068CA00541B76 /* View Components */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,6 +216,7 @@
 				EA398E502A7B907A00530474 /* CatalystView.swift in Sources */,
 				EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */,
 				EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */,
+				EADD7CDE2A9068FD00541B76 /* EmojiCard.swift in Sources */,
 				EA6D6F4D2A7FE9CF008B43AB /* NewTagView.swift in Sources */,
 				EAB7FCDA2A7AC0780022F01D /* SidebarView.swift in Sources */,
 				EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */,
