@@ -30,18 +30,18 @@ extension Catalyst {
         modificationDate ?? .now
     }
     
-    var catalystTags: [Tag] {
-        let result = tags?.allObjects as? [Tag] ?? []
+    var catalystIdentities: [Identity] {
+        let result = identities?.allObjects as? [Identity] ?? []
         return result.sorted()
     }
     
-    var catalystTagsList: String {
-        guard let tags else { return "No Tags"}
+    var catalystIdentitiesList: String {
+        guard let identities else { return "No Identities"}
         
-        if tags.count == 0 {
-            return "No Tags"
+        if identities.count == 0 {
+            return "No Identities"
         } else {
-            return catalystTags.map(\.tagName).formatted()
+            return catalystIdentities.map(\.identityName).formatted()
         }
     }
     

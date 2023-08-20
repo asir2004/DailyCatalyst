@@ -45,7 +45,7 @@ struct CatalystRow: View {
                         .font(.headline)
                         .lineLimit(1)
                     
-                    Text(catalyst.catalystTagsList)
+                    Text(catalyst.catalystIdentitiesList)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
                 }

@@ -12,7 +12,7 @@ struct Filter: Identifiable, Hashable {
     var name: String
     var icon: String
     var minModificationDate = Date.distantPast
-    var tag: Tag?
+    var identity: Identity?
     
     static var all = Filter(id: UUID(), name: "All Catalysts", icon: "tray")
     static var recent = Filter(id: UUID(), name: "Recent Catalysts", icon: "clock", minModificationDate: .now.addingTimeInterval(86400 * -7))

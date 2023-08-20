@@ -24,7 +24,7 @@ class DataController: ObservableObject {
     @Published var selectedCatalyst: Catalyst?
     
     @Published var filterText = ""
-    @Published var filterTokens = [Tag]()
+    @Published var filterTokens = [Identity]()
     
     @Published var filterEnabled = false
     @Published var filterHappiness = -1 // Means any happiness
@@ -68,9 +68,9 @@ class DataController: ObservableObject {
         let viewContext = container.viewContext
         
         for i in 1...5 {
-            let tag = Tag(context: viewContext)
-            tag.id = UUID()
-            tag.name = "Tag \(i)"
+            let identity = Identity(context: viewContext)
+            identity.id = UUID()
+            identity.name = "Identity \(i)"
             
             for j in 1...10 {
                 let catalyst = Catalyst(context: viewContext)
@@ -80,7 +80,7 @@ class DataController: ObservableObject {
                 catalyst.happeningDate = .now
                 catalyst.archived = Bool.random()
                 catalyst.happiness = Int16.random(in: 1...5)
-                tag.addToCatalysts(catalyst)
+                identity.addToCatalysts(catalyst)
             }
         }
         
@@ -119,7 +119,7 @@ class DataController: ObservableObject {
     }
     
     func deleteAll() {
-        let request1: NSFetchRequest<NSFetchRequestResult> = Tag.fetchRequest()
+        let request1: NSFetchRequest<NSFetchRequestResult> = Identity.fetchRequest()
         delete(request1)
 
         let request2: NSFetchRequest<NSFetchRequestResult> = Catalyst.fetchRequest()
@@ -128,30 +128,30 @@ class DataController: ObservableObject {
         save()
     }
     
-    func missingTags(from catalyst: Catalyst) -> [Tag] {
-        let request = Tag.fetchRequest()
-        let allTags = (try? container.viewContext.fetch(request)) ?? []
+    func missingIdentities(from catalyst: Catalyst) -> [Identity] {
+        let request = Identity.fetchRequest()
+        let allIdentities = (try? container.viewContext.fetch(request)) ?? []
         
-        let allTagsSet = Set(allTags)
-        let difference = allTagsSet.symmetricDifference(catalyst.catalystTags)
+        let allIdentitiesSet = Set(allIdentities)
+        let difference = allIdentitiesSet.symmetricDifference(catalyst.catalystIdentities)
         
         return difference.sorted()
     }
     
-    func allTags() -> [Tag] {
-        let request = Tag.fetchRequest()
-        let allTags = (try? container.viewContext.fetch(request)) ?? []
+    func allIdentities() -> [Identity] {
+        let request = Identity.fetchRequest()
+        let allIdentities = (try? container.viewContext.fetch(request)) ?? []
         
-        return allTags.sorted()
+        return allIdentities.sorted()
     }
     
     func catalystsForSelectedFilter() -> [Catalyst] {
         let filter = selectedFilter ?? .all
         var predicates = [NSPredicate]()
         
-        if let tag = filter.tag {
-            let tagPredicate = NSPredicate(format: "tags CONTAINS %@", tag)
-            predicates.append(tagPredicate)
+        if let identity = filter.identity {
+            let identityPredicate = NSPredicate(format: "identities CONTAINS %@", identity)
+            predicates.append(identityPredicate)
         } else {
             let datePredicate = NSPredicate(format: "modificationDate > %@", filter.minModificationDate as NSDate)
             predicates.append(datePredicate)
@@ -168,7 +168,7 @@ class DataController: ObservableObject {
         
         if filterTokens.isEmpty == false {
             for filterToken in filterTokens {
-                let tokenPredicate = NSPredicate(format: "tags CONTAINS %@", filterToken)
+                let tokenPredicate = NSPredicate(format: "identities CONTAINS %@", filterToken)
                 predicates.append(tokenPredicate)
             }
         }
@@ -194,13 +194,13 @@ class DataController: ObservableObject {
         return allCatalysts.sorted()
     }
     
-    var suggestedFilterTokens: [Tag] {
+    var suggestedFilterTokens: [Identity] {
         guard filterText.starts(with: "#") else {
             return []
         }
 
         let trimmedFilterText = String(filterText.dropFirst()).trimmingCharacters(in: .whitespaces)
-        let request = Tag.fetchRequest()
+        let request = Identity.fetchRequest()
 
         if trimmedFilterText.isEmpty == false {
             request.predicate = NSPredicate(format: "name CONTAINS[c] %@", trimmedFilterText)

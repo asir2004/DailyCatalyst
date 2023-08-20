@@ -1,5 +1,5 @@
 //
-//  NewTagView.swift
+//  NewIdentityView.swift
 //  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/6/23.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct NewTagView: View {
+struct NewIdentityView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var viewContext
     @EnvironmentObject var dataController: DataController
     
-    @State private var newTagName = ""
+    @State private var newIdentityName = ""
     
     var body: some View {
         VStack {
@@ -21,7 +21,7 @@ struct NewTagView: View {
                     HStack {
                         HStack {
                             Image(systemName: "tag")
-                            TextField("Tag Name", text: $newTagName, prompt: Text("Enter Tag Name Here"))
+                            TextField("Identity Name", text: $newIdentityName, prompt: Text("Enter Identity Name Here"))
                             Spacer()
                         }
                         
@@ -29,15 +29,15 @@ struct NewTagView: View {
                         
                         Button("Save") {
                             save()
-                            newTagName = ""
+                            newIdentityName = ""
                         }
                     }
                 }
-//                Section("Tags") {
+//                Section("Identities") {
 //                    ScrollView(.horizontal) {
 //                        LazyHStack(spacing: 5) {
-//                            ForEach(dataController.allTags(), id: \.self) { tag in
-//                                Text("\(tag.tagName)")
+//                            ForEach(dataController.allIdentities(), id: \.self) { identity in
+//                                Text("\(identity.identityName)")
 //                                    .foregroundStyle(.white)
 //                                    .padding(5)
 //                                    .background(.blue)
@@ -54,8 +54,8 @@ struct NewTagView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .foregroundStyle(.ultraThinMaterial)
                     HStack {
-                        ForEach(dataController.allTags(), id: \.self) { tag in
-                            SingleTag(tag: tag)
+                        ForEach(dataController.allIdentities(), id: \.self) { identity in
+                            SingleIdentity(identity: identity)
                         }
                     }
                 }
@@ -63,7 +63,7 @@ struct NewTagView: View {
                 .frame(maxHeight: cardHeight)
             }
         }
-        .navigationTitle("New Tag")
+        .navigationTitle("New Identity")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button("Done") {
@@ -74,26 +74,26 @@ struct NewTagView: View {
     
     private func save() {
         withAnimation {
-            let newTag = Tag(context: viewContext)
-            newTag.id = UUID()
-            newTag.name = newTagName
+            let newIdentity = Identity(context: viewContext)
+            newIdentity.id = UUID()
+            newIdentity.name = newIdentityName
             
             try? viewContext.save()
         }
     }
     
     private func delete(_ offsets: IndexSet) {
-        let tags = dataController.allTags()
+        let identities = dataController.allIdentities()
         
         for offset in offsets {
-            let item = tags[offset]
+            let item = identities[offset]
             dataController.delete(item)
         }
     }
 }
 
-struct NewTagView_Previews: PreviewProvider {
+struct NewIdentityView_Previews: PreviewProvider {
     static var previews: some View {
-        NewTagView()
+        NewIdentityView()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SingleTag.swift
+//  SingleIdentity.swift
 //  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/18/23.
@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct SingleTag: View {
-    var tag: Tag
+struct SingleIdentity: View {
+    var identity: Identity
     
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
                 .tint(.blue)
                 .foregroundStyle(.thinMaterial)
-            Text(tag.tagName)
+            Text(identity.identityName)
         }
     }
 }
 
 #Preview {
-    SingleTag(tag: Tag.example)
+    SingleIdentity(identity: Identity.example)
 }

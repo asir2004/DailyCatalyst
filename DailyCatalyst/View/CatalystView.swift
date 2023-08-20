@@ -13,13 +13,18 @@ struct CatalystView: View {
     
     var body: some View {
         VStack {
-            EmojiCard(happiness: catalyst.happiness)
+            EmojiCard(happiness: Int(catalyst.happiness))
             
             Form {
                 Section {
                     VStack(alignment: .leading) {
-                        TextField("Title", text: $catalyst.catalystTitle, prompt: Text("Enter Title Here"))
+                        Text("Title")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        
+                        TextEditor(text: $catalyst.catalystTitle)
                             .font(.title)
+                            .lineLimit(3)
                         
                         Text("**Modification Date:** \(catalyst.catalystModificationDate.formatted(date: .long, time: .shortened))")
                             .foregroundStyle(.secondary)
@@ -66,32 +71,32 @@ struct CatalystView: View {
                     }
                     
                     Menu {
-                        ForEach(catalyst.catalystTags, id: \.self) { tag in
+                        ForEach(catalyst.catalystIdentities, id: \.self) { identity in
                             Button {
-                                catalyst.removeFromTags(tag)
+                                catalyst.removeFromIdentities(identity)
                             } label: {
-                                Label(tag.tagName, systemImage: "checkmark")
+                                Label(identity.identityName, systemImage: "checkmark")
                             }
                         }
                         
-                        let otherTags = dataController.missingTags(from: catalyst)
+                        let otherIdentities = dataController.missingIdentities(from: catalyst)
                         
-                        if otherTags.isEmpty == false {
+                        if otherIdentities.isEmpty == false {
                             Divider()
                             
-                            Section("Add Tags") {
-                                ForEach(otherTags) { tag in
-                                    Button(tag.tagName) {
-                                        catalyst.addToTags(tag)
+                            Section("Add Identities") {
+                                ForEach(otherIdentities) { identity in
+                                    Button(identity.identityName) {
+                                        catalyst.addToIdentities(identity)
                                     }
                                 }
                             }
                         }
                     } label: {
-                        Text(catalyst.catalystTagsList)
+                        Text(catalyst.catalystIdentitiesList)
                             .multilineTextAlignment(.leading)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .animation(nil, value: catalyst.catalystTagsList)
+                            .animation(nil, value: catalyst.catalystIdentitiesList)
                     }
                 }
                 

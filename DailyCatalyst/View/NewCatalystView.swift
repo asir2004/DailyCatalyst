@@ -28,7 +28,7 @@ struct NewCatalystView: View {
     @State private var newCatalystEffect = ""
     @State private var newCatalystDate: Date = .now
     @State private var newCatalystHappiness = 3
-    @State private var newCatalystTag: [Tag]?
+    @State private var newCatalystIdentity: [Identity]?
     
     var body: some View {
         List {

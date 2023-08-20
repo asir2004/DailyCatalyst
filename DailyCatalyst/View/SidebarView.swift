@@ -12,13 +12,13 @@ struct SidebarView: View {
     let smartFilters: [Filter] = [.all, .recent]
     
     @State private var showNewCatalyst = false
-    @State private var showNewTag = false
+    @State private var showNewIdentity = false
     
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var tags: FetchedResults<Tag>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var identities: FetchedResults<Identity>
     
-    var tagFilters: [Filter] {
-        tags.map { tag in
-            Filter(id: tag.tagID , name: tag.tagName , icon: "tag", tag: tag)
+    var identityFilters: [Filter] {
+        identities.map { identity in
+            Filter(id: identity.identityID , name: identity.identityName , icon: "tag", identity: identity)
         }
     }
     
@@ -32,11 +32,11 @@ struct SidebarView: View {
                 }
             }
             
-            Section("Tags") {
-                ForEach(tagFilters) { filter in
+            Section("Identities") {
+                ForEach(identityFilters) { filter in
                     NavigationLink(value: filter) {
                         Label(filter.name, systemImage: filter.icon)
-                            .badge(filter.tag?.tagActiveCatalysts.count ?? 0)
+                            .badge(filter.identity?.identityActiveCatalysts.count ?? 0)
                     }
                 }
                 .onDelete(perform: delete)
@@ -49,9 +49,9 @@ struct SidebarView: View {
             }
             .presentationDetents([.medium, .large])
         }
-        .sheet(isPresented: $showNewTag) {
+        .sheet(isPresented: $showNewIdentity) {
             NavigationStack {
-                NewTagView()
+                NewIdentityView()
             }
             .presentationDetents([.medium, .large])
         }
@@ -74,10 +74,10 @@ struct SidebarView: View {
                     Text("Catalyst")
                 }
                 Button {
-                    showNewTag = true
+                    showNewIdentity = true
                 } label: {
                     Image(systemName: "tag")
-                    Text("Tag")
+                    Text("Identity")
                 }
             }
         }
@@ -85,7 +85,7 @@ struct SidebarView: View {
     
     func delete(_ offsets: IndexSet) {
         for offset in offsets {
-            let item = tags[offset]
+            let item = identities[offset]
             dataController.delete(item)
         }
     }
