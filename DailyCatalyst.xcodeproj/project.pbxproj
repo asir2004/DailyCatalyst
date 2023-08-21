@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA35AD512A939A1100B6A4D2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */; };
 		EA398E502A7B907A00530474 /* CatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E4F2A7B907A00530474 /* CatalystView.swift */; };
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EA398E4F2A7B907A00530474 /* CatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystView.swift; sourceTree = "<group>"; };
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIdentityView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		EADD7CDC2A9068CA00541B76 /* View Components */ = {
 			isa = PBXGroup;
 			children = (
+				EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */,
 				EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */,
 				EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */,
 				EAB6E8A62A8F54A600986A61 /* SingleTag.swift */,
@@ -210,6 +213,7 @@
 				EAB7FCDE2A7AC18E0022F01D /* Filter.swift in Sources */,
 				EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */,
 				EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */,
+				EA35AD512A939A1100B6A4D2 /* ImagePicker.swift in Sources */,
 				EAB6E8A72A8F54A600986A61 /* SingleTag.swift in Sources */,
 				EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */,
 				EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */,

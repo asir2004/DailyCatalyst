@@ -76,7 +76,7 @@ struct SidebarView: View {
                 Button {
                     showNewIdentity = true
                 } label: {
-                    Image(systemName: "tag")
+                    Image(systemName: "person")
                     Text("Identity")
                 }
             }

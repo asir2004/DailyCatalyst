@@ -20,7 +20,7 @@ struct NewIdentityView: View {
                 Section {
                     HStack {
                         HStack {
-                            Image(systemName: "tag")
+                            Image(systemName: "person")
                             TextField("Identity Name", text: $newIdentityName, prompt: Text("Enter Identity Name Here"))
                             Spacer()
                         }
