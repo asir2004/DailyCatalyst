@@ -15,7 +15,6 @@ struct CatalystView: View {
         VStack(spacing: nil) {
             EmojiCard(happiness: Int(catalyst.happiness))
             
-            
             ImagePicker(title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .blue) { image in
                 print(image)
             }

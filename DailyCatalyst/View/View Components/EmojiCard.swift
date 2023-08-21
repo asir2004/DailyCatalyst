@@ -28,7 +28,7 @@ struct EmojiCard: View {
                     .foregroundStyle(happiness == 1 ? .white : .yellow)
                     .foregroundStyle( .ultraThinMaterial)
                     .opacity(Double(happiness) * 0.05)
-                    .frame(height: geo.size.height / 2)
+                    .frame(width: geo.size.width)
                     .padding(20)
                 
                 Text("\(emoji)")
