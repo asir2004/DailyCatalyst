@@ -24,7 +24,7 @@ struct DailyCatalystApp: App {
             }
             .task {
                 try? Tips.configure([
-                    .displayFrequency(.immediate),
+                    .displayFrequency(.monthly),
                     .datastoreLocation(.applicationDefault)
                 ])
             }
