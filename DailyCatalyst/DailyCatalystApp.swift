@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 @main
 struct DailyCatalystApp: App {
@@ -20,6 +21,12 @@ struct DailyCatalystApp: App {
                 ContentView()
             } detail: {
                 DetailView()
+            }
+            .task {
+                try? Tips.configure([
+                    .displayFrequency(.immediate),
+                    .datastoreLocation(.applicationDefault)
+                ])
             }
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .environmentObject(dataController)

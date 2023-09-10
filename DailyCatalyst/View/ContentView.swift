@@ -25,6 +25,7 @@ struct ContentView: View {
             }
             .onDelete(perform: delete)
         }
+        .hideNavBarOnSwipe(true)
         .navigationTitle(dataController.selectedFilter?.name ?? "Catalysts")
         .searchable(text: $dataController.filterText, tokens: $dataController.filterTokens, suggestedTokens: .constant(dataController.suggestedFilterTokens), prompt: "Search… or type # to add identity") { identity in
             Text(identity.identityName)

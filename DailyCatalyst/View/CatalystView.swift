@@ -11,12 +11,21 @@ struct CatalystView: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var catalyst: Catalyst
     
+    var emoji: String {
+        switch catalyst.happiness {
+        case 1: return "😐"
+        case 2: return "🙂"
+        case 3: return "😀"
+        case 4: return "😁"
+        case 5: return "😆"
+        default: return "🥲"
+        }
+    }
+    
     var body: some View {
         VStack(spacing: nil) {
             HStack {
-                EmojiCard(happiness: Int(catalyst.happiness))
-                
-                ImagePicker(title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .blue) { image in
+                ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .blue) { image in
                     print(image)
                 }
                 .padding(.horizontal)
@@ -25,13 +34,28 @@ struct CatalystView: View {
             Form {
                 Section {
                     VStack(alignment: .leading) {
-                        Text("Title")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                        
-                        TextEditor(text: $catalyst.catalystTitle)
-                            .font(.title)
-                            .lineLimit(3)
+                        HStack(alignment: .top) {
+                            ZStack {
+                                Circle()
+                                    .foregroundStyle(.yellow)
+                                    .frame(width: 30)
+                                    .opacity(catalyst.happiness <= 1 ? 0 : 1)
+                                    .blur(radius: CGFloat(catalyst.happiness == 1 ? 0 : catalyst.happiness * 5))
+                                
+                                Text("\(emoji)")
+                                    .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
+                                    .font(.title)
+                            }
+                            
+                            VStack(alignment: .leading) {
+                                Text("Title")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                
+                                TextField("Title", text: $catalyst.catalystTitle)
+                                    .font(.title)
+                            }
+                        }
                         
                         Text("**Modification Date:** \(catalyst.catalystModificationDate.formatted(date: .long, time: .shortened))")
                             .foregroundStyle(.secondary)
@@ -41,41 +65,22 @@ struct CatalystView: View {
                     }
                     
                     Picker("Happiness", selection: $catalyst.happiness) {
-                        HStack {
-                            Text("Joy")
-                            Spacer()
-                            Text("😆")
-                        }
+                        Text("Joy")
                         .tag(Int16(5))
                         
-                        HStack {
-                            Text("Happy")
-                            Spacer()
-                            Text("😁")
-                        }
+                        Text("Happy")
                         .tag(Int16(4))
                         
-                        HStack {
-                            Text("Apathetic")
-                            Spacer()
-                            Text("😀")
-                        }
+                        Text("Apathetic")
                         .tag(Int16(3))
                         
-                        HStack {
-                            Text("Boring")
-                            Spacer()
-                            Text("🙂")
-                        }
+                        Text("Boring")
                         .tag(Int16(2))
                         
-                        HStack {
-                            Text("Exhausted")
-                            Spacer()
-                            Text("😐")
-                        }
+                        Text("Exhausted")
                         .tag(Int16(1))
                     }
+                    .pickerStyle(.segmented)
                     
                     Menu {
                         ForEach(catalyst.catalystIdentities, id: \.self) { identity in

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct SidebarView: View {
     @EnvironmentObject var dataController: DataController
@@ -80,6 +81,7 @@ struct SidebarView: View {
                     Text("Identity")
                 }
             }
+            .popoverTip(AddMenuTip(), arrowEdge: .top)
         }
     }
     
@@ -88,6 +90,23 @@ struct SidebarView: View {
             let item = identities[offset]
             dataController.delete(item)
         }
+    }
+}
+
+struct AddMenuTip: Tip {
+    var title: Text {
+        Text("Tap here to…")
+    }
+    
+    var message: Text? {
+        Text("""
+    - Add Catalyst or Identity.
+    - Add test sample data.
+    """)
+    }
+    
+    var image: Image? {
+        Image(systemName: "plus.square.on.square")
     }
 }
 

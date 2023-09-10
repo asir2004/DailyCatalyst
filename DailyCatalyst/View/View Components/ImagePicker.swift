@@ -7,8 +7,12 @@
 
 import SwiftUI
 import PhotosUI
+import CoreData
 
 struct ImagePicker: View {
+    @EnvironmentObject var dataController: DataController
+    @ObservedObject var catalyst: Catalyst
+    
     var title: String
     var subTitle: String
     var systemImage: String
@@ -17,6 +21,7 @@ struct ImagePicker: View {
     
     @State private var showImagePicker: Bool = false
     @State private var photoItem: PhotosPickerItem?
+    @State private var photoData: Data?
     
     @State private var previewImage: UIImage?
     
@@ -86,12 +91,26 @@ struct ImagePicker: View {
                             if let newValue {
                                 extractImage(newValue, size)
                             }
+                            Task {
+                                if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                                    photoData = data
+                                    catalyst.image = photoData
+                                    dataController.queueSave()
+                                }
+                            }
                         }
                 } else {
                     contentView
                         .onChange(of: photoItem) { newValue in
                             if let newValue {
                                 extractImage(newValue, size)
+                            }
+                            Task {
+                                if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                                    photoData = data
+                                    catalyst.image = photoData
+                                    dataController.queueSave()
+                                }
                             }
                         }
                 }
@@ -104,6 +123,14 @@ struct ImagePicker: View {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
                         .stroke(tint, style: .init(lineWidth: 1, dash: [12]))
                         .padding(1)
+                }
+            }
+            .onAppear() {
+                if (catalyst.image != nil) {
+                    if let image = UIImage(data: catalyst.image!) {
+                        generateImageThumbnail(image, size)
+                        onImageChange(image)
+                    }
                 }
             }
         }
@@ -146,7 +173,7 @@ extension View {
 }
 
 #Preview {
-    ImagePicker(title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.up", tint: .blue) { image in
+    ImagePicker(catalyst: .example, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.up", tint: .blue) { image in
         print(image)
     }
 }
