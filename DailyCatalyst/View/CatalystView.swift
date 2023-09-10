@@ -25,14 +25,14 @@ struct CatalystView: View {
     var body: some View {
         VStack(spacing: nil) {
             HStack {
-                ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .blue) { image in
+                ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow) { image in
                     print(image)
                 }
                 .padding(.horizontal)
             }
             
-            Form {
-                Section {
+            ScrollView {
+                VStack {
                     VStack(alignment: .leading) {
                         HStack(alignment: .center) {
                             ZStack {
@@ -46,6 +46,7 @@ struct CatalystView: View {
                                     .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
                                     .font(.title)
                             }
+                            .zIndex(1)
                             
                             VStack(alignment: .leading, spacing: 0) {
                                 Text("Title")
@@ -54,7 +55,8 @@ struct CatalystView: View {
                                 
                                 TextEditor(text: $catalyst.catalystTitle)
                                     .font(.title)
-                                    .lineLimit(2)
+                                    .lineLimit(1...2)
+                                    .frame(height: 100)
                             }
                         }
                         
@@ -64,63 +66,69 @@ struct CatalystView: View {
                         Text("**Status:** \(catalyst.catalystStatus)")
                             .foregroundStyle(.secondary)
                     }
+                    .padding(.horizontal)
                     
-                    Picker("Happiness", selection: $catalyst.happiness) {
-                        Text("Joy")
-                        .tag(Int16(5))
-                        
-                        Text("Happy")
-                        .tag(Int16(4))
-                        
-                        Text("Apathetic")
-                        .tag(Int16(3))
-                        
-                        Text("Boring")
-                        .tag(Int16(2))
-                        
-                        Text("Exhausted")
-                        .tag(Int16(1))
-                    }
-                    .pickerStyle(.segmented)
-                    
-                    Menu {
-                        ForEach(catalyst.catalystIdentities, id: \.self) { identity in
-                            Button {
-                                catalyst.removeFromIdentities(identity)
-                            } label: {
-                                Label(identity.identityName, systemImage: "checkmark")
-                            }
-                        }
-                        
-                        let otherIdentities = dataController.missingIdentities(from: catalyst)
-                        
-                        if otherIdentities.isEmpty == false {
-                            Divider()
+                    Section {
+                        Picker("Happiness", selection: $catalyst.happiness) {
+                            Text("Joy")
+                                .tag(Int16(5))
                             
-                            Section("Add Identities") {
-                                ForEach(otherIdentities) { identity in
-                                    Button(identity.identityName) {
-                                        catalyst.addToIdentities(identity)
+                            Text("Happy")
+                                .tag(Int16(4))
+                            
+                            Text("Apathetic")
+                                .tag(Int16(3))
+                            
+                            Text("Boring")
+                                .tag(Int16(2))
+                            
+                            Text("Exhausted")
+                                .tag(Int16(1))
+                        }
+                        .pickerStyle(.segmented)
+                        
+                        Menu {
+                            ForEach(catalyst.catalystIdentities, id: \.self) { identity in
+                                Button {
+                                    catalyst.removeFromIdentities(identity)
+                                } label: {
+                                    Label(identity.identityName, systemImage: "checkmark")
+                                }
+                            }
+                            
+                            let otherIdentities = dataController.missingIdentities(from: catalyst)
+                            
+                            if otherIdentities.isEmpty == false {
+                                Divider()
+                                
+                                Section("Add Identities") {
+                                    ForEach(otherIdentities) { identity in
+                                        Button(identity.identityName) {
+                                            catalyst.addToIdentities(identity)
+                                        }
                                     }
                                 }
                             }
+                        } label: {
+                            Text(catalyst.catalystIdentitiesList)
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .animation(nil, value: catalyst.catalystIdentitiesList)
                         }
-                    } label: {
-                        Text(catalyst.catalystIdentitiesList)
-                            .multilineTextAlignment(.leading)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .animation(nil, value: catalyst.catalystIdentitiesList)
                     }
-                }
-                
-                Section {
-                    VStack(alignment: .leading) {
-                        Text("Basic Info")
-                            .font(.title2)
-                            .foregroundStyle(.secondary)
-                        
-                        TextField("Description", text: $catalyst.catalystEffect, prompt: Text("Enter the effect here"), axis: .vertical)
+                    .padding(.horizontal)
+                    
+                    Section {
+                        VStack(alignment: .leading) {
+                            Text("Basic Info")
+                                .font(.title2)
+                                .foregroundStyle(.secondary)
+                            
+                            TextField("Description", text: $catalyst.catalystEffect, prompt: Text("Enter the effect here"), axis: .vertical)
+                        }
                     }
+                    .padding(.horizontal)
+                    
                 }
             }
         }
