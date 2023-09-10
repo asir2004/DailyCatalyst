@@ -35,9 +35,26 @@ struct CatalystRow: View {
                         .opacity(catalyst.happiness <= 1 ? 0 : 1)
                         .blur(radius: CGFloat(catalyst.happiness == 1 ? 0 : catalyst.happiness * 5))
                     
-                    Text("\(emoji)")
-                        .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
-                        .font(.title)
+                    if (catalyst.image != nil) {
+                        if let image = UIImage(data: catalyst.image!) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .blur(radius: 1)
+                                .scaledToFill()
+                                .clipShape(Circle())
+                                .frame(width: 30, height: 30)
+                        } else {
+                            Text("\(emoji)")
+                                .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
+                                .font(.title)
+                                .frame(width: 30, height: 30)
+                        }
+                    } else {
+                        Text("\(emoji)")
+                            .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
+                            .font(.title)
+                            .frame(width: 30, height: 30)
+                    }
                 }
                 
                 VStack(alignment: .leading) {
