@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct CatalystView: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var catalyst: Catalyst
+    
+    @State private var showImagePicker = false
+    @State private var photoItem: PhotosPickerItem?
     
     var emoji: String {
         switch catalyst.happiness {
@@ -24,11 +28,8 @@ struct CatalystView: View {
     
     var body: some View {
         VStack(spacing: nil) {
-            HStack {
-                ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow) { image in
-                    print(image)
-                }
-                .padding(.horizontal)
+            EmptyImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow) { image in
+                print(image)
             }
             
             ScrollView {
@@ -70,20 +71,20 @@ struct CatalystView: View {
                     
                     Section {
                         Picker("Happiness", selection: $catalyst.happiness) {
-                            Text("Joy")
-                                .tag(Int16(5))
+                            Text("😐")
+                                .tag(Int16(1))
                             
-                            Text("Happy")
-                                .tag(Int16(4))
-                            
-                            Text("Apathetic")
-                                .tag(Int16(3))
-                            
-                            Text("Boring")
+                            Text("🙂")
                                 .tag(Int16(2))
                             
-                            Text("Exhausted")
-                                .tag(Int16(1))
+                            Text("😀")
+                                .tag(Int16(3))
+                            
+                            Text("😁")
+                                .tag(Int16(4))
+                            
+                            Text("😆")
+                                .tag(Int16(5))
                         }
                         .pickerStyle(.segmented)
                         
@@ -132,6 +133,7 @@ struct CatalystView: View {
                 }
             }
         }
+        .photosPicker(isPresented: $showImagePicker, selection: $photoItem)
         .disabled(catalyst.isDeleted)
         .onReceive(catalyst.objectWillChange) { _ in
             dataController.queueSave()
