@@ -70,8 +70,10 @@ struct Navigation_Extension_Test: View {
             List {
                 ForEach(1...50, id: \.self) { index in
                     NavigationLink {
-                        ForEach(1...50, id: \.self) { index in
-                            Text("Sub Item \(index)")
+                        List {
+                            ForEach(1...50, id: \.self) { index in
+                                Text("Sub Item \(index)")
+                            }
                         }
                         .navigationTitle("Item \(index)")
                     } label: {
