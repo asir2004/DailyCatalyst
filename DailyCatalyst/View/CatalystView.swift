@@ -31,6 +31,7 @@ struct CatalystView: View {
             EmptyImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow) { image in
                 print(image)
             }
+            .padding(.horizontal)
             
             ScrollView {
                 VStack {
