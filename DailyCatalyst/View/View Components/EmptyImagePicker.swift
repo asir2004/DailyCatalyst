@@ -1,5 +1,5 @@
 //
-//  ImagePicker.swift
+//  EmptyImagePicker.swift
 //  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/21/23.
@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 import CoreData
 
-struct ImagePicker: View {
+struct EmptyImagePicker: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var catalyst: Catalyst
     
@@ -173,7 +173,7 @@ extension View {
 }
 
 #Preview {
-    ImagePicker(catalyst: .example, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.up", tint: .blue) { image in
+    EmptyImagePicker(catalyst: .example, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.up", tint: .blue) { image in
         print(image)
     }
 }
