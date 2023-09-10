@@ -34,7 +34,7 @@ struct CatalystView: View {
             Form {
                 Section {
                     VStack(alignment: .leading) {
-                        HStack(alignment: .top) {
+                        HStack(alignment: .center) {
                             ZStack {
                                 Circle()
                                     .foregroundStyle(.yellow)
@@ -47,13 +47,14 @@ struct CatalystView: View {
                                     .font(.title)
                             }
                             
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .leading, spacing: 0) {
                                 Text("Title")
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
                                 
-                                TextField("Title", text: $catalyst.catalystTitle)
+                                TextEditor(text: $catalyst.catalystTitle)
                                     .font(.title)
+                                    .lineLimit(2)
                             }
                         }
                         
