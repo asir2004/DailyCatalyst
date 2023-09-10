@@ -14,6 +14,8 @@ struct NewIdentityView: View {
     
     @State private var newIdentityName = ""
     
+//    @State var items: [String] = ["", ""]
+    
     var body: some View {
         VStack {
             List {
@@ -33,19 +35,8 @@ struct NewIdentityView: View {
                         }
                     }
                 }
-//                Section("Identities") {
-//                    ScrollView(.horizontal) {
-//                        LazyHStack(spacing: 5) {
-//                            ForEach(dataController.allIdentities(), id: \.self) { identity in
-//                                Text("\(identity.identityName)")
-//                                    .foregroundStyle(.white)
-//                                    .padding(5)
-//                                    .background(.blue)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-//                            }
-//                        }
-//                    }
-//                    //                .onDelete(perform: delete)
+//                Section {
+//                    TagsView(entities: dataController.allIdentities(), items: items)
 //                }
             }
             GeometryReader { geo in
@@ -92,8 +83,6 @@ struct NewIdentityView: View {
     }
 }
 
-struct NewIdentityView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewIdentityView()
-    }
+#Preview {
+    NewIdentityView()
 }

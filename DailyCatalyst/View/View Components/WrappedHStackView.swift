@@ -9,12 +9,15 @@ import SwiftUI
 
 struct TagsView: View {
     
-    let items: [String]
+    let entities: [Identity]
+    
+    var items: [String]
     var groupedItems: [[String]] = [[String]]()
     let screenWidth = UIScreen.main.bounds.width
     
-    init(items: [String]) {
-        self.items = items
+    init(entities: [Identity], items: [String]) {
+        self.entities = entities
+        self.items = entities.map { $0.name ?? "" }
         self.groupedItems = createGroupedItems(items)
     }
     
