@@ -36,6 +36,7 @@ struct EmptyImagePicker: View {
                     .font(.largeTitle)
                     .imageScale(.large)
                     .foregroundStyle(tint)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
                 
                 Text(title)
                     .font(.callout)
@@ -54,6 +55,7 @@ struct EmptyImagePicker: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .padding(15)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
                 }
             }
             /// Displaying Loading UI
