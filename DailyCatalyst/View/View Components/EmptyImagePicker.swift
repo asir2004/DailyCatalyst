@@ -17,6 +17,7 @@ struct EmptyImagePicker: View {
     var subTitle: String
     var systemImage: String
     var tint: Color
+    var isEditing: Bool
     var onImageChange: (UIImage) -> ()
     
     @State private var showImagePicker: Bool = false
@@ -54,8 +55,8 @@ struct EmptyImagePicker: View {
                     Image(uiImage: previewImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .padding(15)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .padding(isEditing ? 15 : 0)
                 }
             }
             /// Displaying Loading UI
@@ -83,7 +84,9 @@ struct EmptyImagePicker: View {
                 
             })
             .onTapGesture {
-                showImagePicker.toggle()
+                if isEditing {
+                    showImagePicker.toggle()
+                }
             }
             .photosPicker(isPresented: $showImagePicker, selection: $photoItem)
             .optionalViewModifier { contentView in
@@ -126,6 +129,7 @@ struct EmptyImagePicker: View {
                         .stroke(tint, style: .init(lineWidth: 1, dash: [12]))
                         .padding(1)
                 }
+                .opacity(isEditing ? 1 : 0)
             }
             .onAppear() {
                 if (catalyst.image != nil) {
@@ -175,7 +179,7 @@ extension View {
 }
 
 #Preview {
-    EmptyImagePicker(catalyst: .example, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.up", tint: .blue) { image in
+    EmptyImagePicker(catalyst: .example, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.up", tint: .blue, isEditing: true) { image in
         print(image)
     }
 }

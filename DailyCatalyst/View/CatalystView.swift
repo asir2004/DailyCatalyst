@@ -14,6 +14,7 @@ struct CatalystView: View {
     
     @State private var showImagePicker = false
     @State private var photoItem: PhotosPickerItem?
+    @State private var imagePickerIsEditing = false
     
     var emoji: String {
         switch catalyst.happiness {
@@ -28,7 +29,7 @@ struct CatalystView: View {
     
     var body: some View {
         VStack(spacing: nil) {
-            EmptyImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow) { image in
+            EmptyImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: imagePickerIsEditing) { image in
                 print(image)
             }
             .padding(.horizontal)
@@ -138,6 +139,18 @@ struct CatalystView: View {
         .disabled(catalyst.isDeleted)
         .onReceive(catalyst.objectWillChange) { _ in
             dataController.queueSave()
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    withAnimation {
+                        imagePickerIsEditing.toggle()
+                    }
+                } label: {
+                    Text(imagePickerIsEditing ? "Done" : "Edit")
+                        .monospaced()
+                }
+            }
         }
     }
 }
