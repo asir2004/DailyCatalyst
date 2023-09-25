@@ -32,6 +32,11 @@ struct NewCatalystView: View {
     
     var body: some View {
         List {
+            // Fix this
+            EmptyImagePicker(catalyt: <#Catalyst#>, title: "Image", subTitle: "Tap to insert image", systemImage: "square.and.arrow.up", tint: .yellow, isEditing: true) { image in
+                print(image)
+            }
+            
             Section("Add New Catalyst") {
                 VStack(alignment: .leading) {
                     TextField("Title", text: $newCatalystTitle, prompt: Text("Enter Title Here"))
@@ -83,6 +88,3 @@ struct NewCatalystView: View {
     }
 }
 
-#Preview {
-    NewCatalystView()
-}
