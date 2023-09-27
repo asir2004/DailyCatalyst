@@ -15,6 +15,10 @@ struct SidebarView: View {
     @State private var showNewCatalyst = false
     @State private var showNewIdentity = false
     
+    @State private var identityToRename: Identity?
+    @State private var renamingIdentity = false
+    @State private var identityName = ""
+    
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var identities: FetchedResults<Identity>
     
     var identityFilters: [Filter] {
@@ -34,10 +38,22 @@ struct SidebarView: View {
             }
             
             Section("Identities") {
-                ForEach(identityFilters) { filter in
+                ForEach(identityFilters) { filter, offsets in
                     NavigationLink(value: filter) {
                         Label(filter.name, systemImage: filter.icon)
                             .badge(filter.identity?.identityActiveCatalysts.count ?? 0)
+                    }
+                    .swipeActions(edge: .trailing) {
+                        Button {
+                            rename(filter)
+                        } label: {
+                            Label("Rename", systemImage: "pencil")
+                        }
+//                        Button(role: .destructive) {
+//                            delete(offsets)
+//                        } label: {
+//                            Label("Delete", systemImage: "trash")
+//                        }
                     }
                 }
                 .onDelete(perform: delete)
@@ -83,6 +99,22 @@ struct SidebarView: View {
             }
             .popoverTip(AddMenuTip(), arrowEdge: .top)
         }
+        .alert("Rename Identity", isPresented: $renamingIdentity) {
+            Button("OK", action: completeRename)
+            Button("Cancel", role: .cancel) { }
+            TextField("Rename", text: $identityName)
+        }
+    }
+    
+    func rename(_ filter: Filter) {
+        identityToRename = filter.identity
+        identityName = filter.name
+        renamingIdentity = true
+    }
+    
+    func completeRename() {
+        identityToRename?.name = identityName
+        dataController.save()
     }
     
     func delete(_ offsets: IndexSet) {

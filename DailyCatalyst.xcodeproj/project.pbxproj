@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EA2390112AAD611900F6AB28 /* Navigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */; };
+		EA2C3BCA2AC41F7100D2FBB3 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */; };
 		EA35AD512A939A1100B6A4D2 /* EmptyImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */; };
 		EA398E502A7B907A00530474 /* CatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E4F2A7B907A00530474 /* CatalystView.swift */; };
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Extension.swift"; sourceTree = "<group>"; };
+		EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyImagePicker.swift; sourceTree = "<group>"; };
 		EA398E4F2A7B907A00530474 /* CatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystView.swift; sourceTree = "<group>"; };
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA2C3BCB2AC41F8100D2FBB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */,
+				EAFF97E82A7BD47500887FCB /* Core Data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		EAD51EED2A790FFC00A777E7 = {
 			isa = PBXGroup;
 			children = (
@@ -90,7 +101,7 @@
 				EAB7FCD82A7ABF960022F01D /* Info.plist */,
 				EAB7FCD72A7ABF8D0022F01D /* DailyCatalyst.entitlements */,
 				EAD51EF92A790FFC00A777E7 /* DailyCatalystApp.swift */,
-				EAFF97E82A7BD47500887FCB /* Core Data */,
+				EA2C3BCB2AC41F8100D2FBB3 /* Model */,
 				EAFF97E72A7BD1FA00887FCB /* View */,
 				EAD51EFD2A790FFD00A777E7 /* Assets.xcassets */,
 				EAD51EFF2A790FFD00A777E7 /* Preview Content */,
@@ -223,6 +234,7 @@
 				EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */,
 				EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */,
 				EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */,
+				EA2C3BCA2AC41F7100D2FBB3 /* Bundle-Decodable.swift in Sources */,
 				EA398E502A7B907A00530474 /* CatalystView.swift in Sources */,
 				EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */,
 				EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */,
