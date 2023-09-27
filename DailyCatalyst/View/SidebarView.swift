@@ -19,6 +19,8 @@ struct SidebarView: View {
     @State private var renamingIdentity = false
     @State private var identityName = ""
     
+    @State private var showingAwards = false
+    
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var identities: FetchedResults<Identity>
     
     var identityFilters: [Filter] {
@@ -38,22 +40,22 @@ struct SidebarView: View {
             }
             
             Section("Identities") {
-                ForEach(identityFilters) { filter, offsets in
+                ForEach(identityFilters) { filter in
                     NavigationLink(value: filter) {
                         Label(filter.name, systemImage: filter.icon)
                             .badge(filter.identity?.identityActiveCatalysts.count ?? 0)
-                    }
-                    .swipeActions(edge: .trailing) {
-                        Button {
-                            rename(filter)
-                        } label: {
-                            Label("Rename", systemImage: "pencil")
-                        }
-//                        Button(role: .destructive) {
-//                            delete(offsets)
-//                        } label: {
-//                            Label("Delete", systemImage: "trash")
-//                        }
+//                            .swipeActions(edge: .leading) {
+//                                Button {
+//                                    rename(filter)
+//                                } label: {
+//                                    Label("Rename", systemImage: "pencil")
+//                                }
+//                                Button(role: .destructive) {
+//                                    delete(offsets)
+//                                } label: {
+//                                    Label("Delete", systemImage: "trash")
+//                                }
+//                            }
                     }
                 }
                 .onDelete(perform: delete)
@@ -74,6 +76,11 @@ struct SidebarView: View {
         }
         .toolbar {
             Menu("Add") {
+                Button {
+                    showingAwards.toggle()
+                } label: {
+                    Label("Show Awards", systemImage: "rosette")
+                }
                 Button {
                     dataController.createSampleData()
                 } label: {
@@ -104,6 +111,7 @@ struct SidebarView: View {
             Button("Cancel", role: .cancel) { }
             TextField("Rename", text: $identityName)
         }
+        .sheet(isPresented: $showingAwards, content: AwardsView.init)
     }
     
     func rename(_ filter: Filter) {
