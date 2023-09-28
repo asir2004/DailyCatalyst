@@ -23,6 +23,7 @@
 		EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */; };
 		EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657E2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift */; };
 		EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */; };
+		EAD087962AC5C49100078E81 /* AnimatedAwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */; };
 		EAD51EFA2A790FFC00A777E7 /* DailyCatalystApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51EF92A790FFC00A777E7 /* DailyCatalystApp.swift */; };
 		EAD51EFC2A790FFC00A777E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51EFB2A790FFC00A777E7 /* ContentView.swift */; };
 		EAD51EFE2A790FFD00A777E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD51EFD2A790FFD00A777E7 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Catalyst-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		EABD657E2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identity-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystRow.swift; sourceTree = "<group>"; };
+		EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedAwardView.swift; sourceTree = "<group>"; };
 		EAD51EF62A790FFC00A777E7 /* DailyCatalyst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyCatalyst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD51EF92A790FFC00A777E7 /* DailyCatalystApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCatalystApp.swift; sourceTree = "<group>"; };
 		EAD51EFB2A790FFC00A777E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EADE562B2A7E83A300F28948 /* NewCatalystView.swift */,
 				EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */,
+				EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */,
 				EADD7CDC2A9068CA00541B76 /* View Components */,
 			);
 			path = View;
@@ -238,6 +241,7 @@
 				EA2C3BCF2AC46DAB00D2FBB3 /* AwardsView.swift in Sources */,
 				EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */,
 				EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */,
+				EAD087962AC5C49100078E81 /* AnimatedAwardView.swift in Sources */,
 				EA35AD512A939A1100B6A4D2 /* EmptyImagePicker.swift in Sources */,
 				EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */,
 				EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */,
