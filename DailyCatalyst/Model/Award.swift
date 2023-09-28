@@ -12,7 +12,7 @@ struct Award: Decodable, Identifiable {
     var name: String
     var description: String
     var color: String
-    var critetion: String
+    var criterion: String
     var value: Int
     var image: String
     

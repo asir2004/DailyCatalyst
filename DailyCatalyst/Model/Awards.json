@@ -1,0 +1,162 @@
+[
+    {
+        "name": "First Steps",
+        "description": "Add your first catalyst.",
+        "color": "Light Blue",
+        "criterion": "catalysts",
+        "value": 1,
+        "image": "figure.walk"
+    },
+    {
+        "name": "A Great Start",
+        "description": "Add 10 catalysts.",
+        "color": "Light Blue",
+        "criterion": "catalysts",
+        "value": 10,
+        "image": "hand.thumbsup.fill"
+    },
+    {
+        "name": "Moving On Up",
+        "description": "Add 20 catalysts.",
+        "color": "Light Blue",
+        "criterion": "catalysts",
+        "value": 20,
+        "image": "tray.and.arrow.up.fill"
+    },
+    {
+        "name": "Gathering Speed",
+        "description": "Add 50 catalysts.",
+        "color": "Light Blue",
+        "criterion": "catalysts",
+        "value": 50,
+        "image": "speedometer"
+    },
+    {
+        "name": "Making Waves",
+        "description": "Add 100 catalysts.",
+        "color": "Light Blue",
+        "criterion": "catalysts",
+        "value": 100,
+        "image": "dot.radiowaves.left.and.right"
+    },
+    {
+        "name": "High Performer",
+        "description": "Add 250 catalysts.",
+        "color": "Light Blue",
+        "criterion": "catalysts",
+        "value": 250,
+        "image": "square.stack.3d.up.fill"
+    },
+    {
+        "name": "Star Performer",
+        "description": "Add 500 catalysts.",
+        "color": "Light Blue",
+        "criterion": "catalysts",
+        "value": 500,
+        "image": "star.circle.fill"
+    },
+    {
+        "name": "Champion Performer",
+        "description": "Add 1000 catalysts.",
+        "color": "Light Blue",
+        "criterion": "catalysts",
+        "value": 1000,
+        "image": "crown.fill"
+    },
+    {
+        "name": "Checking Boxes",
+        "description": "Close your first catalyst.",
+        "color": "Green",
+        "criterion": "closed",
+        "value": 1,
+        "image": "checkmark.shield.fill"
+    },
+    {
+        "name": "Rocking it",
+        "description": "Close 10 catalysts.",
+        "color": "Green",
+        "criterion": "closed",
+        "value": 10,
+        "image": "guitars.fill"
+    },
+    {
+        "name": "20 is Plenty",
+        "description": "Close 20 catalysts.",
+        "color": "Green",
+        "criterion": "closed",
+        "value": 20,
+        "image": "20.square.fill"
+    },
+    {
+        "name": "Bullseye!",
+        "description": "Close 50 catalysts.",
+        "color": "Green",
+        "criterion": "closed",
+        "value": 50,
+        "image": "target"
+    },
+    {
+        "name": "Flying High",
+        "description": "Close 100 catalysts.",
+        "color": "Green",
+        "criterion": "closed",
+        "value": 100,
+        "image": "airplane.circle.fill"
+    },
+    {
+        "name": "You're On Fire!",
+        "description": "Close 250 catalysts.",
+        "color": "Green",
+        "criterion": "closed",
+        "value": 250,
+        "image": "flame.fill"
+    },
+    {
+        "name": "Box Ticker in Chief",
+        "description": "Close 500 catalysts.",
+        "color": "Green",
+        "criterion": "closed",
+        "value": 500,
+        "image": "text.badge.checkmark"
+    },
+    {
+        "name": "Boom!",
+        "description": "Close 1000 catalysts.",
+        "color": "Green",
+        "criterion": "closed",
+        "value": 1000,
+        "image": "bolt.circle.fill"
+    },
+    {
+        "name": "Playing identity",
+        "description": "You created your first identity.",
+        "color": "Gold",
+        "criterion": "identities",
+        "value": 1,
+        "image": "person.fill"
+    },
+    {
+        "name": "Identity wrestling",
+        "description": "You've created 10 identities.",
+        "color": "Gold",
+        "criterion": "identities",
+        "value": 10,
+        "image": "person.2.fill"
+    },
+    {
+        "name": "Supreme identity-er",
+        "description": "You've created 50 identities.",
+        "color": "Gold",
+        "criterion": "identities",
+        "value": 50,
+        "image": "person.3.fill"
+    },
+    {
+        "name": "Supporter",
+        "description": "You bought the premium unlock.",
+        "color": "Purple",
+        "criterion": "unlock",
+        "value": 0,
+        "image": "dollarsign.square.fill"
+    }
+]

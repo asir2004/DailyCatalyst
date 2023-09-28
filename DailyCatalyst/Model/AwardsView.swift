@@ -19,8 +19,8 @@ struct AwardsView: View {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(Award.allAwards) { award in
-                        Button {
-                            
+                        NavigationLink {
+                            AnimatedAwardView(symbolName: award.image, color: .blue)
                         } label: {
                             Image(systemName: award.image)
                                 .resizable()
