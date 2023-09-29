@@ -212,4 +212,21 @@ class DataController: ObservableObject {
     func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }
+    
+    func hasEarned(award: Award) -> Bool {
+        switch award.criterion {
+        case "catalysts":
+            let fetchRequest = Catalyst.fetchRequest()
+            let awardCount = count(for: fetchRequest)
+            return awardCount >= award.value
+
+        case "identities":
+            let fetchRequest = Identity.fetchRequest()
+            let awardCount = count(for: fetchRequest)
+            return awardCount >= award.value
+        default:
+//            fatalError("Unknown award criterion: \(award.criterion)")
+            return false
+        }
+    }
 }

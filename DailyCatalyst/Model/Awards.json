@@ -137,18 +137,18 @@
     },
     {
         "name": "Identity wrestling",
-        "description": "You've created 10 identities.",
+        "description": "You've created 2 identities.",
         "color": "Gold",
         "criterion": "identities",
-        "value": 10,
+        "value": 2,
         "image": "person.2.fill"
     },
     {
-        "name": "Supreme identity-er",
-        "description": "You've created 50 identities.",
+        "name": "Supreme Identity-er",
+        "description": "You've created 3 identities.",
         "color": "Gold",
         "criterion": "identities",
-        "value": 50,
+        "value": 3,
         "image": "person.3.fill"
     },
     {
