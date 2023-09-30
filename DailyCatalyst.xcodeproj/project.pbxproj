@@ -85,7 +85,6 @@
 			children = (
 				EAD087972AC5C7DF00078E81 /* Awards.json */,
 				EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */,
-				EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */,
 				EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */,
 				EAFF97E82A7BD47500887FCB /* Core Data */,
 			);
@@ -154,6 +153,7 @@
 				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EADE562B2A7E83A300F28948 /* NewCatalystView.swift */,
 				EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */,
+				EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */,
 				EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */,
 				EADD7CDC2A9068CA00541B76 /* View Components */,
 			);

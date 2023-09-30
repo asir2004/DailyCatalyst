@@ -15,18 +15,19 @@ struct SymbolParticle: Identifiable {
 }
 
 struct AnimatedAwardView: View {
+    var awardName: String
+    var awardDescription: String
     var symbolName: String
     var color: Color
     
-    @State private var beatAnimation: Bool = false
-    @State private var showPulses: Bool = false
+    @State private var showPulses: Bool = true
     @State private var pulsedSymbols: [SymbolParticle] = []
-    @State private var heartBeat: Int = 85
+    
     var body: some View {
         VStack {
             ZStack {
                 if showPulses {
-                    TimelineView(.animation(minimumInterval: 0.7, paused: false)) { timeline in
+                    TimelineView(.animation(minimumInterval: 1.4, paused: false)) { timeline in
                         Canvas { context, size in
                             for symbol in pulsedSymbols {
                                 if let resolvedView = context.resolveSymbol(id: symbol.id) {
@@ -43,9 +44,7 @@ struct AnimatedAwardView: View {
                             }
                         }
                         .onChange(of: timeline.date) { oldValue, newValue in
-                            if beatAnimation {
-                                addPulsedSymbol()
-                            }
+                            addPulsedSymbol()
                         }
                     }
                 }
@@ -53,60 +52,45 @@ struct AnimatedAwardView: View {
                 Image(systemName: symbolName)
                     .font(.system(size: 100))
                     .foregroundStyle(color.gradient)
-                    .symbolEffect(.bounce, options: !beatAnimation ? .default : .repeating.speed(1), value: beatAnimation)
+                    .background(
+                        Circle()
+                            .stroke(.ultraThinMaterial, lineWidth: 16)
+                            .stroke(.thinMaterial, lineWidth: 8)
+                            .fill(.regularMaterial)
+                            .frame(width: 170, height: 170)
+                    )
+                    .symbolEffect(.bounce.down, options: .repeating.speed(0.5), value: pulsedSymbols.count)
             }
-            .frame(maxWidth: 350, maxHeight: 350)
-            .overlay(alignment: .bottomLeading, content: {
+            .offset(y: 40)
+            .frame(maxWidth: 350, maxHeight: 450)
+            .overlay(alignment: .topLeading, content: {
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("Current")
-                        .font(.title3.bold())
-                        .foregroundStyle(.white)
-                    
-                    HStack(alignment: .bottom, spacing: 6) {
-                        TimelineView(.animation(minimumInterval: 1.5, paused: false)) { timeline in
-                            Text("\(heartBeat)")
-                                .font(.system(size: 45).bold())
-                                .contentTransition(.numericText(value: Double(heartBeat)))
-                                .foregroundStyle(.white)
-                                .onChange(of: timeline.date) { oldValue, newValue in
-                                    if beatAnimation {
-                                        withAnimation(.bouncy) {
-                                            heartBeat = .random(in: 80...130)
-                                        }
-                                    }
-                                }
-                        }
-                        
-                        Text("BPM")
-                            .font(.callout.bold())
-                            .foregroundStyle(color.gradient)
-                    }
-                    
-                    Text("88 BPM, 10m ago")
+                    Text(awardName)
+                        .font(.title)
+                        .bold()
+                    Text(awardDescription)
                         .font(.callout)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.secondary)
                 }
-                .offset(x: 30, y: -35)
+                .offset(x: 30, y: 80)
             })
-
             .background(.bar, in: .rect(cornerRadius: 30))
             
-            Toggle("Beat Animation", isOn: $beatAnimation)
-                .padding(15)
-                .frame(maxWidth: 350)
-                .background(.bar, in: .rect(cornerRadius: 15))
-                .padding(.top, 20)
-                .onChange(of: beatAnimation) { oldValue, newValue in
-                    if pulsedSymbols.isEmpty {
-                        showPulses = true
-                    }
-                    
-                    if newValue && pulsedSymbols.isEmpty {
-                        showPulses = true
-                        addPulsedSymbol()
-                    }
-                }
-                .disabled(beatAnimation && pulsedSymbols.isEmpty)
+//            Toggle("Beat Animation", isOn: $beatAnimation)
+//                .padding(15)
+//                .frame(maxWidth: 350)
+//                .background(.bar, in: .rect(cornerRadius: 15))
+//                .padding(.top, 20)
+//                .onChange(of: beatAnimation) { oldValue, newValue in
+//                    if pulsedSymbols.isEmpty {
+//                        showPulses = true
+//                    }
+//
+//                    if newValue && pulsedSymbols.isEmpty {
+//                        showPulses = true
+//                        addPulsedSymbol()
+//                    }
+//                }
         }
     }
     
@@ -133,16 +117,9 @@ struct PulseSymbolView: View {
         Image(systemName: symbolName)
             .font(.system(size: 100))
             .foregroundStyle(color)
-            .background(content: {
-                Image(systemName: symbolName)
-                    .font(.system(size: 100))
-                    .foregroundStyle(color.gradient)
-                    .blur(radius: 5)
-                    .scaleEffect(startAnimation ? 1.1 : 0)
-                    .animation(.linear(duration: 1.5), value: startAnimation)
-            })
+            .blur(radius: 5)
             .scaleEffect(startAnimation ? 4 : 1)
-            .opacity(startAnimation ? 0 : 0.7)
+            .opacity(startAnimation ? 0 : 0.3)
             .onAppear(perform: {
                 withAnimation(.linear(duration: 3)) {
                     startAnimation = true
@@ -152,6 +129,5 @@ struct PulseSymbolView: View {
 }
 
 #Preview {
-    AnimatedAwardView(symbolName: "heart.fill", color: .red)
+    AnimatedAwardView(awardName: "Sample Award Name", awardDescription: "A preview sample award description.", symbolName: "heart.fill", color: .red)
 }
-
