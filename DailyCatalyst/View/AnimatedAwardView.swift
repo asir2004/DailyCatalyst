@@ -18,6 +18,7 @@ struct AnimatedAwardView: View {
     var awardName: String
     var awardDescription: String
     var symbolName: String
+    var status: Bool
     var color: Color
     
     @State private var showPulses: Bool = true
@@ -26,7 +27,7 @@ struct AnimatedAwardView: View {
     var body: some View {
         VStack {
             ZStack {
-                if showPulses {
+                if status { // means award status
                     TimelineView(.animation(minimumInterval: 1.4, paused: false)) { timeline in
                         Canvas { context, size in
                             for symbol in pulsedSymbols {
@@ -50,8 +51,9 @@ struct AnimatedAwardView: View {
                 }
                 
                 Image(systemName: symbolName)
-                    .font(.system(size: 100))
+                    .font(.system(size: status ? 100 : 90))
                     .foregroundStyle(color.gradient)
+                    .opacity(status ? 1 : 0.1)
                     .background(
                         Circle()
                             .stroke(.thinMaterial, lineWidth: 16)
@@ -59,7 +61,7 @@ struct AnimatedAwardView: View {
                             .fill(.regularMaterial)
                             .padding(-25)
                     )
-                    .symbolEffect(.bounce.down, options: .repeating.speed(0.5), value: pulsedSymbols.count)
+                    .symbolEffect(.bounce.down, options: !status ? .default : .repeating.speed(0.5), value: pulsedSymbols.count)
             }
             .offset(y: 40)
             .frame(maxWidth: 350, maxHeight: 450)
@@ -129,5 +131,5 @@ struct PulseSymbolView: View {
 }
 
 #Preview {
-    AnimatedAwardView(awardName: "Sample Award Name", awardDescription: "A preview sample award description.", symbolName: "heart.fill", color: .red)
+    AnimatedAwardView(awardName: "Sample Award Name", awardDescription: "A preview sample award description.", symbolName: "heart.fill", status: true, color: .red)
 }
