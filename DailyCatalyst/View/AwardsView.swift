@@ -21,7 +21,7 @@ struct AwardsView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(Award.allAwards) { award in
                         NavigationLink {
-                            AnimatedAwardView(awardName: award.name, awardDescription: award.description, symbolName: award.image, color: Color(award.color))
+                            AnimatedAwardView(awardName: award.name, awardDescription: award.description, symbolName: award.image, status: dataController.hasEarned(award: award), color: Color(award.color))
                         } label: {
                             Image(systemName: award.image)
                                 .resizable()
