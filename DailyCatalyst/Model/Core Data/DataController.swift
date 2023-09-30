@@ -224,6 +224,7 @@ class DataController: ObservableObject {
             let fetchRequest = Identity.fetchRequest()
             let awardCount = count(for: fetchRequest)
             return awardCount >= award.value
+            
         default:
 //            fatalError("Unknown award criterion: \(award.criterion)")
             return false
