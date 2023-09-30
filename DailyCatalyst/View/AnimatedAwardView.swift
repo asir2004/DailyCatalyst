@@ -57,7 +57,7 @@ struct AnimatedAwardView: View {
                             .stroke(.thinMaterial, lineWidth: 16)
                             .stroke(.ultraThinMaterial, lineWidth: 8)
                             .fill(.regularMaterial)
-                            .frame(width: 180, height: 180)
+                            .padding(-25)
                     )
                     .symbolEffect(.bounce.down, options: .repeating.speed(0.5), value: pulsedSymbols.count)
             }
