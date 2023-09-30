@@ -54,10 +54,10 @@ struct AnimatedAwardView: View {
                     .foregroundStyle(color.gradient)
                     .background(
                         Circle()
-                            .stroke(.ultraThinMaterial, lineWidth: 16)
-                            .stroke(.thinMaterial, lineWidth: 8)
+                            .stroke(.thinMaterial, lineWidth: 16)
+                            .stroke(.ultraThinMaterial, lineWidth: 8)
                             .fill(.regularMaterial)
-                            .frame(width: 170, height: 170)
+                            .frame(width: 180, height: 180)
                     )
                     .symbolEffect(.bounce.down, options: .repeating.speed(0.5), value: pulsedSymbols.count)
             }
@@ -72,7 +72,7 @@ struct AnimatedAwardView: View {
                         .font(.callout)
                         .foregroundStyle(.secondary)
                 }
-                .offset(x: 30, y: 80)
+                .offset(x: 30, y: 25)
             })
             .background(.bar, in: .rect(cornerRadius: 30))
             
