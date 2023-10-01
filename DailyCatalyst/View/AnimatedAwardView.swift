@@ -34,7 +34,6 @@ struct AnimatedAwardView: View {
                                 if let resolvedView = context.resolveSymbol(id: symbol.id) {
                                     let centerX = size.width / 2
                                     let centerY = size.height / 2
-                                    
                                     context.draw(resolvedView, at: CGPoint(x: centerX, y: centerY))
                                 }
                             }
