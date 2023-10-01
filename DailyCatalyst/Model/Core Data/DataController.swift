@@ -191,7 +191,7 @@ class DataController: ObservableObject {
         request.sortDescriptors = [NSSortDescriptor(key: sortType.rawValue, ascending: sortNewestFirst)]
         
         let allCatalysts = (try? container.viewContext.fetch(request)) ?? []
-        return allCatalysts.sorted()
+        return allCatalysts
     }
     
     var suggestedFilterTokens: [Identity] {
