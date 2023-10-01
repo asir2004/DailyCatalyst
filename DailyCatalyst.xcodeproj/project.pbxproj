@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
+		EAB293872AC9E9EF006355B1 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = EAB293862AC9E9EF006355B1 /* SymbolPicker */; };
 		EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */; };
 		EAB7FCDA2A7AC0780022F01D /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCD92A7AC0780022F01D /* SidebarView.swift */; };
 		EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDB2A7AC07F0022F01D /* DetailView.swift */; };
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB293872AC9E9EF006355B1 /* SymbolPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +135,7 @@
 		EADD7CDC2A9068CA00541B76 /* View Components */ = {
 			isa = PBXGroup;
 			children = (
+				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */,
 				EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */,
 				EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */,
@@ -150,7 +153,6 @@
 				EAD51EFB2A790FFC00A777E7 /* ContentView.swift */,
 				EAB7FCDB2A7AC07F0022F01D /* DetailView.swift */,
 				EA398E4F2A7B907A00530474 /* CatalystView.swift */,
-				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EADE562B2A7E83A300F28948 /* NewCatalystView.swift */,
 				EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */,
 				EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */,
@@ -188,6 +190,9 @@
 			dependencies = (
 			);
 			name = DailyCatalyst;
+			packageProductDependencies = (
+				EAB293862AC9E9EF006355B1 /* SymbolPicker */,
+			);
 			productName = MarkPortfolio;
 			productReference = EAD51EF62A790FFC00A777E7 /* DailyCatalyst.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +221,9 @@
 				Base,
 			);
 			mainGroup = EAD51EED2A790FFC00A777E7;
+			packageReferences = (
+				EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Downloads/SymbolPicker-main" */,
+			);
 			productRefGroup = EAD51EF72A790FFC00A777E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -485,6 +493,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Downloads/SymbolPicker-main" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../Downloads/SymbolPicker-main";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EAB293862AC9E9EF006355B1 /* SymbolPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SymbolPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EAD51F072A79100700A777E7 /* Main.xcdatamodeld */ = {

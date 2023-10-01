@@ -25,7 +25,7 @@ struct SidebarView: View {
     
     var identityFilters: [Filter] {
         identities.map { identity in
-            Filter(id: identity.identityID , name: identity.identityName , icon: "tag", identity: identity)
+            Filter(id: identity.identityID , name: identity.identityName , icon: identity.identityIcon, identity: identity)
         }
     }
     
@@ -44,21 +44,22 @@ struct SidebarView: View {
                     NavigationLink(value: filter) {
                         Label(filter.name, systemImage: filter.icon)
                             .badge(filter.identity?.identityActiveCatalysts.count ?? 0)
-//                            .swipeActions(edge: .leading) {
-//                                Button {
-//                                    rename(filter)
-//                                } label: {
-//                                    Label("Rename", systemImage: "pencil")
-//                                }
-//                                Button(role: .destructive) {
-//                                    delete(offsets)
-//                                } label: {
-//                                    Label("Delete", systemImage: "trash")
-//                                }
-//                            }
+                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                Button(role: .destructive) {
+                                    delete(filter)
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                                
+                                Button {
+                                    rename(filter)
+                                } label: {
+                                    Label("Rename", systemImage: "pencil")
+                                }
+                            }
                     }
                 }
-                .onDelete(perform: delete)
+//                .onDelete(perform: delete)
             }
         }
         .navigationTitle("Daily Catalyst")
@@ -75,12 +76,7 @@ struct SidebarView: View {
             .presentationDetents([.medium, .large])
         }
         .toolbar {
-            Menu("Add") {
-                Button {
-                    showingAwards.toggle()
-                } label: {
-                    Label("Show Awards", systemImage: "rosette")
-                }
+            Menu {
                 Button {
                     dataController.createSampleData()
                 } label: {
@@ -91,6 +87,17 @@ struct SidebarView: View {
                 } label: {
                     Label("Delete All", systemImage: "trash")
                 }
+            } label: {
+                Label("Test", systemImage: "flask")
+            }
+            
+            Button {
+                showingAwards.toggle()
+            } label: {
+                Label("Show Awards", systemImage: "rosette")
+            }
+            
+            Menu {
                 Button {
                     showNewCatalyst = true
                 } label: {
@@ -103,6 +110,8 @@ struct SidebarView: View {
                     Image(systemName: "person")
                     Text("Identity")
                 }
+            } label: {
+                Text("Add")
             }
             .popoverTip(AddMenuTip(), arrowEdge: .top)
         }
@@ -130,6 +139,12 @@ struct SidebarView: View {
             let item = identities[offset]
             dataController.delete(item)
         }
+    }
+    
+    func delete(_ filter: Filter) {
+        guard let identity = filter.identity else { return }
+        dataController.delete(identity)
+        dataController.save()
     }
 }
 

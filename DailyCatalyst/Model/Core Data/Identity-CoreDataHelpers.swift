@@ -16,6 +16,10 @@ extension Identity {
         name ?? ""
     }
     
+    var identityIcon: String {
+        icon ?? "person"
+    }
+    
     var identityActiveCatalysts: [Catalyst] {
         let result = catalysts?.allObjects as? [Catalyst] ?? []
         return result.filter { $0.archived == false }

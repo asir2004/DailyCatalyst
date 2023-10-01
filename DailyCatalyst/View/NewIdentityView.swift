@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SymbolPicker
 
 struct NewIdentityView: View {
     @Environment(\.dismiss) var dismiss
@@ -13,6 +14,11 @@ struct NewIdentityView: View {
     @EnvironmentObject var dataController: DataController
     
     @State private var newIdentityName = ""
+    @State private var newIdentityIcon = "person"
+    
+    @State private var iconPickerPresented = false
+    
+    @State private var feedback = UINotificationFeedbackGenerator()
     
 //    @State var items: [String] = ["", ""]
     
@@ -22,7 +28,10 @@ struct NewIdentityView: View {
                 Section {
                     HStack {
                         HStack {
-                            Image(systemName: "person")
+                            Image(systemName: newIdentityIcon)
+                                .onTapGesture {
+                                    iconPickerPresented.toggle()
+                                }
                             TextField("Identity Name", text: $newIdentityName, prompt: Text("Enter Identity Name Here"))
                             Spacer()
                         }
@@ -32,27 +41,32 @@ struct NewIdentityView: View {
                         Button("Save") {
                             save()
                             newIdentityName = ""
+                            dismiss()
+                            feedback.notificationOccurred(.success)
+                            
                         }
+                        .disabled(newIdentityName.isEmpty)
                     }
                 }
 //                Section {
 //                    TagsView(entities: dataController.allIdentities(), items: items)
 //                }
             }
-            GeometryReader { geo in
-                let cardHeight: CGFloat? = geo.size.height > 0 ? (max(geo.size.height * 0.7, 240) - 40) : nil
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundStyle(.ultraThinMaterial)
-                    HStack {
-                        ForEach(dataController.allIdentities(), id: \.self) { identity in
-                            SingleIdentity(identity: identity)
-                        }
-                    }
-                }
-                .padding()
-                .frame(maxHeight: cardHeight)
-            }
+            
+//            GeometryReader { geo in
+//                let cardHeight: CGFloat? = geo.size.height > 0 ? (max(geo.size.height * 0.7, 240) - 40) : nil
+//                ZStack {
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .foregroundStyle(.ultraThinMaterial)
+//                    HStack {
+//                        ForEach(dataController.allIdentities(), id: \.self) { identity in
+//                            SingleIdentity(identity: identity)
+//                        }
+//                    }
+//                }
+//                .padding()
+//                .frame(maxHeight: cardHeight)
+//            }
         }
         .navigationTitle("New Identity")
         .navigationBarTitleDisplayMode(.inline)
@@ -61,6 +75,9 @@ struct NewIdentityView: View {
                 dismiss()
             }
         }
+        .sheet(isPresented: $iconPickerPresented) {
+            SymbolPicker(symbol: $newIdentityIcon)
+        }
     }
     
     private func save() {
@@ -68,6 +85,7 @@ struct NewIdentityView: View {
             let newIdentity = Identity(context: viewContext)
             newIdentity.id = UUID()
             newIdentity.name = newIdentityName
+            newIdentity.icon = newIdentityIcon
             
             try? viewContext.save()
         }
