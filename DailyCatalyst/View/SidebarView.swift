@@ -57,6 +57,9 @@ struct SidebarView: View {
                                     Label("Rename", systemImage: "pencil")
                                 }
                             }
+                            .accessibilityElement()
+                            .accessibilityLabel(filter.name)
+                            .accessibilityHint("^[\(filter.activeCatalystsCount) Catalyst](inflect: true)")
                     }
                 }
 //                .onDelete(perform: delete)
