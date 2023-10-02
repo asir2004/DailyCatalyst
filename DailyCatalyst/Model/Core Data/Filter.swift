@@ -14,6 +14,10 @@ struct Filter: Identifiable, Hashable {
     var minModificationDate = Date.distantPast
     var identity: Identity?
     
+    var activeCatalystsCount: Int {
+        identity?.identityActiveCatalysts.count ?? 0
+    }
+    
     static var all = Filter(id: UUID(), name: "All Catalysts", icon: "tray")
     static var recent = Filter(id: UUID(), name: "Recent Catalysts", icon: "clock", minModificationDate: .now.addingTimeInterval(86400 * -7))
     
