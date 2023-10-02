@@ -31,6 +31,8 @@ struct AwardsView: View {
                                 .foregroundStyle(dataController.hasEarned(award: award) ? Color(award.color) : .secondary.opacity(0.5))
                                 .padding()
                         }
+                        .accessibilityLabel(dataController.hasEarned(award: award) ? "Unlocked: \(award.name)" : "Locked: \(award.name)")
+                        .accessibilityHint(award.description)
                     }
                 }
             }
