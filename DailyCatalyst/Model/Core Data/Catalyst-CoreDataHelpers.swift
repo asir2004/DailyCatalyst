@@ -53,6 +53,10 @@ extension Catalyst {
         }
     }
     
+    var catalystCreationDateFormatted: String {
+        catalystCreationDate.formatted(date: .numeric, time: .omitted)
+    }
+    
     static var example: Catalyst {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext

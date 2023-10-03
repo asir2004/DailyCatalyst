@@ -70,8 +70,7 @@ struct CatalystRow: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-//                    Text(catalyst.catalystCreationDate.formatted(date: .numeric, time: .omitted))
-                    Text(catalyst.catalystCreationDate, style: .date)
+                    Text(catalyst.catalystCreationDateFormatted)
                         .accessibilityLabel(catalyst.catalystCreationDate.formatted(date: .abbreviated, time: .omitted))
                         .font(.subheadline)
                     
