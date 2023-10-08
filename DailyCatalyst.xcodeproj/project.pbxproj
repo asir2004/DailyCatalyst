@@ -14,6 +14,8 @@
 		EA35AD512A939A1100B6A4D2 /* EmptyImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */; };
 		EA398E502A7B907A00530474 /* CatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E4F2A7B907A00530474 /* CatalystView.swift */; };
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
+		EA49F0F62AD25DDB000133C0 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EA49F0F52AD25DDB000133C0 /* Localizable.stringsdict */; };
+		EA49F0F82AD25E04000133C0 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EA49F0F72AD25E04000133C0 /* Localizable.stringsdict */; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
 		EA7BFFF32ACC0C3100277BB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA7BFFF22ACC0C3100277BB8 /* Localizable.strings */; };
 		EA7BFFF52ACC0C5E00277BB8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA7BFFF42ACC0C5E00277BB8 /* Localizable.strings */; };
@@ -48,6 +50,8 @@
 		EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyImagePicker.swift; sourceTree = "<group>"; };
 		EA398E4F2A7B907A00530474 /* CatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystView.swift; sourceTree = "<group>"; };
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
+		EA49F0F52AD25DDB000133C0 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		EA49F0F72AD25E04000133C0 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIdentityView.swift; sourceTree = "<group>"; };
 		EA7BFFF22ACC0C3100277BB8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EA7BFFF42ACC0C5E00277BB8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				EAB7FCD72A7ABF8D0022F01D /* DailyCatalyst.entitlements */,
 				EAD51EF92A790FFC00A777E7 /* DailyCatalystApp.swift */,
 				EA7BFFF22ACC0C3100277BB8 /* Localizable.strings */,
+				EA49F0F52AD25DDB000133C0 /* Localizable.stringsdict */,
 				EA2C3BCB2AC41F8100D2FBB3 /* Model */,
 				EAFF97E72A7BD1FA00887FCB /* View */,
 				EAD51EFD2A790FFD00A777E7 /* Assets.xcassets */,
@@ -166,6 +171,7 @@
 				EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */,
 				EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */,
 				EA7BFFF42ACC0C5E00277BB8 /* Localizable.strings */,
+				EA49F0F72AD25E04000133C0 /* Localizable.stringsdict */,
 				EADD7CDC2A9068CA00541B76 /* View Components */,
 			);
 			path = View;
@@ -249,9 +255,11 @@
 			files = (
 				EA7BFFF32ACC0C3100277BB8 /* Localizable.strings in Resources */,
 				EA7BFFF52ACC0C5E00277BB8 /* Localizable.strings in Resources */,
+				EA49F0F82AD25E04000133C0 /* Localizable.stringsdict in Resources */,
 				EAD51F012A790FFD00A777E7 /* Preview Assets.xcassets in Resources */,
 				EA7BFFF72ACC0C7B00277BB8 /* Localizable.strings in Resources */,
 				EAD0879A2AC5C7DF00078E81 /* Colors.xcassets in Resources */,
+				EA49F0F62AD25DDB000133C0 /* Localizable.stringsdict in Resources */,
 				EAD087992AC5C7DF00078E81 /* Awards.json in Resources */,
 				EAD51EFE2A790FFD00A777E7 /* Assets.xcassets in Resources */,
 			);
