@@ -150,6 +150,12 @@ struct CatalystView: View {
                     Text(imagePickerIsEditing ? "Done" : "Edit")
                         .monospaced()
                 }
+                
+                Button {
+                    
+                } label: {
+                    Label("Copy catalyst name and description", systemImage: "doc.on.doc")
+                }
             }
         }
     }
