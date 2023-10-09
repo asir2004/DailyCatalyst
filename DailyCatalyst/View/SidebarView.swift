@@ -66,57 +66,8 @@ struct SidebarView: View {
             }
         }
         .navigationTitle("Daily Catalyst")
-        .sheet(isPresented: $showNewCatalyst) {
-            NavigationStack {
-                NewCatalystView()
-            }
-            .presentationDetents([.medium, .large])
-        }
-        .sheet(isPresented: $showNewIdentity) {
-            NavigationStack {
-                NewIdentityView()
-            }
-            .presentationDetents([.medium, .large])
-        }
         .toolbar {
-            Menu {
-                Button {
-                    dataController.createSampleData()
-                } label: {
-                    Label("Add Samples", systemImage: "flame")
-                }
-                Button {
-                    dataController.deleteAll()
-                } label: {
-                    Label("Delete All", systemImage: "trash")
-                }
-            } label: {
-                Label("Test", systemImage: "flask")
-            }
-            
-            Button {
-                showingAwards.toggle()
-            } label: {
-                Label("Show Awards", systemImage: "rosette")
-            }
-            
-            Menu {
-                Button {
-                    showNewCatalyst = true
-                } label: {
-                    Image(systemName: "flask")
-                    Text("Catalyst")
-                }
-                Button {
-                    showNewIdentity = true
-                } label: {
-                    Image(systemName: "person")
-                    Text("Identity")
-                }
-            } label: {
-                Text("Add")
-            }
-            .popoverTip(AddMenuTip(), arrowEdge: .top)
+            SidebarViewToolbar(showingAwards: $showingAwards, showNewCatalyst: $showNewCatalyst, showNewIdentity: $showNewIdentity)
         }
         .alert("Rename Identity", isPresented: $renamingIdentity) {
             Button("OK", action: completeRename)
