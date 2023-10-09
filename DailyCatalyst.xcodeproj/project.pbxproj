@@ -12,6 +12,7 @@
 		EA2C3BCD2AC46D3700D2FBB3 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */; };
 		EA2C3BCF2AC46DAB00D2FBB3 /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */; };
 		EA31488B2AD3DB92005CEF84 /* SidebarViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31488A2AD3DB92005CEF84 /* SidebarViewToolbar.swift */; };
+		EA31488D2AD3E0E9005CEF84 /* CatalystViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31488C2AD3E0E9005CEF84 /* CatalystViewToolbar.swift */; };
 		EA35AD512A939A1100B6A4D2 /* EmptyImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */; };
 		EA398E502A7B907A00530474 /* CatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E4F2A7B907A00530474 /* CatalystView.swift */; };
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
@@ -44,6 +45,7 @@
 		EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
 		EA31488A2AD3DB92005CEF84 /* SidebarViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewToolbar.swift; sourceTree = "<group>"; };
+		EA31488C2AD3E0E9005CEF84 /* CatalystViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystViewToolbar.swift; sourceTree = "<group>"; };
 		EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyImagePicker.swift; sourceTree = "<group>"; };
 		EA398E4F2A7B907A00530474 /* CatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystView.swift; sourceTree = "<group>"; };
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				EAD51EFB2A790FFC00A777E7 /* ContentView.swift */,
 				EAB7FCDB2A7AC07F0022F01D /* DetailView.swift */,
 				EA398E4F2A7B907A00530474 /* CatalystView.swift */,
+				EA31488C2AD3E0E9005CEF84 /* CatalystViewToolbar.swift */,
 				EADE562B2A7E83A300F28948 /* NewCatalystView.swift */,
 				EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */,
 				EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */,
@@ -270,6 +273,7 @@
 				EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */,
 				EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */,
 				EADD7CDE2A9068FD00541B76 /* EmojiCard.swift in Sources */,
+				EA31488D2AD3E0E9005CEF84 /* CatalystViewToolbar.swift in Sources */,
 				EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */,
 				EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */,
 				EA2390112AAD611900F6AB28 /* Navigation+Extension.swift in Sources */,

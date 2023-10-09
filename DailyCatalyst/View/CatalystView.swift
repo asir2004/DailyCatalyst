@@ -12,9 +12,9 @@ struct CatalystView: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var catalyst: Catalyst
     
+    @State private var imagePickerIsEditing = false
     @State private var showImagePicker = false
     @State private var photoItem: PhotosPickerItem?
-    @State private var imagePickerIsEditing = false
     
     var emoji: String {
         switch catalyst.happiness {
@@ -141,20 +141,7 @@ struct CatalystView: View {
             dataController.queueSave()
         }
         .toolbar {
-            Button {
-                UIPasteboard.general.string = catalyst.catalystTitle + " " + catalyst.catalystEffect
-            } label: {
-                Label("Copy catalyst title and effect", systemImage: "doc.on.doc")
-            }
-            
-            Button {
-                withAnimation {
-                    imagePickerIsEditing.toggle()
-                }
-            } label: {
-                Text(imagePickerIsEditing ? "Done" : "Edit")
-                    .monospaced()
-            }
+            CatalystViewToolbar(catalyst: catalyst, imagePickerIsEditing: $imagePickerIsEditing)
         }
     }
 }
