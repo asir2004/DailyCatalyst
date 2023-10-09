@@ -141,21 +141,19 @@ struct CatalystView: View {
             dataController.queueSave()
         }
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    withAnimation {
-                        imagePickerIsEditing.toggle()
-                    }
-                } label: {
-                    Text(imagePickerIsEditing ? "Done" : "Edit")
-                        .monospaced()
+            Button {
+                UIPasteboard.general.string = catalyst.catalystTitle + " " + catalyst.catalystEffect
+            } label: {
+                Label("Copy catalyst title and effect", systemImage: "doc.on.doc")
+            }
+            
+            Button {
+                withAnimation {
+                    imagePickerIsEditing.toggle()
                 }
-                
-                Button {
-                    
-                } label: {
-                    Label("Copy catalyst name and description", systemImage: "doc.on.doc")
-                }
+            } label: {
+                Text(imagePickerIsEditing ? "Done" : "Edit")
+                    .monospaced()
             }
         }
     }

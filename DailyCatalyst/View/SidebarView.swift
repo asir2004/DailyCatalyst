@@ -12,14 +12,9 @@ struct SidebarView: View {
     @EnvironmentObject var dataController: DataController
     let smartFilters: [Filter] = [.all, .recent]
     
-    @State private var showNewCatalyst = false
-    @State private var showNewIdentity = false
-    
     @State private var identityToRename: Identity?
     @State private var renamingIdentity = false
     @State private var identityName = ""
-    
-    @State private var showingAwards = false
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var identities: FetchedResults<Identity>
     
@@ -66,15 +61,12 @@ struct SidebarView: View {
             }
         }
         .navigationTitle("Daily Catalyst")
-        .toolbar {
-            SidebarViewToolbar(showingAwards: $showingAwards, showNewCatalyst: $showNewCatalyst, showNewIdentity: $showNewIdentity)
-        }
+        .toolbar(content: SidebarViewToolbar.init)
         .alert("Rename Identity", isPresented: $renamingIdentity) {
             Button("OK", action: completeRename)
             Button("Cancel", role: .cancel) { }
             TextField("Rename", text: $identityName)
         }
-        .sheet(isPresented: $showingAwards, content: AwardsView.init)
     }
     
     func rename(_ filter: Filter) {

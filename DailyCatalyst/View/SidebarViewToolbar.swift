@@ -9,9 +9,9 @@ import SwiftUI
 
 struct SidebarViewToolbar: View {
     @EnvironmentObject var dataController: DataController
-    @Binding var showingAwards: Bool
-    @Binding var showNewCatalyst: Bool
-    @Binding var showNewIdentity: Bool
+    @State private var showingAwards = false
+    @State private var showNewCatalyst = false
+    @State private var showNewIdentity = false
     
     var body: some View {
         Menu {
@@ -68,5 +68,5 @@ struct SidebarViewToolbar: View {
 }
 
 #Preview {
-    SidebarViewToolbar(showingAwards: .constant(true), showNewCatalyst: .constant(true), showNewIdentity: .constant(true))
+    SidebarViewToolbar()
 }
