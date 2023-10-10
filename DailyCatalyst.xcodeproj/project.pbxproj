@@ -16,6 +16,7 @@
 		EA35AD512A939A1100B6A4D2 /* EmptyImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */; };
 		EA398E502A7B907A00530474 /* CatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E4F2A7B907A00530474 /* CatalystView.swift */; };
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
+		EA5F7D962AD577B2003982D2 /* ContentViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
 		EAB293872AC9E9EF006355B1 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = EAB293862AC9E9EF006355B1 /* SymbolPicker */; };
@@ -49,6 +50,7 @@
 		EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyImagePicker.swift; sourceTree = "<group>"; };
 		EA398E4F2A7B907A00530474 /* CatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystView.swift; sourceTree = "<group>"; };
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
+		EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewToolbar.swift; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIdentityView.swift; sourceTree = "<group>"; };
 		EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedHStackView.swift; sourceTree = "<group>"; };
 		EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleIdentity.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				EAB7FCD92A7AC0780022F01D /* SidebarView.swift */,
 				EA31488A2AD3DB92005CEF84 /* SidebarViewToolbar.swift */,
 				EAD51EFB2A790FFC00A777E7 /* ContentView.swift */,
+				EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */,
 				EAB7FCDB2A7AC07F0022F01D /* DetailView.swift */,
 				EA398E4F2A7B907A00530474 /* CatalystView.swift */,
 				EA31488C2AD3E0E9005CEF84 /* CatalystViewToolbar.swift */,
@@ -276,6 +279,7 @@
 				EA31488D2AD3E0E9005CEF84 /* CatalystViewToolbar.swift in Sources */,
 				EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */,
 				EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */,
+				EA5F7D962AD577B2003982D2 /* ContentViewToolbar.swift in Sources */,
 				EA2390112AAD611900F6AB28 /* Navigation+Extension.swift in Sources */,
 				EAB7FCDA2A7AC0780022F01D /* SidebarView.swift in Sources */,
 				EA31488B2AD3DB92005CEF84 /* SidebarViewToolbar.swift in Sources */,
