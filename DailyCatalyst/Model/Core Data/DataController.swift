@@ -50,8 +50,17 @@ class DataController: ObservableObject {
         container.viewContext.automaticallyMergesChangesFromParent = true
         container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         
-        container.persistentStoreDescriptions.first?.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
-        NotificationCenter.default.addObserver(forName: .NSPersistentStoreRemoteChange, object: container.persistentStoreCoordinator, queue: .main, using: remoteStoreChanged)
+        container.persistentStoreDescriptions.first?.setOption(
+            true as NSNumber,
+            forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey
+        )
+        
+        NotificationCenter.default.addObserver(
+            forName: .NSPersistentStoreRemoteChange,
+            object: container.persistentStoreCoordinator,
+            queue: .main,
+            using: remoteStoreChanged
+        )
         
         container.loadPersistentStores { storeDescription, error in
             if let error {
@@ -67,14 +76,14 @@ class DataController: ObservableObject {
     func createSampleData() {
         let viewContext = container.viewContext
         
-        for i in 1...5 {
+        for identityCount in 1...5 {
             let identity = Identity(context: viewContext)
             identity.id = UUID()
-            identity.name = "Identity \(i)"
+            identity.name = "Identity \(identityCount)"
             
-            for j in 1...10 {
+            for catalystCount in 1...10 {
                 let catalyst = Catalyst(context: viewContext)
-                catalyst.title = "Catalyst \(i)-\(j)"
+                catalyst.title = "Catalyst \(identityCount)-\(catalystCount)"
                 catalyst.effect = "Description goes here."
                 catalyst.creationDate = .now
                 catalyst.happeningDate = .now

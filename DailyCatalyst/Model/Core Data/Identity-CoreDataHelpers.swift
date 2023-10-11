@@ -11,20 +11,20 @@ extension Identity {
     var identityID: UUID {
         id ?? UUID()
     }
-    
+
     var identityName: String {
         name ?? ""
     }
-    
+
     var identityIcon: String {
         icon ?? "person"
     }
-    
+
     var identityActiveCatalysts: [Catalyst] {
         let result = catalysts?.allObjects as? [Catalyst] ?? []
         return result.filter { $0.archived == false }
     }
-    
+
     static var example: Identity {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext

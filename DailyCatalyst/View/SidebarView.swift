@@ -36,28 +36,8 @@ struct SidebarView: View {
             
             Section("Identities") {
                 ForEach(identityFilters) { filter in
-                    NavigationLink(value: filter) {
-                        Label(filter.name, systemImage: filter.icon)
-                            .badge(filter.identity?.identityActiveCatalysts.count ?? 0)
-                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                                Button(role: .destructive) {
-                                    delete(filter)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
-                                
-                                Button {
-                                    rename(filter)
-                                } label: {
-                                    Label("Rename", systemImage: "pencil")
-                                }
-                            }
-                            .accessibilityElement()
-                            .accessibilityLabel(filter.name)
-                            .accessibilityHint("^[\(filter.activeCatalystsCount) Catalyst](inflect: true)")
-                    }
+                    UserFilterRow(filter: filter, rename: rename, delete: delete)
                 }
-//                .onDelete(perform: delete)
             }
         }
         .navigationTitle("Daily Catalyst")
