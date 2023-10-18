@@ -18,7 +18,7 @@ struct CatalystRowTransparent: View {
                 
                 HStack {
                     Spacer()
-                    
+                        
                     if (catalyst.image != nil) {
                         if let image = UIImage(data: catalyst.image!) {
                             Image(uiImage: image)
@@ -35,6 +35,7 @@ struct CatalystRowTransparent: View {
                                     startRadius: 0,
                                     endRadius: 150
                                 ))
+                                .offset(x: 20)
                         }
                     } else {
                         Text(emojiFromHappiness(happiness: Int(catalyst.happiness)))
@@ -47,7 +48,7 @@ struct CatalystRowTransparent: View {
                             ]), startPoint: .trailing, endPoint: .leading))
                     }
                 }
-                
+                              
                 VStack {
                     HStack {
                         VStack(alignment: .leading) {
