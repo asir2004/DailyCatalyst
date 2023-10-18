@@ -13,12 +13,12 @@
 		EA2C3BCF2AC46DAB00D2FBB3 /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */; };
 		EA31488B2AD3DB92005CEF84 /* SidebarViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31488A2AD3DB92005CEF84 /* SidebarViewToolbar.swift */; };
 		EA31488D2AD3E0E9005CEF84 /* CatalystViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31488C2AD3E0E9005CEF84 /* CatalystViewToolbar.swift */; };
-		EA35AD512A939A1100B6A4D2 /* EmptyImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */; };
+		EA35AD512A939A1100B6A4D2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */; };
 		EA398E502A7B907A00530474 /* CatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E4F2A7B907A00530474 /* CatalystView.swift */; };
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
+		EA3A7A772ADFB396006A93BC /* CatalystRowTransparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */; };
+		EA3A7A792ADFB8CD006A93BC /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A7A782ADFB8CD006A93BC /* Emoji.swift */; };
 		EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */; };
-		EA44E6352AD687CA002B36B4 /* SwiftLintFramework in Frameworks */ = {isa = PBXBuildFile; productRef = EA44E6342AD687CA002B36B4 /* SwiftLintFramework */; };
-		EA44E6372AD687CA002B36B4 /* swiftlint in Frameworks */ = {isa = PBXBuildFile; productRef = EA44E6362AD687CA002B36B4 /* swiftlint */; };
 		EA5F7D962AD577B2003982D2 /* ContentViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
@@ -50,9 +50,11 @@
 		EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
 		EA31488A2AD3DB92005CEF84 /* SidebarViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewToolbar.swift; sourceTree = "<group>"; };
 		EA31488C2AD3E0E9005CEF84 /* CatalystViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystViewToolbar.swift; sourceTree = "<group>"; };
-		EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyImagePicker.swift; sourceTree = "<group>"; };
+		EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EA398E4F2A7B907A00530474 /* CatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystView.swift; sourceTree = "<group>"; };
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
+		EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystRowTransparent.swift; sourceTree = "<group>"; };
+		EA3A7A782ADFB8CD006A93BC /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilterRow.swift; sourceTree = "<group>"; };
 		EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewToolbar.swift; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIdentityView.swift; sourceTree = "<group>"; };
@@ -85,8 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA44E6352AD687CA002B36B4 /* SwiftLintFramework in Frameworks */,
-				EA44E6372AD687CA002B36B4 /* swiftlint in Frameworks */,
 				EAB293872AC9E9EF006355B1 /* SymbolPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,11 +147,13 @@
 		EADD7CDC2A9068CA00541B76 /* View Components */ = {
 			isa = PBXGroup;
 			children = (
+				EA3A7A782ADFB8CD006A93BC /* Emoji.swift */,
 				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */,
 				EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */,
-				EA35AD502A939A1100B6A4D2 /* EmptyImagePicker.swift */,
+				EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */,
 				EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */,
+				EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */,
 				EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */,
 				EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */,
 			);
@@ -205,13 +207,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				EA44E6392AD687D2002B36B4 /* PBXTargetDependency */,
 			);
 			name = DailyCatalyst;
 			packageProductDependencies = (
 				EAB293862AC9E9EF006355B1 /* SymbolPicker */,
-				EA44E6342AD687CA002B36B4 /* SwiftLintFramework */,
-				EA44E6362AD687CA002B36B4 /* swiftlint */,
 			);
 			productName = MarkPortfolio;
 			productReference = EAD51EF62A790FFC00A777E7 /* DailyCatalyst.app */;
@@ -243,7 +242,6 @@
 			mainGroup = EAD51EED2A790FFC00A777E7;
 			packageReferences = (
 				EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Downloads/SymbolPicker-main" */,
-				EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = EAD51EF72A790FFC00A777E7 /* Products */;
 			projectDirPath = "";
@@ -299,7 +297,9 @@
 				EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */,
 				EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */,
 				EAD087962AC5C49100078E81 /* AnimatedAwardView.swift in Sources */,
-				EA35AD512A939A1100B6A4D2 /* EmptyImagePicker.swift in Sources */,
+				EA3A7A792ADFB8CD006A93BC /* Emoji.swift in Sources */,
+				EA3A7A772ADFB396006A93BC /* CatalystRowTransparent.swift in Sources */,
+				EA35AD512A939A1100B6A4D2 /* ImagePicker.swift in Sources */,
 				EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */,
 				EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */,
 				EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */,
@@ -324,13 +324,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EA44E6392AD687D2002B36B4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = EA44E6382AD687D2002B36B4 /* SwiftLintPlugin */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EAD51F022A790FFD00A777E7 /* Debug */ = {
@@ -553,33 +546,7 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/SwiftLint";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.53.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		EA44E6342AD687CA002B36B4 /* SwiftLintFramework */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = SwiftLintFramework;
-		};
-		EA44E6362AD687CA002B36B4 /* swiftlint */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = swiftlint;
-		};
-		EA44E6382AD687D2002B36B4 /* SwiftLintPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintPlugin";
-		};
 		EAB293862AC9E9EF006355B1 /* SymbolPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SymbolPicker;

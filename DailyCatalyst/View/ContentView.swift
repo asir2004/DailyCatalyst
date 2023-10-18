@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         List(selection: $dataController.selectedCatalyst) {
             ForEach(dataController.catalystsForSelectedFilter()) { catalyst in
-                CatalystRow(catalyst: catalyst)
+                CatalystRowTransparent(catalyst: catalyst)
                     .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
                         Button {
                             catalyst.archived.toggle()
@@ -24,6 +24,9 @@ struct ContentView: View {
                     })
             }
             .onDelete(perform: delete)
+            .listStyle(.plain)
+            .listRowSeparator(.hidden)
+            .listRowSpacing(0)
         }
         .navigationTitle(dataController.selectedFilter?.name ?? "Catalysts")
         .toolbar(content: ContentViewToolbar.init)

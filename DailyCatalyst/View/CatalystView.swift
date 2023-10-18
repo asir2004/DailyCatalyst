@@ -29,11 +29,11 @@ struct CatalystView: View {
 
     var body: some View {
         VStack(spacing: nil) {
-            EmptyImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: imagePickerIsEditing) { image in
+            ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: imagePickerIsEditing) { image in
                 print(image)
             }
             .padding(.horizontal)
-
+            
             ScrollView {
                 VStack {
                     VStack(alignment: .leading) {
@@ -44,52 +44,52 @@ struct CatalystView: View {
                                     .frame(width: 30)
                                     .opacity(catalyst.happiness <= 1 ? 0 : 1)
                                     .blur(radius: CGFloat(catalyst.happiness == 1 ? 0 : catalyst.happiness * 5))
-
+                                
                                 Text("\(emoji)")
                                     .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
                                     .font(.title)
                             }
                             .zIndex(1)
-
+                            
                             VStack(alignment: .leading, spacing: 0) {
                                 Text("Title")
                                     .font(.subheadline)
                                     .foregroundStyle(.secondary)
-
+                                
                                 TextEditor(text: $catalyst.catalystTitle)
                                     .font(.title)
                                     .lineLimit(1...2)
                                     .frame(height: 100)
                             }
                         }
-
+                        
                         Text("**Modification Date:** \(catalyst.catalystModificationDate.formatted(date: .long, time: .shortened))")
                             .foregroundStyle(.secondary)
-
+                        
                         Text("**Status:** \(catalyst.catalystStatus)")
                             .foregroundStyle(.secondary)
                     }
                     .padding(.horizontal)
-
+                    
                     Section {
                         Picker("Happiness", selection: $catalyst.happiness) {
                             Text("😐")
                                 .tag(Int16(1))
-
+                            
                             Text("🙂")
                                 .tag(Int16(2))
-
+                            
                             Text("😀")
                                 .tag(Int16(3))
-
+                            
                             Text("😁")
                                 .tag(Int16(4))
-
+                            
                             Text("😆")
                                 .tag(Int16(5))
                         }
                         .pickerStyle(.segmented)
-
+                        
                         Menu {
                             ForEach(catalyst.catalystIdentities, id: \.self) { identity in
                                 Button {
@@ -98,12 +98,12 @@ struct CatalystView: View {
                                     Label(identity.identityName, systemImage: "checkmark")
                                 }
                             }
-
+                            
                             let otherIdentities = dataController.missingIdentities(from: catalyst)
-
+                            
                             if otherIdentities.isEmpty == false {
                                 Divider()
-
+                                
                                 Section("Add Identities") {
                                     ForEach(otherIdentities) { identity in
                                         Button(identity.identityName) {
@@ -120,26 +120,27 @@ struct CatalystView: View {
                         }
                     }
                     .padding(.horizontal)
-
+                    
                     Section {
                         VStack(alignment: .leading) {
                             Text("Basic Info")
                                 .font(.title2)
                                 .foregroundStyle(.secondary)
-
+                            
                             TextField("Description", text: $catalyst.catalystEffect, prompt: Text("Enter the effect here"), axis: .vertical)
                         }
                     }
                     .padding(.horizontal)
+                }
             }
-        }
-        .photosPicker(isPresented: $showImagePicker, selection: $photoItem)
-        .disabled(catalyst.isDeleted)
-        .onReceive(catalyst.objectWillChange) { _ in
-            dataController.queueSave()
-        }
-        .toolbar {
-            CatalystViewToolbar(catalyst: catalyst, imagePickerIsEditing: $imagePickerIsEditing)
+            .photosPicker(isPresented: $showImagePicker, selection: $photoItem)
+            .disabled(catalyst.isDeleted)
+            .onReceive(catalyst.objectWillChange) { _ in
+                dataController.queueSave()
+            }
+            .toolbar {
+                CatalystViewToolbar(catalyst: catalyst, imagePickerIsEditing: $imagePickerIsEditing)
+            }
         }
     }
 }

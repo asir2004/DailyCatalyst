@@ -85,8 +85,6 @@ struct CatalystRow: View {
     }
 }
 
-struct CatalystRow_Previews: PreviewProvider {
-    static var previews: some View {
-        CatalystRow(catalyst: .example)
-    }
+#Preview {
+    CatalystRow(catalyst: .example)
 }

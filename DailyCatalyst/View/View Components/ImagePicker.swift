@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 import CoreData
 
-struct EmptyImagePicker: View {
+struct ImagePicker: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var catalyst: Catalyst
     
@@ -31,6 +31,7 @@ struct EmptyImagePicker: View {
     var body: some View {
         GeometryReader {
             let size = $0.size
+            let scaledSize = CGSize(width: size.width * 1.25, height: size.height * 1.25)
             
             VStack(spacing: 4) {
                 Image(systemName: systemImage)
@@ -75,7 +76,7 @@ struct EmptyImagePicker: View {
             .dropDestination(for: Data.self, action: { items, location in
                 if let firstItem = items.first, let droppedImage = UIImage(data: firstItem) {
                     /// Sending the Image using the callback
-                    generateImageThumbnail(droppedImage, size)
+                    generateImageThumbnail(droppedImage, scaledSize)
                     onImageChange(droppedImage)
                     return true
                 }
@@ -94,7 +95,7 @@ struct EmptyImagePicker: View {
                     contentView
                         .onChange(of: photoItem) { oldValue, newValue in
                             if let newValue {
-                                extractImage(newValue, size)
+                                extractImage(newValue, scaledSize)
                             }
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
@@ -108,7 +109,7 @@ struct EmptyImagePicker: View {
                     contentView
                         .onChange(of: photoItem) { newValue in
                             if let newValue {
-                                extractImage(newValue, size)
+                                extractImage(newValue, scaledSize)
                             }
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
@@ -134,7 +135,7 @@ struct EmptyImagePicker: View {
             .onAppear() {
                 if (catalyst.image != nil) {
                     if let image = UIImage(data: catalyst.image!) {
-                        generateImageThumbnail(image, size)
+                        generateImageThumbnail(image, scaledSize)
                         onImageChange(image)
                     }
                 }
@@ -179,7 +180,7 @@ extension View {
 }
 
 #Preview {
-    EmptyImagePicker(catalyst: .example, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.up", tint: .blue, isEditing: true) { image in
+    ImagePicker(catalyst: .example, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.up", tint: .blue, isEditing: true) { image in
         print(image)
     }
 }
