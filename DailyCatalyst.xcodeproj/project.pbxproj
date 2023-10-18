@@ -17,6 +17,8 @@
 		EA398E502A7B907A00530474 /* CatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E4F2A7B907A00530474 /* CatalystView.swift */; };
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
 		EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */; };
+		EA44E6352AD687CA002B36B4 /* SwiftLintFramework in Frameworks */ = {isa = PBXBuildFile; productRef = EA44E6342AD687CA002B36B4 /* SwiftLintFramework */; };
+		EA44E6372AD687CA002B36B4 /* swiftlint in Frameworks */ = {isa = PBXBuildFile; productRef = EA44E6362AD687CA002B36B4 /* swiftlint */; };
 		EA5F7D962AD577B2003982D2 /* ContentViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
@@ -83,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA44E6352AD687CA002B36B4 /* SwiftLintFramework in Frameworks */,
+				EA44E6372AD687CA002B36B4 /* swiftlint in Frameworks */,
 				EAB293872AC9E9EF006355B1 /* SymbolPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,14 +200,18 @@
 				EAD51EF22A790FFC00A777E7 /* Sources */,
 				EAD51EF32A790FFC00A777E7 /* Frameworks */,
 				EAD51EF42A790FFC00A777E7 /* Resources */,
+				EA44E6322AD67781002B36B4 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EA44E6392AD687D2002B36B4 /* PBXTargetDependency */,
 			);
 			name = DailyCatalyst;
 			packageProductDependencies = (
 				EAB293862AC9E9EF006355B1 /* SymbolPicker */,
+				EA44E6342AD687CA002B36B4 /* SwiftLintFramework */,
+				EA44E6362AD687CA002B36B4 /* swiftlint */,
 			);
 			productName = MarkPortfolio;
 			productReference = EAD51EF62A790FFC00A777E7 /* DailyCatalyst.app */;
@@ -235,6 +243,7 @@
 			mainGroup = EAD51EED2A790FFC00A777E7;
 			packageReferences = (
 				EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Downloads/SymbolPicker-main" */,
+				EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = EAD51EF72A790FFC00A777E7 /* Products */;
 			projectDirPath = "";
@@ -258,6 +267,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EA44E6322AD67781002B36B4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint not installed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAD51EF22A790FFC00A777E7 /* Sources */ = {
@@ -295,6 +324,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EA44E6392AD687D2002B36B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = EA44E6382AD687D2002B36B4 /* SwiftLintPlugin */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EAD51F022A790FFD00A777E7 /* Debug */ = {
@@ -517,7 +553,33 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.53.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		EA44E6342AD687CA002B36B4 /* SwiftLintFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = SwiftLintFramework;
+		};
+		EA44E6362AD687CA002B36B4 /* swiftlint */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = swiftlint;
+		};
+		EA44E6382AD687D2002B36B4 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA44E6332AD687CA002B36B4 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
 		EAB293862AC9E9EF006355B1 /* SymbolPicker */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SymbolPicker;

@@ -10,8 +10,8 @@ import SwiftUI
 struct UserFilterRow: View {
     @EnvironmentObject var dataController: DataController
     var filter: Filter
-    var rename: (delete) -> Void
-    var delete: (delete) -> Void
+    var rename: (Filter) -> Void
+    var delete: (Filter) -> Void
     
     var body: some View {
         NavigationLink(value: filter) {
