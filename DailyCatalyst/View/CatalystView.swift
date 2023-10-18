@@ -100,10 +100,14 @@ struct CatalystView: View {
                             }
                         }
                     } label: {
-                        Text(catalyst.catalystIdentitiesList)
-                            .multilineTextAlignment(.leading)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .animation(nil, value: catalyst.catalystIdentitiesList)
+                        HStack {
+                            Image(systemName: catalyst.identities?.count == 0 ? "person" : "person.fill")
+                            
+                            Text(catalyst.catalystIdentitiesList)
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .animation(nil, value: catalyst.catalystIdentitiesList)
+                        }
                     }
                     
                     TextField("Description", text: $catalyst.catalystEffect, prompt: Text("Enter the effect here"), axis: .vertical)
