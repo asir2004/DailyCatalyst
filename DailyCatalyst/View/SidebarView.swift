@@ -91,9 +91,7 @@ struct AddMenuTip: Tip {
     }
 }
 
-struct SidebarView_Previews: PreviewProvider {
-    static var previews: some View {
-        SidebarView()
-            .environmentObject(DataController.preview)
-    }
+#Preview {
+    SidebarView()
+        .environmentObject(DataController.preview)
 }

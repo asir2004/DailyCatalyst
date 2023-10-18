@@ -15,122 +15,98 @@ struct CatalystView: View {
     @State private var imagePickerIsEditing = false
     @State private var showImagePicker = false
     @State private var photoItem: PhotosPickerItem?
-    
-    var emoji: String {
-        switch catalyst.happiness {
-        case 1: return "😐"
-        case 2: return "🙂"
-        case 3: return "😀"
-        case 4: return "😁"
-        case 5: return "😆"
-        default: return "🥲"
-        }
-    }
 
     var body: some View {
-        VStack(spacing: nil) {
-            ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: imagePickerIsEditing) { image in
-                print(image)
-            }
-            .padding(.horizontal)
-            
-            ScrollView {
-                VStack {
-                    VStack(alignment: .leading) {
-                        HStack(alignment: .center) {
-                            ZStack {
-                                Circle()
-                                    .foregroundStyle(.yellow)
-                                    .frame(width: 30)
-                                    .opacity(catalyst.happiness <= 1 ? 0 : 1)
-                                    .blur(radius: CGFloat(catalyst.happiness == 1 ? 0 : catalyst.happiness * 5))
-                                
-                                Text("\(emoji)")
-                                    .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
-                                    .font(.title)
-                            }
-                            .zIndex(1)
+        NavigationStack {
+            List {
+                Section("Image") {
+                    ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: imagePickerIsEditing) { image in
+                        print(image)
+                    }
+                    .frame(height: 300)
+                }
+                
+                Section {
+                    HStack(alignment: .center) {
+                        ZStack {
+                            Circle()
+                                .foregroundStyle(.yellow)
+                                .frame(width: 30)
+                                .opacity(catalyst.happiness <= 1 ? 0 : 1)
+                                .blur(radius: CGFloat(catalyst.happiness == 1 ? 0 : catalyst.happiness * 5))
                             
-                            VStack(alignment: .leading, spacing: 0) {
-                                Text("Title")
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                                
-                                TextEditor(text: $catalyst.catalystTitle)
-                                    .font(.title)
-                                    .lineLimit(1...2)
-                                    .frame(height: 100)
-                            }
+                            Text("\(emojiFromHappiness(happiness: Int(catalyst.happiness)))")
+                                .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
+                                .font(.title)
                         }
+                        .zIndex(1)
                         
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("Title")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                            
+                            TextField("Title Here", text: $catalyst.catalystTitle)
+                                .font(.title)
+                        }
+                    }
+                    
+                    VStack(alignment: .leading) {
                         Text("**Modification Date:** \(catalyst.catalystModificationDate.formatted(date: .long, time: .shortened))")
                             .foregroundStyle(.secondary)
                         
                         Text("**Status:** \(catalyst.catalystStatus)")
                             .foregroundStyle(.secondary)
                     }
-                    .padding(.horizontal)
                     
-                    Section {
-                        Picker("Happiness", selection: $catalyst.happiness) {
-                            Text("😐")
-                                .tag(Int16(1))
-                            
-                            Text("🙂")
-                                .tag(Int16(2))
-                            
-                            Text("😀")
-                                .tag(Int16(3))
-                            
-                            Text("😁")
-                                .tag(Int16(4))
-                            
-                            Text("😆")
-                                .tag(Int16(5))
-                        }
-                        .pickerStyle(.segmented)
+                    Picker("Happiness", selection: $catalyst.happiness) {
+                        Text("😐")
+                            .tag(Int16(1))
                         
-                        Menu {
-                            ForEach(catalyst.catalystIdentities, id: \.self) { identity in
-                                Button {
-                                    catalyst.removeFromIdentities(identity)
-                                } label: {
-                                    Label(identity.identityName, systemImage: "checkmark")
-                                }
+                        Text("🙂")
+                            .tag(Int16(2))
+                        
+                        Text("😀")
+                            .tag(Int16(3))
+                        
+                        Text("😁")
+                            .tag(Int16(4))
+                        
+                        Text("😆")
+                            .tag(Int16(5))
+                    }
+                    .pickerStyle(.segmented)
+                    
+                    Menu {
+                        ForEach(catalyst.catalystIdentities, id: \.self) { identity in
+                            Button {
+                                catalyst.removeFromIdentities(identity)
+                            } label: {
+                                Label(identity.identityName, systemImage: "checkmark")
                             }
+                        }
+                        
+                        let otherIdentities = dataController.missingIdentities(from: catalyst)
+                        
+                        if otherIdentities.isEmpty == false {
+                            Divider()
                             
-                            let otherIdentities = dataController.missingIdentities(from: catalyst)
-                            
-                            if otherIdentities.isEmpty == false {
-                                Divider()
-                                
-                                Section("Add Identities") {
-                                    ForEach(otherIdentities) { identity in
-                                        Button(identity.identityName) {
-                                            catalyst.addToIdentities(identity)
-                                        }
+                            Section("Add Identities") {
+                                ForEach(otherIdentities) { identity in
+                                    Button(identity.identityName) {
+                                        catalyst.addToIdentities(identity)
                                     }
                                 }
                             }
-                        } label: {
-                            Text(catalyst.catalystIdentitiesList)
-                                .multilineTextAlignment(.leading)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .animation(nil, value: catalyst.catalystIdentitiesList)
                         }
+                    } label: {
+                        Text(catalyst.catalystIdentitiesList)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .animation(nil, value: catalyst.catalystIdentitiesList)
                     }
-                    .padding(.horizontal)
                     
-                    Section {
-                        VStack(alignment: .leading) {
-                            Text("Basic Info")
-                                .font(.title2)
-                                .foregroundStyle(.secondary)
-                            
-                            TextField("Description", text: $catalyst.catalystEffect, prompt: Text("Enter the effect here"), axis: .vertical)
-                        }
-                    }
-                    .padding(.horizontal)
+                    TextField("Description", text: $catalyst.catalystEffect, prompt: Text("Enter the effect here"), axis: .vertical)
                 }
             }
             .photosPicker(isPresented: $showImagePicker, selection: $photoItem)
@@ -145,8 +121,6 @@ struct CatalystView: View {
     }
 }
 
-struct CatalystView_Previews: PreviewProvider {
-    static var previews: some View {
-        CatalystView(catalyst: .example)
-    }
+#Preview {
+    CatalystView(catalyst: .example)
 }

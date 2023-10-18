@@ -22,10 +22,19 @@ struct ContentView: View {
                                 .tint(catalyst.archived ? .blue : .red)
                         }
                     })
+                    .scrollTransition(axis: .vertical) { content, phase in
+                        content
+                            .scaleEffect(
+                                x: phase.isIdentity ? 1.0 : 0.8,
+                                y: phase.isIdentity ? 1.0 : 0.8
+                            )
+                            .blur(radius: phase.isIdentity ? 0 : 10)
+                            .opacity(phase.isIdentity ? 1.0 : 0)
+                            .offset(y: phase.isIdentity ? 0 : 50)
+                    }
             }
             .onDelete(perform: delete)
             .scrollTargetLayout()
-            .contentMargins(.vertical, 40)
             .safeAreaPadding()
         }
         .scrollTargetBehavior(.viewAligned)
@@ -43,8 +52,6 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }

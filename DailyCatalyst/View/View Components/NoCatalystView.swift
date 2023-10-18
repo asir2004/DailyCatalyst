@@ -30,8 +30,6 @@ struct NoCatalystView: View {
     }
 }
 
-struct NoCatalystView_Previews: PreviewProvider {
-    static var previews: some View {
-        NoCatalystView()
-    }
+#Preview {
+    NoCatalystView()
 }

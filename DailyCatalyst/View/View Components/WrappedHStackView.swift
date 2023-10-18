@@ -54,24 +54,23 @@ struct TagsView: View {
     
     var body: some View {
         ScrollView {
-        VStack(alignment: .leading) {
-            
-            ForEach(groupedItems, id: \.self) { subItems in
-                HStack {
-                    ForEach(subItems, id: \.self) { word in
-                        Text(word)
-                            .fixedSize()
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+            VStack(alignment: .leading) {
+                
+                ForEach(groupedItems, id: \.self) { subItems in
+                    HStack {
+                        ForEach(subItems, id: \.self) { word in
+                            Text(word)
+                                .fixedSize()
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                        }
                     }
                 }
+                
+                Spacer()
             }
-            
-            Spacer()
         }
     }
-    }
-    
 }
