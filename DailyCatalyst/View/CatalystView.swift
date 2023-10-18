@@ -15,6 +15,8 @@ struct CatalystView: View {
     @State private var imagePickerIsEditing = false
     @State private var showImagePicker = false
     @State private var photoItem: PhotosPickerItem?
+    
+    @FocusState var isInputActive: Bool
 
     var body: some View {
         NavigationStack {
@@ -102,6 +104,7 @@ struct CatalystView: View {
                     } label: {
                         HStack {
                             Image(systemName: catalyst.identities?.count == 0 ? "person" : "person.fill")
+                                .symbolEffect(.bounce.down, value: catalyst.identities?.count)
                             
                             Text(catalyst.catalystIdentitiesList)
                                 .multilineTextAlignment(.leading)
@@ -111,6 +114,7 @@ struct CatalystView: View {
                     }
                     
                     TextField("Description", text: $catalyst.catalystEffect, prompt: Text("Enter the effect here"), axis: .vertical)
+                        .textFieldStyle(.roundedBorder)
                 }
             }
             .photosPicker(isPresented: $showImagePicker, selection: $photoItem)
@@ -121,6 +125,20 @@ struct CatalystView: View {
             .toolbar {
                 CatalystViewToolbar(catalyst: catalyst, imagePickerIsEditing: $imagePickerIsEditing)
             }
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    HStack {
+                        Spacer()
+                        
+                        Button {
+                            isInputActive = false
+                        } label: {
+                            Text("Done")
+                        }
+                    }
+                }
+            }
+            .focused($isInputActive)
         }
     }
 }
