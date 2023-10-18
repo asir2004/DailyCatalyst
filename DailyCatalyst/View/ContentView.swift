@@ -11,7 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var dataController: DataController
     
     var body: some View {
-        List(selection: $dataController.selectedCatalyst) {
+        ScrollView(.vertical) {
             ForEach(dataController.catalystsForSelectedFilter()) { catalyst in
                 CatalystRowTransparent(catalyst: catalyst)
                     .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
@@ -24,10 +24,11 @@ struct ContentView: View {
                     })
             }
             .onDelete(perform: delete)
-            .listStyle(.plain)
-            .listRowSeparator(.hidden)
-            .listRowSpacing(0)
+            .scrollTargetLayout()
+            .contentMargins(.vertical, 40)
+            .safeAreaPadding()
         }
+        .scrollTargetBehavior(.viewAligned)
         .navigationTitle(dataController.selectedFilter?.name ?? "Catalysts")
         .toolbar(content: ContentViewToolbar.init)
     }

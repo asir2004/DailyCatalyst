@@ -11,17 +11,6 @@ struct CatalystRow: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var catalyst: Catalyst
     
-    var emoji: String {
-        switch catalyst.happiness {
-        case 1: return "😐"
-        case 2: return "🙂"
-        case 3: return "😀"
-        case 4: return "😁"
-        case 5: return "😆"
-        default: return "🥲"
-        }
-    }
-    
     var body: some View {
         NavigationLink(value: catalyst) {
             HStack {
@@ -44,13 +33,13 @@ struct CatalystRow: View {
                                 .clipShape(Circle())
                                 .frame(width: 30, height: 30)
                         } else {
-                            Text("\(emoji)")
+                            Text("\(emojiFromHappiness(happiness: Int(catalyst.happiness)))")
                                 .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
                                 .font(.title)
                                 .frame(width: 30, height: 30)
                         }
                     } else {
-                        Text("\(emoji)")
+                        Text("\(emojiFromHappiness(happiness: Int(catalyst.happiness)))")
                             .foregroundStyle(catalyst.catalystStatus == "archived" ? .primary : .secondary)
                             .font(.title)
                             .frame(width: 30, height: 30)
