@@ -13,7 +13,6 @@ struct SingleIdentity: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
-                .tint(.blue)
                 .foregroundStyle(.thinMaterial)
             Text(identity.identityName)
         }

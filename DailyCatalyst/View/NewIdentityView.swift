@@ -48,9 +48,6 @@ struct NewIdentityView: View {
                         .disabled(newIdentityName.isEmpty)
                     }
                 }
-//                Section {
-//                    TagsView(entities: dataController.allIdentities(), items: items)
-//                }
             }
             
 //            GeometryReader { geo in

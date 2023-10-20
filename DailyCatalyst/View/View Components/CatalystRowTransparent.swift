@@ -18,7 +18,7 @@ struct CatalystRowTransparent: View {
                 
                 HStack {
                     Spacer()
-                        
+                    
                     if (catalyst.image != nil) {
                         if let image = UIImage(data: catalyst.image!) {
                             Image(uiImage: image)
@@ -48,7 +48,7 @@ struct CatalystRowTransparent: View {
                             ]), startPoint: .trailing, endPoint: .leading))
                     }
                 }
-                              
+                
                 VStack {
                     HStack {
                         VStack(alignment: .leading) {

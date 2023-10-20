@@ -31,7 +31,7 @@ struct ImagePicker: View {
     var body: some View {
         GeometryReader {
             let size = $0.size
-            let scaledSize = CGSize(width: size.width * 1.25, height: size.height * 1.25)
+            let scaledSize = CGSize(width: size.width * 2, height: size.height * 2)
             
             VStack(spacing: 4) {
                 Image(systemName: systemImage)
