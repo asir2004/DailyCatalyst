@@ -10,6 +10,8 @@ import SwiftUI
 struct CatalystRowTransparent: View {
     @ObservedObject var catalyst: Catalyst
     
+    var width: CGFloat
+    
     var body: some View {
         NavigationLink(destination: CatalystView(catalyst: catalyst)) {
             ZStack {
@@ -21,7 +23,8 @@ struct CatalystRowTransparent: View {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFill()
-                            .frame(maxHeight: 200)
+                            .frame(maxWidth: abs(width - 20))
+                            .clipped()
                             .mask(RadialGradient(
                                 gradient: Gradient(stops: [
                                     .init(color: .black.opacity(0.5), location: 0),
@@ -31,19 +34,24 @@ struct CatalystRowTransparent: View {
                                 startRadius: 0,
                                 endRadius: 150
                             ))
-                            
                             .frame(alignment: .bottomTrailing)
                     }
                 } else {
-                    ZStack(alignment: .bottomTrailing) {
-                        Text(emojiFromHappiness(happiness: Int(catalyst.happiness)))
-                            .font(.system(size: 100))
-                            .mask(LinearGradient(gradient: Gradient(stops: [
-                                .init(color: .black.opacity(0.2), location: 0),
-                                .init(color: .clear, location: 1),
-                                .init(color: .black, location: 1),
-                                .init(color: .clear, location: 1)
-                            ]), startPoint: .trailing, endPoint: .leading))
+                    HStack {
+                        Spacer()
+                        
+                        VStack {
+                            Spacer()
+                            
+                            Text(emojiFromHappiness(happiness: Int(catalyst.happiness)))
+                                .font(.system(size: 100))
+                                .mask(LinearGradient(gradient: Gradient(stops: [
+                                    .init(color: .black.opacity(0.2), location: 0),
+                                    .init(color: .clear, location: 1),
+                                    .init(color: .black, location: 1),
+                                    .init(color: .clear, location: 1)
+                                ]), startPoint: .trailing, endPoint: .leading))
+                        }
                     }
                 }
                 
@@ -70,6 +78,7 @@ struct CatalystRowTransparent: View {
                     
                     Spacer()
                 }
+                .frame(height: catalyst.image != nil ? 200 : 150)
             }
             .frame(height: catalyst.image != nil ? 200 : 150)
             .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -79,5 +88,5 @@ struct CatalystRowTransparent: View {
 }
 
 #Preview {
-    CatalystRowTransparent(catalyst: .example)
+    CatalystRowTransparent(catalyst: .example, width: 200)
 }

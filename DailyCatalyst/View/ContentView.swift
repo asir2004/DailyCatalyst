@@ -11,28 +11,31 @@ struct ContentView: View {
     @EnvironmentObject var dataController: DataController
     
     var body: some View {
-        StaggeredGrid(columns: 2, list: dataController.catalystsForSelectedFilter(), content: { catalyst in
-            CatalystRowTransparent(catalyst: catalyst)
-                .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
-                    Button {
-                        catalyst.archived.toggle()
-                    } label: {
-                        Label(catalyst.archived ? "Mark Open" : "Archive", systemImage: catalyst.archived ? "envelope.open" : "envelope")
-                            .tint(catalyst.archived ? .blue : .red)
+        GeometryReader {
+            let size = $0.size
+            StaggeredGrid(columns: 2, list: dataController.catalystsForSelectedFilter(), content: { catalyst in
+                CatalystRowTransparent(catalyst: catalyst, width: size.width / 2)
+                    .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
+                        Button {
+                            catalyst.archived.toggle()
+                        } label: {
+                            Label(catalyst.archived ? "Mark Open" : "Archive", systemImage: catalyst.archived ? "envelope.open" : "envelope")
+                                .tint(catalyst.archived ? .blue : .red)
+                        }
+                    })
+                    .scrollTransition(axis: .vertical) { content, phase in
+                        content
+                            .scaleEffect(
+                                x: phase.isIdentity ? 1.0 : 0.8,
+                                y: phase.isIdentity ? 1.0 : 0.8
+                            )
+                            .blur(radius: phase.isIdentity ? 0 : 10)
+                            .opacity(phase.isIdentity ? 1.0 : 0)
+                            .offset(y: phase.isIdentity ? 0 : 50)
                     }
-                })
-                .scrollTransition(axis: .vertical) { content, phase in
-                    content
-                        .scaleEffect(
-                            x: phase.isIdentity ? 1.0 : 0.8,
-                            y: phase.isIdentity ? 1.0 : 0.8
-                        )
-                        .blur(radius: phase.isIdentity ? 0 : 10)
-                        .opacity(phase.isIdentity ? 1.0 : 0)
-                        .offset(y: phase.isIdentity ? 0 : 50)
-                }
-        })
-        .safeAreaPadding(.horizontal)
+            })
+            .safeAreaPadding(.horizontal)
+        }
         .navigationTitle(dataController.selectedFilter?.name ?? "Catalysts")
         .toolbar(content: ContentViewToolbar.init)
     }
