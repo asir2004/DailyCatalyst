@@ -32,7 +32,7 @@ struct CatalystRowTransparent: View {
                                 ]),
                                 center: .bottomTrailing,
                                 startRadius: 0,
-                                endRadius: 150
+                                endRadius: 200
                             ))
                             .frame(alignment: .bottomTrailing)
                     }
