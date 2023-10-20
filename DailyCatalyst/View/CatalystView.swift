@@ -12,7 +12,7 @@ struct CatalystView: View {
     @EnvironmentObject var dataController: DataController
     @ObservedObject var catalyst: Catalyst
     
-    @State private var imagePickerIsEditing = false
+    @State private var isEditing = false
     @State private var showImagePicker = false
     @State private var photoItem: PhotosPickerItem?
     
@@ -22,10 +22,21 @@ struct CatalystView: View {
         NavigationStack {
             List {
                 Section("Image") {
-                    ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: imagePickerIsEditing) { image in
+                    ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: isEditing) { image in
                         print(image)
                     }
                     .frame(height: 300)
+                    
+                    if (isEditing) {
+                        Button {
+                            withAnimation {
+                                catalyst.image = nil
+                            }
+                        } label: {
+                            Label("Clear Photo", systemImage: "trash")
+                                .tint(.red)
+                        }
+                    }
                 }
                 
                 Section {
@@ -123,7 +134,7 @@ struct CatalystView: View {
                 dataController.queueSave()
             }
             .toolbar {
-                CatalystViewToolbar(catalyst: catalyst, imagePickerIsEditing: $imagePickerIsEditing)
+                CatalystViewToolbar(catalyst: catalyst, imagePickerIsEditing: $isEditing)
             }
             .toolbar {
                 ToolbarItem(placement: .keyboard) {

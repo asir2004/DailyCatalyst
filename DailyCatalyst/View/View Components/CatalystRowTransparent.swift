@@ -15,29 +15,27 @@ struct CatalystRowTransparent: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundStyle(.thinMaterial)
-                
-                HStack {
-                    Spacer()
                     
-                    if (catalyst.image != nil) {
-                        if let image = UIImage(data: catalyst.image!) {
-                            Image(uiImage: image)
-                                .resizable()
-                                .clipShape(Rectangle())
-                                .scaledToFill()
-                                .frame(width: 150, height: 150)
-                                .mask(RadialGradient(
-                                    gradient: Gradient(stops: [
-                                        .init(color: .black.opacity(0.5), location: 0),
-                                        .init(color: .clear, location: 1)
-                                    ]),
-                                    center: .bottomTrailing,
-                                    startRadius: 0,
-                                    endRadius: 150
-                                ))
-                                .offset(x: 20)
-                        }
-                    } else {
+                if (catalyst.image != nil) {
+                    if let image = UIImage(data: catalyst.image!) {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(maxHeight: 200)
+                            .mask(RadialGradient(
+                                gradient: Gradient(stops: [
+                                    .init(color: .black.opacity(0.5), location: 0),
+                                    .init(color: .clear, location: 1)
+                                ]),
+                                center: .bottomTrailing,
+                                startRadius: 0,
+                                endRadius: 150
+                            ))
+                            
+                            .frame(alignment: .bottomTrailing)
+                    }
+                } else {
+                    ZStack(alignment: .bottomTrailing) {
                         Text(emojiFromHappiness(happiness: Int(catalyst.happiness)))
                             .font(.system(size: 100))
                             .mask(LinearGradient(gradient: Gradient(stops: [
@@ -54,8 +52,10 @@ struct CatalystRowTransparent: View {
                         VStack(alignment: .leading) {
                             Text(catalyst.catalystTitle)
                                 .font(.title)
+                                .lineLimit(2)
                             Text(catalyst.catalystEffect)
                                 .font(.subheadline)
+                                .lineLimit(2)
                             
                             Spacer()
                             
@@ -71,8 +71,8 @@ struct CatalystRowTransparent: View {
                     Spacer()
                 }
             }
-            .clipShape(RoundedRectangle(cornerRadius: 20))
             .frame(height: catalyst.image != nil ? 200 : 150)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
         }
         .buttonStyle(.plain)
     }
