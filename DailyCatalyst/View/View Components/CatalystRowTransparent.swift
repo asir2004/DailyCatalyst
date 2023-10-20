@@ -72,7 +72,7 @@ struct CatalystRowTransparent: View {
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .frame(height: 150)
+            .frame(height: catalyst.image != nil ? 200 : 150)
         }
         .buttonStyle(.plain)
     }
