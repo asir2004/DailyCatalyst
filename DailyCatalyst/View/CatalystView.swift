@@ -120,7 +120,7 @@ struct CatalystView: View {
                             Text(catalyst.catalystIdentitiesList)
                                 .multilineTextAlignment(.leading)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                .animation(nil, value: catalyst.catalystIdentitiesList)
+                                .animation(.snappy, value: catalyst.catalystIdentitiesList)
                         }
                     }
                     

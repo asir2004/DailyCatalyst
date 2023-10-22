@@ -28,7 +28,21 @@ struct NewCatalystView: View {
     @State private var newCatalystEffect = ""
     @State private var newCatalystDate: Date = .now
     @State private var newCatalystHappiness = 3
-    @State private var newCatalystIdentity: [Identity]?
+    @State private var newCatalystIdentities: [Identity]?
+    
+    var newCatalystIdentitiesList: String {
+        if let newCatalystIdentities {
+            if newCatalystIdentities.count == 0 {
+                return "No Identities"
+            } else {
+                return newCatalystIdentities.map(\.identityName).formatted()
+            }
+        } else {
+            return "No Identities"
+        }
+    }
+    
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var identities: FetchedResults<Identity>
     
     var body: some View {
         List {
@@ -44,9 +58,11 @@ struct NewCatalystView: View {
                     Text("Modification Date: \(Date.now.formatted(date: .numeric, time: .omitted))")
                         .foregroundStyle(.secondary)
                 }
+                
                 VStack(alignment: .leading) {
                     DatePicker("When Happened?", selection: $newCatalystDate, displayedComponents: .date)
                 }
+                
                 Picker(selection: $newCatalystHappiness, label: Text("Happiness")) {
                     ForEach(happinessLevels, id: \.self) { happinessLevel in
                         ZStack {
@@ -61,6 +77,23 @@ struct NewCatalystView: View {
                     }
                 }
                 .frame(maxWidth: .infinity)
+                
+                Menu {
+                    ForEach(identities) { identity in
+                        // Add a new identity picker
+                    }
+                } label: {
+                    HStack {
+                        Image(systemName: newCatalystIdentities?.count == 0 ? "person" : "person.fill")
+                            .symbolEffect(.bounce.down, value: newCatalystIdentities?.count)
+                        
+                        Text(newCatalystIdentitiesList)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .animation(.snappy, value: newCatalystIdentitiesList)
+                    }
+                }
+                
                 VStack {
                     TextField("Effect", text: $newCatalystEffect, prompt: Text("Input Effect Here."))
                 }
