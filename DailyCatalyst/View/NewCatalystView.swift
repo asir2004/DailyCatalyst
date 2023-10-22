@@ -80,7 +80,22 @@ struct NewCatalystView: View {
                 
                 Menu {
                     ForEach(identities) { identity in
-                        // Add a new identity picker
+                        Button {
+                            if newCatalystIdentities != nil {
+                                if newCatalystIdentities!.contains(identity) {
+                                    if let index = newCatalystIdentities!.firstIndex(of: identity) {
+                                        newCatalystIdentities!.remove(at: index)
+                                    }
+                                } else {
+                                    newCatalystIdentities?
+                                        .append(identity)
+                                }
+                            } else {
+                                newCatalystIdentities = [identity]
+                            }
+                        } label: {
+                            Text(identity.identityName)
+                        }
                     }
                 } label: {
                     HStack {
@@ -115,6 +130,12 @@ struct NewCatalystView: View {
         newCatalyst.creationDate = .now
         newCatalyst.happiness = Int16(newCatalystHappiness)
         newCatalyst.archived = false
+        
+        if let newCatalystIdentities {
+            for identity in newCatalystIdentities {
+                newCatalyst.addToIdentities(identity)
+            }
+        }
         
         try? viewContext.save()
         dismiss()
