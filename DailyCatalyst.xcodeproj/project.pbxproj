@@ -21,6 +21,14 @@
 		EA3A7A792ADFB8CD006A93BC /* EmojiFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A7A782ADFB8CD006A93BC /* EmojiFunc.swift */; };
 		EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */; };
 		EA5F7D962AD577B2003982D2 /* ContentViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */; };
+		EA6D13C32AE695D700AFBAF7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D13C22AE695D700AFBAF7 /* WidgetKit.framework */; };
+		EA6D13C52AE695D700AFBAF7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D13C42AE695D700AFBAF7 /* SwiftUI.framework */; };
+		EA6D13C82AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D13C72AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift */; };
+		EA6D13CA2AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D13C92AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift */; };
+		EA6D13CC2AE695D700AFBAF7 /* DailyCatalystWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D13CB2AE695D700AFBAF7 /* DailyCatalystWidget.swift */; };
+		EA6D13CE2AE695D700AFBAF7 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D13CD2AE695D700AFBAF7 /* AppIntent.swift */; };
+		EA6D13D02AE695D900AFBAF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */; };
+		EA6D13D42AE695D900AFBAF7 /* DailyCatalystWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EA6D13C02AE695D700AFBAF7 /* DailyCatalystWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
 		EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */; };
@@ -45,6 +53,30 @@
 		EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADE562B2A7E83A300F28948 /* NewCatalystView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EA6D13D22AE695D900AFBAF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAD51EEE2A790FFC00A777E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA6D13BF2AE695D700AFBAF7;
+			remoteInfo = DailyCatalystWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EA6D13D82AE695D900AFBAF7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EA6D13D42AE695D900AFBAF7 /* DailyCatalystWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyImagePicker.swift; sourceTree = "<group>"; };
 		EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Extension.swift"; sourceTree = "<group>"; };
@@ -60,6 +92,15 @@
 		EA3A7A782ADFB8CD006A93BC /* EmojiFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiFunc.swift; sourceTree = "<group>"; };
 		EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilterRow.swift; sourceTree = "<group>"; };
 		EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewToolbar.swift; sourceTree = "<group>"; };
+		EA6D13C02AE695D700AFBAF7 /* DailyCatalystWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DailyCatalystWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA6D13C22AE695D700AFBAF7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		EA6D13C42AE695D700AFBAF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		EA6D13C72AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCatalystWidgetBundle.swift; sourceTree = "<group>"; };
+		EA6D13C92AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCatalystWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		EA6D13CB2AE695D700AFBAF7 /* DailyCatalystWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCatalystWidget.swift; sourceTree = "<group>"; };
+		EA6D13CD2AE695D700AFBAF7 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA6D13D12AE695D900AFBAF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIdentityView.swift; sourceTree = "<group>"; };
 		EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedHStackView.swift; sourceTree = "<group>"; };
 		EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
@@ -87,6 +128,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EA6D13BD2AE695D700AFBAF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA6D13C52AE695D700AFBAF7 /* SwiftUI.framework in Frameworks */,
+				EA6D13C32AE695D700AFBAF7 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAD51EF32A790FFC00A777E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -109,10 +159,34 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EA6D13C12AE695D700AFBAF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA6D13C22AE695D700AFBAF7 /* WidgetKit.framework */,
+				EA6D13C42AE695D700AFBAF7 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA6D13C62AE695D700AFBAF7 /* DailyCatalystWidget */ = {
+			isa = PBXGroup;
+			children = (
+				EA6D13C72AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift */,
+				EA6D13C92AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift */,
+				EA6D13CB2AE695D700AFBAF7 /* DailyCatalystWidget.swift */,
+				EA6D13CD2AE695D700AFBAF7 /* AppIntent.swift */,
+				EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */,
+				EA6D13D12AE695D900AFBAF7 /* Info.plist */,
+			);
+			path = DailyCatalystWidget;
+			sourceTree = "<group>";
+		};
 		EAD51EED2A790FFC00A777E7 = {
 			isa = PBXGroup;
 			children = (
 				EAD51EF82A790FFC00A777E7 /* DailyCatalyst */,
+				EA6D13C62AE695D700AFBAF7 /* DailyCatalystWidget */,
+				EA6D13C12AE695D700AFBAF7 /* Frameworks */,
 				EAD51EF72A790FFC00A777E7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				EAD51EF62A790FFC00A777E7 /* DailyCatalyst.app */,
+				EA6D13C02AE695D700AFBAF7 /* DailyCatalystWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,6 +276,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EA6D13BF2AE695D700AFBAF7 /* DailyCatalystWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA6D13D52AE695D900AFBAF7 /* Build configuration list for PBXNativeTarget "DailyCatalystWidgetExtension" */;
+			buildPhases = (
+				EA6D13BC2AE695D700AFBAF7 /* Sources */,
+				EA6D13BD2AE695D700AFBAF7 /* Frameworks */,
+				EA6D13BE2AE695D700AFBAF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DailyCatalystWidgetExtension;
+			productName = DailyCatalystWidgetExtension;
+			productReference = EA6D13C02AE695D700AFBAF7 /* DailyCatalystWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		EAD51EF52A790FFC00A777E7 /* DailyCatalyst */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAD51F042A790FFD00A777E7 /* Build configuration list for PBXNativeTarget "DailyCatalyst" */;
@@ -209,10 +301,12 @@
 				EAD51EF32A790FFC00A777E7 /* Frameworks */,
 				EAD51EF42A790FFC00A777E7 /* Resources */,
 				EA44E6322AD67781002B36B4 /* ShellScript */,
+				EA6D13D82AE695D900AFBAF7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				EA6D13D32AE695D900AFBAF7 /* PBXTargetDependency */,
 			);
 			name = DailyCatalyst;
 			packageProductDependencies = (
@@ -229,9 +323,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					EA6D13BF2AE695D700AFBAF7 = {
+						CreatedOnToolsVersion = 15.0;
+					};
 					EAD51EF52A790FFC00A777E7 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -254,11 +351,20 @@
 			projectRoot = "";
 			targets = (
 				EAD51EF52A790FFC00A777E7 /* DailyCatalyst */,
+				EA6D13BF2AE695D700AFBAF7 /* DailyCatalystWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EA6D13BE2AE695D700AFBAF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA6D13D02AE695D900AFBAF7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAD51EF42A790FFC00A777E7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +399,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EA6D13BC2AE695D700AFBAF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA6D13C82AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift in Sources */,
+				EA6D13CE2AE695D700AFBAF7 /* AppIntent.swift in Sources */,
+				EA6D13CA2AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift in Sources */,
+				EA6D13CC2AE695D700AFBAF7 /* DailyCatalystWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EAD51EF22A790FFC00A777E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,7 +450,76 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EA6D13D32AE695D900AFBAF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA6D13BF2AE695D700AFBAF7 /* DailyCatalystWidgetExtension */;
+			targetProxy = EA6D13D22AE695D900AFBAF7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		EA6D13D62AE695D900AFBAF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TMC46L5FQM;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyCatalystWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DailyCatalystWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.markview.dailycatalyst.DailyCatalystWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EA6D13D72AE695D900AFBAF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TMC46L5FQM;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyCatalystWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DailyCatalystWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.markview.dailycatalyst.DailyCatalystWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		EAD51F022A790FFD00A777E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -453,6 +639,7 @@
 		EAD51F052A790FFD00A777E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DailyCatalyst/DailyCatalyst.entitlements;
@@ -468,7 +655,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,6 +677,7 @@
 		EAD51F062A790FFD00A777E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DailyCatalyst/DailyCatalyst.entitlements;
@@ -505,7 +693,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,6 +715,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EA6D13D52AE695D900AFBAF7 /* Build configuration list for PBXNativeTarget "DailyCatalystWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA6D13D62AE695D900AFBAF7 /* Debug */,
+				EA6D13D72AE695D900AFBAF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EAD51EF12A790FFC00A777E7 /* Build configuration list for PBXProject "DailyCatalyst" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
