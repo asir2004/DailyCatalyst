@@ -1,5 +1,5 @@
 //
-//  EmptyImagePicker.swift
+//  ImagePicker.swift
 //  DailyCatalyst
 //
 //  Created by Asir Bygud on 8/21/23.

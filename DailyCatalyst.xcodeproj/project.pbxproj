@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA0B98442AE57B4300E6F0AB /* EmptyImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */; };
 		EA2390112AAD611900F6AB28 /* Navigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */; };
 		EA2C3BCA2AC41F7100D2FBB3 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */; };
 		EA2C3BCD2AC46D3700D2FBB3 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyImagePicker.swift; sourceTree = "<group>"; };
 		EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Extension.swift"; sourceTree = "<group>"; };
 		EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */,
 				EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */,
 				EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */,
+				EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */,
 				EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */,
 				EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */,
 				EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */,
@@ -299,6 +302,7 @@
 				EA2C3BCF2AC46DAB00D2FBB3 /* AwardsView.swift in Sources */,
 				EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */,
 				EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */,
+				EA0B98442AE57B4300E6F0AB /* EmptyImagePicker.swift in Sources */,
 				EAD087962AC5C49100078E81 /* AnimatedAwardView.swift in Sources */,
 				EA3A7A792ADFB8CD006A93BC /* Emoji.swift in Sources */,
 				EA3A7A772ADFB396006A93BC /* CatalystRowTransparent.swift in Sources */,

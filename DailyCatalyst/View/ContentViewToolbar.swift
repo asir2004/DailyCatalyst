@@ -11,6 +11,7 @@ struct ContentViewToolbar: View {
     @EnvironmentObject var dataController: DataController
     
     var body: some View {
+        EditButton()
         Menu {
             Button(dataController.filterEnabled ? "Turn Filter Off" : "Turn Filter On") {
                 dataController.filterEnabled.toggle()
