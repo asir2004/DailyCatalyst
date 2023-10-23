@@ -1,5 +1,5 @@
 //
-//  Emoji.swift
+//  EmojiFunc.swift
 //  DailyCatalyst
 //
 //  Created by Asir Bygud on 10/18/23.
