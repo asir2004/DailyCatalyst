@@ -30,6 +30,8 @@ struct NewCatalystView: View {
     @State private var newCatalystHappiness = 3
     @State private var newCatalystIdentities: [Identity]?
     
+    @State private var imageData: Data?
+    
     var newCatalystIdentitiesList: String {
         if let newCatalystIdentities {
             if newCatalystIdentities.count == 0 {
@@ -46,9 +48,10 @@ struct NewCatalystView: View {
     
     var body: some View {
         List {
-            ImagePicker(catalyst: .example, title: "Image Picker", subTitle: "Tap to Edit", systemImage: "swift", tint: .blue, isEditing: true) { image in
+            EmptyImagePicker(title: "Image Picker", subTitle: "Tap to Edit", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: true, photoData: $imageData) { image in
                 print(image)
             }
+            .frame(height: 300)
             
             Section("Add New Catalyst") {
                 VStack(alignment: .leading) {
@@ -129,6 +132,7 @@ struct NewCatalystView: View {
         newCatalyst.creationDate = .now
         newCatalyst.happiness = Int16(newCatalystHappiness)
         newCatalyst.archived = false
+        newCatalyst.image = imageData
         
         if let newCatalystIdentities {
             for identity in newCatalystIdentities {
