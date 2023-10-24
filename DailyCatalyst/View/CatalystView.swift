@@ -13,6 +13,7 @@ struct CatalystView: View {
     @ObservedObject var catalyst: Catalyst
     
     @State private var isEditing = false
+    
     @State private var showImagePicker = false
     @State private var photoItem: PhotosPickerItem?
     
@@ -150,6 +151,11 @@ struct CatalystView: View {
                 }
             }
             .focused($isInputActive)
+            .onAppear(perform: {
+                if catalyst.image == nil {
+                    isEditing = true
+                }
+            })
         }
     }
 }

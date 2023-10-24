@@ -140,6 +140,13 @@ struct ImagePicker: View {
                     }
                 }
             }
+            .onChange(of: catalyst.image) {
+                if catalyst.image == nil {
+                    previewImage = nil
+                    photoItem = nil
+                    photoData = nil
+                }
+            }
         }
     }
     
