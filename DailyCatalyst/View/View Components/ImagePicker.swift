@@ -140,6 +140,7 @@ struct ImagePicker: View {
                     }
                 }
             }
+            /// Auto clear the previewImage when catalyst.image changed to nil
             .onChange(of: catalyst.image) {
                 if catalyst.image == nil {
                     previewImage = nil
