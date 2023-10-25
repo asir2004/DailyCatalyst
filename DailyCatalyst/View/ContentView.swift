@@ -15,14 +15,6 @@ struct ContentView: View {
             let size = $0.size
             StaggeredGrid(columns: 2, list: dataController.catalystsForSelectedFilter(), content: { catalyst in
                 CatalystRowTransparent(catalyst: catalyst, width: size.width / 2)
-                    .swipeActions(edge: .leading, allowsFullSwipe: true, content: {
-                        Button {
-                            catalyst.archived.toggle()
-                        } label: {
-                            Label(catalyst.archived ? "Mark Open" : "Archive", systemImage: catalyst.archived ? "envelope.open" : "envelope")
-                                .tint(catalyst.archived ? .blue : .red)
-                        }
-                    })
                     .scrollTransition(axis: .vertical) { content, phase in
                         content
                             .scaleEffect(
@@ -33,6 +25,7 @@ struct ContentView: View {
                             .opacity(phase.isIdentity ? 1.0 : 0)
                             .offset(y: phase.isIdentity ? 0 : 50)
                     }
+                    
             })
             .safeAreaPadding(.horizontal)
         }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CatalystRowTransparent: View {
     @ObservedObject var catalyst: Catalyst
+    @EnvironmentObject var dataController: DataController
     
     var width: CGFloat
     
@@ -100,6 +101,24 @@ struct CatalystRowTransparent: View {
             }
             .frame(height: catalyst.image != nil ? 200 : 150)
             .clipShape(RoundedRectangle(cornerRadius: 20))
+            .contextMenu(
+                menuItems: {
+                    Button {
+                        catalyst.archived.toggle()
+                    } label: {
+                        Label(catalyst.archived ? "Mark Open" : "Archive", systemImage: catalyst.archived ? "envelope.open" : "envelope")
+                            .tint(catalyst.archived ? .blue : .red)
+                    }
+                    
+                    Button(role: .destructive) {
+                        withAnimation {
+                            dataController.delete(catalyst)
+                        }
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                }
+            )
         }
         .buttonStyle(.plain)
     }
