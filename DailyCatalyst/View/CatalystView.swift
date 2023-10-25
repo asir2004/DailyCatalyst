@@ -23,10 +23,19 @@ struct CatalystView: View {
         NavigationStack {
             List {
                 Section("Image") {
-                    ImagePicker(catalyst: catalyst, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: isEditing) { image in
+                    ImagePicker(
+                        catalyst: catalyst,
+                        title: isEditing ? "Photo Picker" : "No Photo",
+                        subTitle: isEditing ? "Tap or Drag & Drop" : "",
+                        systemImage: "square.and.arrow.down",
+                        tint: .yellow,
+                        isEditing: isEditing
+                    ) { image in
                         print(image)
                     }
-                    .frame(height: 300)
+                    .frame(height:
+                        catalyst.image == nil ? (isEditing ? 300 : 200) : 300
+                    )
                     
                     if (isEditing) {
                         Button {
@@ -151,11 +160,6 @@ struct CatalystView: View {
                 }
             }
             .focused($isInputActive)
-            .onAppear(perform: {
-                if catalyst.image == nil {
-                    isEditing = true
-                }
-            })
         }
     }
 }

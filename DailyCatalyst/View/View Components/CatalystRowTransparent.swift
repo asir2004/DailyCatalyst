@@ -42,8 +42,6 @@ struct CatalystRowTransparent: View {
                         Spacer()
                         
                         VStack {
-                            Spacer()
-                            
                             Text(emojiFromHappiness(happiness: Int(catalyst.happiness)))
                                 .font(.system(size: 100))
                                 .mask(LinearGradient(gradient: Gradient(stops: [
@@ -98,6 +96,14 @@ struct CatalystRowTransparent: View {
                     Spacer()
                 }
                 .frame(height: catalyst.image != nil ? 200 : 150)
+                
+                Circle()
+                    .foregroundStyle(.yellow)
+                    .frame(height: 130)
+                    .opacity(Double(catalyst.happiness) * 0.1)
+                    .blur(radius: Double(catalyst.happiness) * 50)
+                    .frame(alignment: .bottom)
+                    .offset(y: 70)
             }
             .frame(height: catalyst.image != nil ? 200 : 150)
             .clipShape(RoundedRectangle(cornerRadius: 20))
