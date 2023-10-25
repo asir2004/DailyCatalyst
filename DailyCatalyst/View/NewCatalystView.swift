@@ -48,37 +48,48 @@ struct NewCatalystView: View {
     
     var body: some View {
         List {
-            EmptyImagePicker(title: "Image Picker", subTitle: "Tap to Edit", systemImage: "square.and.arrow.down", tint: .yellow, isEditing: true, photoData: $imageData) { image in
-                print(image)
-            }
-            .frame(height: 300)
-            
             Section("Add New Catalyst") {
-                VStack(alignment: .leading) {
-                    TextField("Title", text: $newCatalystTitle, prompt: Text("Enter Title Here"))
-                        .font(.title)
-                    Text("Modification Date: \(Date.now.formatted(date: .numeric, time: .omitted))")
-                        .foregroundStyle(.secondary)
+                HStack(alignment: .top) {
+                    EmptyImagePicker(systemImage: "square.and.arrow.down", tint: .yellow, isEditing: true, photoData: $imageData) { image in
+                        print(image)
+                    }
+                    .frame(width: 100, height: 100)
+                    
+                    VStack {
+                        TextField("Title", text: $newCatalystTitle, prompt: Text("Title"))
+                            .font(.title)
+                            .textFieldStyle(.roundedBorder)
+                        
+                        TextField("Effect", text: $newCatalystEffect, prompt: Text("Effect to you"))
+                            .lineLimit(2)
+                            .textFieldStyle(.roundedBorder)
+                    }
                 }
                 
                 VStack(alignment: .leading) {
                     DatePicker("When Happened?", selection: $newCatalystDate, displayedComponents: .date)
+                        .foregroundStyle(.secondary)
                 }
                 
-                Picker(selection: $newCatalystHappiness, label: Text("Happiness")) {
-                    ForEach(happinessLevels, id: \.self) { happinessLevel in
-                        ZStack {
-                            Circle()
-                                .foregroundStyle(.secondary)
-                                .foregroundColor(.blue)
-                                .opacity(newCatalystHappiness == happinessLevel.level ? 0.3 : 0)
-                            Text("\(happinessLevel.emoji)")
-                                .font(newCatalystHappiness == happinessLevel.level ? .title : .none)
+                HStack {
+                    Text("Happiness")
+                        .foregroundStyle(.secondary)
+                    
+                    Picker(selection: $newCatalystHappiness, label: Text("Happiness")) {
+                        ForEach(happinessLevels, id: \.self) { happinessLevel in
+                            ZStack {
+                                Circle()
+                                    .foregroundStyle(.secondary)
+                                    .foregroundColor(.blue)
+                                    .opacity(newCatalystHappiness == happinessLevel.level ? 0.3 : 0)
+                                Text("\(happinessLevel.emoji)")
+                                    .font(newCatalystHappiness == happinessLevel.level ? .title : .none)
+                            }
+                            .tag(happinessLevel.level)
                         }
-                        .tag(happinessLevel.level)
                     }
+                    .pickerStyle(.segmented)
                 }
-                .frame(maxWidth: .infinity)
                 
                 Menu {
                     ForEach(identities) { identity in
@@ -109,10 +120,6 @@ struct NewCatalystView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .animation(.snappy, value: newCatalystIdentitiesList)
                     }
-                }
-                
-                VStack {
-                    TextField("Effect", text: $newCatalystEffect, prompt: Text("Input Effect Here."))
                 }
             }
         }
@@ -145,3 +152,6 @@ struct NewCatalystView: View {
     }
 }
 
+#Preview {
+    NewCatalystView()
+}

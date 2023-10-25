@@ -18,6 +18,9 @@ struct SidebarView: View {
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var identities: FetchedResults<Identity>
     
+    @State private var showNewCatalyst = false
+    @State private var showNewIdentity = false
+    
     var identityFilters: [Filter] {
         identities.map { identity in
             Filter(id: identity.identityID , name: identity.identityName , icon: identity.identityIcon, identity: identity)
@@ -25,19 +28,49 @@ struct SidebarView: View {
     }
     
     var body: some View {
-        List(selection: $dataController.selectedFilter) {
-            Section("Smart Filters") {
-                ForEach(smartFilters) { filter in
-                    NavigationLink(value: filter) {
-                        Label(filter.name, systemImage: filter.icon)
+        ZStack {
+            List(selection: $dataController.selectedFilter) {
+                Section("Smart Filters") {
+                    ForEach(smartFilters) { filter in
+                        NavigationLink(value: filter) {
+                            Label(filter.name, systemImage: filter.icon)
+                        }
+                    }
+                }
+                
+                Section("Identities") {
+                    ForEach(identityFilters) { filter in
+                        UserFilterRow(filter: filter, rename: rename, delete: delete)
                     }
                 }
             }
             
-            Section("Identities") {
-                ForEach(identityFilters) { filter in
-                    UserFilterRow(filter: filter, rename: rename, delete: delete)
+            VStack {
+                Spacer()
+                
+                Menu {
+                    Button {
+                        showNewCatalyst = true
+                    } label: {
+                        Image(systemName: "flask")
+                        Text("Catalyst")
+                    }
+                    
+                    Button {
+                        showNewIdentity = true
+                    } label: {
+                        Image(systemName: "person")
+                        Text("Identity")
+                    }
+                } label: {
+                    Label("Add", systemImage: "plus")
+                        .imageScale(.large)
+                        .foregroundStyle(.white)
+                        .padding()
+                        .background(Circle().foregroundColor(.accentColor))
                 }
+                .labelStyle(.iconOnly)
+                .padding()
             }
         }
         .navigationTitle("Daily Catalyst")
@@ -46,6 +79,18 @@ struct SidebarView: View {
             Button("OK", action: completeRename)
             Button("Cancel", role: .cancel) { }
             TextField("Rename", text: $identityName)
+        }
+        .sheet(isPresented: $showNewCatalyst) {
+            NavigationStack {
+                NewCatalystView()
+            }
+            .presentationDetents([.medium, .large])
+        }
+        .sheet(isPresented: $showNewIdentity) {
+            NavigationStack {
+                NewIdentityView()
+            }
+            .presentationDetents([.medium, .large])
         }
     }
     

@@ -233,6 +233,7 @@
 				EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */,
 				EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */,
 				EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */,
+				EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */,
 				EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */,
 				EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */,
 				EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */,
@@ -245,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				EAB7FCD92A7AC0780022F01D /* SidebarView.swift */,
-				EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */,
 				EA31488A2AD3DB92005CEF84 /* SidebarViewToolbar.swift */,
 				EAD51EFB2A790FFC00A777E7 /* ContentView.swift */,
 				EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */,

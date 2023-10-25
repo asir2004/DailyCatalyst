@@ -11,9 +11,7 @@ import CoreData
 
 struct EmptyImagePicker: View {
     @EnvironmentObject var dataController: DataController
-    
-    var title: String
-    var subTitle: String
+
     var systemImage: String
     var tint: Color
     var isEditing: Bool
@@ -32,20 +30,12 @@ struct EmptyImagePicker: View {
             let size = $0.size
             let scaledSize = CGSize(width: size.width * 2, height: size.height * 2)
             
-            VStack(spacing: 4) {
+            VStack() {
                 Image(systemName: systemImage)
                     .font(.largeTitle)
                     .imageScale(.large)
                     .foregroundStyle(tint)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
-                
-                Text(title)
-                    .font(.callout)
-                    .padding(.top, 15)
-                
-                Text(subTitle)
-                    .font(.caption)
-                    .foregroundStyle(.gray)
             }
             /// Displaying Preview Image, if any
             .opacity(previewImage == nil ? 1 : 0)
