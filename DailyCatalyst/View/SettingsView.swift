@@ -11,6 +11,8 @@ struct SettingsView: View {
     @AppStorage("colorScheme") var colorScheme = "system"
     @AppStorage("scrollViewEffect") var scrollViewEffect = true
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         NavigationStack {
             List {
@@ -48,6 +50,13 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Done") {
+                        dismiss()
+                    }
+                }
+            }
         }
     }
     

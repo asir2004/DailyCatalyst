@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var dataController: DataController
+    @AppStorage("scrollViewEffect") var scrollViewEffect = true
     
     var body: some View {
         GeometryReader {
             let size = $0.size
             StaggeredGrid(columns: 2, list: dataController.catalystsForSelectedFilter(), content: { catalyst in
                 CatalystRowTransparent(catalyst: catalyst, width: size.width / 2)
+                #if scrollViewEffect
                     .scrollTransition(axis: .vertical) { content, phase in
                         content
                             .scaleEffect(
@@ -25,7 +27,7 @@ struct ContentView: View {
                             .opacity(phase.isIdentity ? 1.0 : 0)
                             .offset(y: phase.isIdentity ? 0 : 50)
                     }
-                    
+                #endif
             })
             .safeAreaPadding(.horizontal)
         }
