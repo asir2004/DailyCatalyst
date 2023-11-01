@@ -49,7 +49,6 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
         }
-        .preferredColorScheme(returnColorScheme())
     }
     
     func returnScrollEffectIcon() -> String {
@@ -71,19 +70,6 @@ struct SettingsView: View {
             return "moon"
         default:
             return "questionmark"
-        }
-    }
-    
-    func returnColorScheme() -> ColorScheme? {
-        switch colorScheme {
-        case "system":
-            return .none
-        case "light":
-            return .light
-        case "dark":
-            return .dark
-        default:
-            return .none
         }
     }
 }
