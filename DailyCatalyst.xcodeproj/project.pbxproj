@@ -161,6 +161,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		EA452D662AF233C8008362F1 /* Deprecated Views */ = {
+			isa = PBXGroup;
+			children = (
+				EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */,
+			);
+			path = "Deprecated Views";
+			sourceTree = "<group>";
+		};
 		EA6D13C12AE695D700AFBAF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,7 +244,6 @@
 				EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */,
 				EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */,
 				EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */,
-				EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */,
 				EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */,
 				EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */,
 				EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */,
@@ -259,6 +266,7 @@
 				EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */,
 				EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */,
 				EA1C5F502AE9F2CF00767CBD /* SettingsView.swift */,
+				EA452D662AF233C8008362F1 /* Deprecated Views */,
 				EADD7CDC2A9068CA00541B76 /* View Components */,
 			);
 			path = View;
@@ -347,7 +355,7 @@
 			);
 			mainGroup = EAD51EED2A790FFC00A777E7;
 			packageReferences = (
-				EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Downloads/SymbolPicker-main" */,
+				EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Desktop/Daily Catalyst/SymbolPicker-main" */,
 			);
 			productRefGroup = EAD51EF72A790FFC00A777E7 /* Products */;
 			projectDirPath = "";
@@ -751,9 +759,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Downloads/SymbolPicker-main" */ = {
+		EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Desktop/Daily Catalyst/SymbolPicker-main" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../Downloads/SymbolPicker-main";
+			relativePath = "../../Desktop/Daily Catalyst/SymbolPicker-main";
 		};
 /* End XCLocalSwiftPackageReference section */
 

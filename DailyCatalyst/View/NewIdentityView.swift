@@ -13,6 +13,8 @@ struct NewIdentityView: View {
     @Environment(\.managedObjectContext) var viewContext
     @EnvironmentObject var dataController: DataController
     
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var identities: FetchedResults<Identity>
+    
     @State private var newIdentityName = ""
     @State private var newIdentityIcon = "person"
     
@@ -48,22 +50,13 @@ struct NewIdentityView: View {
                         .disabled(newIdentityName.isEmpty)
                     }
                 }
+                
+                Section {
+                    ForEach(identities) { identity in
+                        Label(identity.identityName, systemImage: identity.identityIcon)
+                    }
+                }
             }
-            
-//            GeometryReader { geo in
-//                let cardHeight: CGFloat? = geo.size.height > 0 ? (max(geo.size.height * 0.7, 240) - 40) : nil
-//                ZStack {
-//                    RoundedRectangle(cornerRadius: 10)
-//                        .foregroundStyle(.ultraThinMaterial)
-//                    HStack {
-//                        ForEach(dataController.allIdentities(), id: \.self) { identity in
-//                            SingleIdentity(identity: identity)
-//                        }
-//                    }
-//                }
-//                .padding()
-//                .frame(maxHeight: cardHeight)
-//            }
         }
         .navigationTitle("New Identity")
         .navigationBarTitleDisplayMode(.inline)
