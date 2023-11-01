@@ -20,6 +20,8 @@ struct SidebarView: View {
     
     @State private var showNewCatalyst = false
     @State private var showNewIdentity = false
+    @State private var showingAwards = false
+    @State private var showingSettings = false
     
     var identityFilters: [Filter] {
         identities.map { identity in
@@ -74,7 +76,39 @@ struct SidebarView: View {
             }
         }
         .navigationTitle("Daily Catalyst")
-        .toolbar(content: SidebarViewToolbar.init)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Menu {
+                    Button {
+                        dataController.createSampleData()
+                    } label: {
+                        Label("Add Samples", systemImage: "flame")
+                    }
+                    Button {
+                        dataController.deleteAll()
+                    } label: {
+                        Label("Delete All", systemImage: "trash")
+                    }
+                } label: {
+                    Label("Test", systemImage: "flask")
+                }
+                
+                Button {
+                    showingAwards.toggle()
+                } label: {
+                    Label("Show Awards", systemImage: "rosette")
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    showingSettings.toggle()
+                } label: {
+                    Label("Settings", systemImage: "gear")
+                }
+                .popoverTip(AddMenuTip(), arrowEdge: .top)
+            }
+        }
         .alert("Rename Identity", isPresented: $renamingIdentity) {
             Button("OK", action: completeRename)
             Button("Cancel", role: .cancel) { }
@@ -91,6 +125,12 @@ struct SidebarView: View {
                 NewIdentityView()
             }
             .presentationDetents([.medium, .large])
+        }
+        .sheet(isPresented: $showingAwards) {
+            AwardsView()
+        }
+        .sheet(isPresented: $showingSettings) {
+            SettingsView()
         }
     }
     
