@@ -11,6 +11,8 @@ import UserNotifications
 struct SettingsView: View {
     @AppStorage("colorScheme") var colorScheme = "system"
     @AppStorage("scrollViewEffect") var scrollViewEffect = true
+    @AppStorage("cardPictureHeight") var cardWithPictureHeight = 200
+    @AppStorage("cardPlainHeight") var cardPlainHeight = 150
     
     @Environment(\.dismiss) var dismiss
     
@@ -44,6 +46,42 @@ struct SettingsView: View {
                             .labelsHidden()
                     }
                     .frame(height: 30)
+                    
+                    VStack(alignment: .leading) {
+                        Label("Card with Picture Height", systemImage: "photo.on.rectangle")
+                            .imageScale(.large)
+                            .frame(height: 30)
+                            .symbolEffect(.bounce, value: cardWithPictureHeight)
+                        
+                        Picker("Card with Picture Height", selection: $cardWithPictureHeight) {
+                            Text("Low")
+                                .tag(150)
+                            Text("Mid")
+                                .tag(200)
+                            Text("High")
+                                .tag(250)
+                        }
+                        .pickerStyle(.segmented)
+                        .labelsHidden()
+                    }
+                    
+                    VStack(alignment: .leading) {
+                        Label("Plain Card Height", systemImage: "rectangle.on.rectangle")
+                            .imageScale(.large)
+                            .frame(height: 30)
+                            .symbolEffect(.bounce, value: cardPlainHeight)
+                        
+                        Picker("Plain Card Height", selection: $cardPlainHeight) {
+                            Text("Low")
+                                .tag(130)
+                            Text("Mid")
+                                .tag(150)
+                            Text("High")
+                                .tag(200)
+                        }
+                        .pickerStyle(.segmented)
+                        .labelsHidden()
+                    }
                 }
                 
                 Section("Notifications") {

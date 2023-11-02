@@ -11,6 +11,9 @@ struct CatalystRowTransparent: View {
     @ObservedObject var catalyst: Catalyst
     @EnvironmentObject var dataController: DataController
     
+    @AppStorage("cardPictureHeight") var cardWithPictureHeight = 200
+    @AppStorage("cardPlainHeight") var cardPlainHeight = 150
+    
     var width: CGFloat
     
     var body: some View {
@@ -95,7 +98,7 @@ struct CatalystRowTransparent: View {
                     
                     Spacer()
                 }
-                .frame(height: catalyst.image != nil ? 200 : 150)
+                .frame(height: catalyst.image != nil ? CGFloat(cardWithPictureHeight) : CGFloat(cardPlainHeight))
                 
                 Circle()
                     .foregroundStyle(.yellow)
@@ -105,7 +108,7 @@ struct CatalystRowTransparent: View {
                     .frame(alignment: .bottom)
                     .offset(y: 70)
             }
-            .frame(height: catalyst.image != nil ? 200 : 150)
+            .frame(height: catalyst.image != nil ? CGFloat(cardWithPictureHeight) : CGFloat(cardPlainHeight))
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .contextMenu(
                 menuItems: {
