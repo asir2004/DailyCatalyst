@@ -9,6 +9,8 @@ import SwiftUI
 import SymbolPicker
 
 struct NewIdentityView: View {
+    var identity: Identity?
+    
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var viewContext
     @EnvironmentObject var dataController: DataController
@@ -68,16 +70,29 @@ struct NewIdentityView: View {
         .sheet(isPresented: $iconPickerPresented) {
             SymbolPicker(symbol: $newIdentityIcon)
         }
+        .onAppear(perform: {
+            if let identity = identity {
+                newIdentityName = identity.name ?? ""
+                newIdentityIcon = identity.icon ?? ""
+            }
+        })
     }
     
     private func save() {
-        withAnimation {
-            let newIdentity = Identity(context: viewContext)
-            newIdentity.id = UUID()
-            newIdentity.name = newIdentityName
-            newIdentity.icon = newIdentityIcon
+        if identity != nil {
+            identity!.name = newIdentityName
+            identity!.icon = newIdentityIcon
             
             try? viewContext.save()
+        } else {
+            withAnimation {
+                let newIdentity = Identity(context: viewContext)
+                newIdentity.id = UUID()
+                newIdentity.name = newIdentityName
+                newIdentity.icon = newIdentityIcon
+                
+                try? viewContext.save()
+            }
         }
     }
     
@@ -92,5 +107,5 @@ struct NewIdentityView: View {
 }
 
 #Preview {
-    NewIdentityView()
+    NewIdentityView(identity: .example)
 }

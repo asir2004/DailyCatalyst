@@ -17,8 +17,8 @@ struct SidebarView: View {
     
     @State private var identityToRename: Identity?
     @State private var renamingIdentity = false
-    @State private var identityName = ""
-    @State private var identityIcon = ""
+//    @State private var identityName = ""
+//    @State private var identityIcon = ""
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var identities: FetchedResults<Identity>
     
@@ -114,13 +114,19 @@ struct SidebarView: View {
                 .popoverTip(AddMenuTip(), arrowEdge: .top)
             }
         }
-        .alert("Edit Identity", isPresented: $renamingIdentity) { // Formerly "Rename Identity"
-            Button("OK", action: completeRename)
-            Button("Cancel", role: .cancel) { }
-            HStack {
-                SymbolPicker(symbol: $identityIcon)
-                TextField("Rename", text: $identityName)
+//        .alert("Edit Identity", isPresented: $renamingIdentity) { // Formerly "Rename Identity"
+//            Button("OK", action: completeRename)
+//            Button("Cancel", role: .cancel) { }
+//            HStack {
+//                SymbolPicker(symbol: $identityIcon)
+//                TextField("Rename", text: $identityName)
+//            }
+//        }
+        .sheet(isPresented: $renamingIdentity) {
+            NavigationStack {
+                NewIdentityView(identity: identityToRename)
             }
+            .presentationDetents([.medium, .large])
         }
         .sheet(isPresented: $showNewCatalyst) {
             NavigationStack {
@@ -130,7 +136,7 @@ struct SidebarView: View {
         }
         .sheet(isPresented: $showNewIdentity) {
             NavigationStack {
-                NewIdentityView()
+                NewIdentityView(identity: nil)
             }
             .presentationDetents([.medium, .large])
         }
@@ -144,16 +150,14 @@ struct SidebarView: View {
     
     func rename(_ filter: Filter) {
         identityToRename = filter.identity
-        identityName = filter.name
-        identityIcon = filter.icon
         renamingIdentity = true
     }
     
-    func completeRename() {
-        identityToRename?.name = identityName
-        identityToRename?.icon = identityIcon
-        dataController.save()
-    }
+//    func completeRename() {
+//        identityToRename?.name = identityName
+//        identityToRename?.icon = identityIcon
+//        dataController.save()
+//    }
     
     func delete(_ offsets: IndexSet) {
         for offset in offsets {
