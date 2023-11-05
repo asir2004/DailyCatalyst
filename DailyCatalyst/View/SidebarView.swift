@@ -24,6 +24,7 @@ struct SidebarView: View {
     
     @State private var showNewCatalyst = false
     @State private var showNewIdentity = false
+    @State private var showDimmingAddScreen = false
     @State private var showingAwards = false
     @State private var showingSettings = false
     
@@ -35,6 +36,47 @@ struct SidebarView: View {
     
     var body: some View {
         ZStack {
+            if showDimmingAddScreen {
+                HStack {
+                    Button {
+                        showNewCatalyst = true
+                    } label: {
+                        Label("Catalyst", systemImage: "flask")
+                            .imageScale(.large)
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(Circle().foregroundColor(.accentColor))
+                    }
+                    .labelsHidden()
+
+                    Button {
+                        showNewIdentity = true
+                    } label: {
+                        Label("Identity", systemImage: "person")
+                            .imageScale(.large)
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(Circle().foregroundColor(.accentColor))
+                    }
+                    .labelsHidden()
+                    
+                    Button {
+                        showDimmingAddScreen = false
+                    } label: {
+                        Label("Close", systemImage: "xmark")
+                            .imageScale(.large)
+//                            .foregroundStyle(.white)
+                            .padding()
+                            .background(Circle().foregroundStyle(.thinMaterial))
+                    }
+                    .labelsHidden()
+                }
+                
+                Rectangle()
+                    .foregroundStyle(.ultraThinMaterial)
+                    .ignoresSafeArea()
+            }
+            
             List(selection: $dataController.selectedFilter) {
                 Section("Smart Filters") {
                     ForEach(smartFilters) { filter in
@@ -54,19 +96,10 @@ struct SidebarView: View {
             VStack {
                 Spacer()
                 
-                Menu {
-                    Button {
-                        showNewCatalyst = true
-                    } label: {
-                        Image(systemName: "flask")
-                        Text("Catalyst")
-                    }
-                    
-                    Button {
-                        showNewIdentity = true
-                    } label: {
-                        Image(systemName: "person")
-                        Text("Identity")
+                
+                Button {
+                    withAnimation {
+                        showDimmingAddScreen = true
                     }
                 } label: {
                     Label("Add", systemImage: "plus")
@@ -74,9 +107,34 @@ struct SidebarView: View {
                         .foregroundStyle(.white)
                         .padding()
                         .background(Circle().foregroundColor(.accentColor))
+                        .rotationEffect(showDimmingAddScreen ? .degrees(45) : .degrees(0))
                 }
                 .labelStyle(.iconOnly)
                 .padding()
+                
+//                Menu {
+//                    Button {
+//                        showNewCatalyst = true
+//                    } label: {
+//                        Image(systemName: "flask")
+//                        Text("Catalyst")
+//                    }
+//                    
+//                    Button {
+//                        showNewIdentity = true
+//                    } label: {
+//                        Image(systemName: "person")
+//                        Text("Identity")
+//                    }
+//                } label: {
+//                    Label("Add", systemImage: "plus")
+//                        .imageScale(.large)
+//                        .foregroundStyle(.white)
+//                        .padding()
+//                        .background(Circle().foregroundColor(.accentColor))
+//                }
+//                .labelStyle(.iconOnly)
+//                .padding()
             }
         }
         .hideNavBarOnSwipe(hideNavBarOnSwipe)
