@@ -75,7 +75,8 @@ struct SidebarView: View {
                                     .background(Circle().foregroundColor(.accentColor))
                                 
                                 Text("Catalyst")
-                                    .font(.title3)
+                                    .font(.title2)
+                                    .foregroundStyle(.primary)
                                 
                                 Spacer()
                             }
@@ -83,7 +84,6 @@ struct SidebarView: View {
                         }
                         .padding(.horizontal)
                     }
-                    .labelStyle(.iconOnly)
                     .padding()
 
                     Button {
@@ -103,7 +103,8 @@ struct SidebarView: View {
                                     .background(Circle().foregroundColor(.accentColor))
                                 
                                 Text("Identity")
-                                    .font(.title3)
+                                    .font(.title2)
+                                    .foregroundStyle(.primary)
                                 
                                 Spacer()
                             }
@@ -111,7 +112,7 @@ struct SidebarView: View {
                         }
                         .padding(.horizontal)
                     }
-                    .labelStyle(.iconOnly)
+//                    .labelStyle(.iconOnly)
                     .padding()
                 }
             }
