@@ -27,7 +27,7 @@ struct UserFilterRow: View {
                     Button {
                         rename(filter)
                     } label: {
-                        Label("Rename", systemImage: "pencil")
+                        Label("Edit", systemImage: "pencil") // Formerly "Rename"
                     }
                 }
                 .accessibilityElement()

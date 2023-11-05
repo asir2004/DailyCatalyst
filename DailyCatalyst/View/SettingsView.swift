@@ -11,6 +11,7 @@ import UserNotifications
 struct SettingsView: View {
     @AppStorage("colorScheme") var colorScheme = "system"
     @AppStorage("scrollViewEffect") var scrollViewEffect = true
+    @AppStorage("hideNavBarOnSwipe") var hideNavBarOnSwipe = true
     @AppStorage("cardPictureHeight") var cardWithPictureHeight = 200
     @AppStorage("cardPlainHeight") var cardPlainHeight = 150
     
@@ -43,6 +44,19 @@ struct SettingsView: View {
                         Spacer()
                         
                         Toggle("Scroll Effect Toggle", isOn: $scrollViewEffect)
+                            .labelsHidden()
+                    }
+                    .frame(height: 30)
+                    
+                    HStack {
+                        Label("Hide Nav Bar On Swipe", systemImage: returnHideNavBarIcon())
+                            .imageScale(.large)
+                            .frame(height: 30)
+                            .contentTransition(.symbolEffect(.replace.offUp))
+                        
+                        Spacer()
+                        
+                        Toggle("Hide Nav Bar On Swipe", isOn: $hideNavBarOnSwipe)
                             .labelsHidden()
                     }
                     .frame(height: 30)
@@ -137,6 +151,15 @@ struct SettingsView: View {
             return "square.stack.3d.up"
         case false:
             return "square.stack.3d.up.slash"
+        }
+    }
+    
+    func returnHideNavBarIcon() -> String {
+        switch hideNavBarOnSwipe {
+        case true:
+            return "rectangle.and.arrow.up.right.and.arrow.down.left"
+        case false:
+            return "rectangle.and.arrow.up.right.and.arrow.down.left.slash"
         }
     }
     

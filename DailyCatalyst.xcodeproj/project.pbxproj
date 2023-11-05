@@ -52,6 +52,8 @@
 		EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
 		EADD7CDE2A9068FD00541B76 /* EmojiCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */; };
 		EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADE562B2A7E83A300F28948 /* NewCatalystView.swift */; };
+		EAE516412AF75BC400D37877 /* Layer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE516402AF75BC400D37877 /* Layer+Extensions.swift */; };
+		EAE516432AF75BC700D37877 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE516422AF75BC700D37877 /* Layer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,8 @@
 		EAD51F0A2A79119400A777E7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCard.swift; sourceTree = "<group>"; };
 		EADE562B2A7E83A300F28948 /* NewCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCatalystView.swift; sourceTree = "<group>"; };
+		EAE516402AF75BC400D37877 /* Layer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Layer+Extensions.swift"; sourceTree = "<group>"; };
+		EAE516422AF75BC700D37877 /* Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,14 +245,23 @@
 				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */,
 				EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */,
-				EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */,
-				EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */,
 				EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */,
 				EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */,
 				EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */,
 				EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */,
 			);
 			path = "View Components";
+			sourceTree = "<group>";
+		};
+		EAE516442AF75BCE00D37877 /* Quoted Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA35AD502A939A1100B6A4D2 /* ImagePicker.swift */,
+				EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */,
+				EAE516422AF75BC700D37877 /* Layer.swift */,
+				EAE516402AF75BC400D37877 /* Layer+Extensions.swift */,
+			);
+			path = "Quoted Views";
 			sourceTree = "<group>";
 		};
 		EAFF97E72A7BD1FA00887FCB /* View */ = {
@@ -266,6 +279,7 @@
 				EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */,
 				EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */,
 				EA1C5F502AE9F2CF00767CBD /* SettingsView.swift */,
+				EAE516442AF75BCE00D37877 /* Quoted Views */,
 				EA452D662AF233C8008362F1 /* Deprecated Views */,
 				EADD7CDC2A9068CA00541B76 /* View Components */,
 			);
@@ -427,6 +441,7 @@
 			files = (
 				EAB7FCDE2A7AC18E0022F01D /* Filter.swift in Sources */,
 				EA2C3BCD2AC46D3700D2FBB3 /* Award.swift in Sources */,
+				EAE516412AF75BC400D37877 /* Layer+Extensions.swift in Sources */,
 				EA2C3BCF2AC46DAB00D2FBB3 /* AwardsView.swift in Sources */,
 				EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */,
 				EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */,
@@ -445,6 +460,7 @@
 				EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */,
 				EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */,
 				EADD7CDE2A9068FD00541B76 /* EmojiCard.swift in Sources */,
+				EAE516432AF75BC700D37877 /* Layer.swift in Sources */,
 				EA31488D2AD3E0E9005CEF84 /* CatalystViewToolbar.swift in Sources */,
 				EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */,
 				EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */,

@@ -7,14 +7,18 @@
 
 import SwiftUI
 import TipKit
+import SymbolPicker
 
 struct SidebarView: View {
     @EnvironmentObject var dataController: DataController
     let smartFilters: [Filter] = [.all, .recent]
     
+    @AppStorage("hideNavBarOnSwipe") var hideNavBarOnSwipe = true
+    
     @State private var identityToRename: Identity?
     @State private var renamingIdentity = false
     @State private var identityName = ""
+    @State private var identityIcon = ""
     
     @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var identities: FetchedResults<Identity>
     
@@ -75,6 +79,7 @@ struct SidebarView: View {
                 .padding()
             }
         }
+        .hideNavBarOnSwipe(hideNavBarOnSwipe)
         .navigationTitle("Daily Catalyst")
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -109,10 +114,13 @@ struct SidebarView: View {
                 .popoverTip(AddMenuTip(), arrowEdge: .top)
             }
         }
-        .alert("Rename Identity", isPresented: $renamingIdentity) {
+        .alert("Edit Identity", isPresented: $renamingIdentity) { // Formerly "Rename Identity"
             Button("OK", action: completeRename)
             Button("Cancel", role: .cancel) { }
-            TextField("Rename", text: $identityName)
+            HStack {
+                SymbolPicker(symbol: $identityIcon)
+                TextField("Rename", text: $identityName)
+            }
         }
         .sheet(isPresented: $showNewCatalyst) {
             NavigationStack {
@@ -137,11 +145,13 @@ struct SidebarView: View {
     func rename(_ filter: Filter) {
         identityToRename = filter.identity
         identityName = filter.name
+        identityIcon = filter.icon
         renamingIdentity = true
     }
     
     func completeRename() {
         identityToRename?.name = identityName
+        identityToRename?.icon = identityIcon
         dataController.save()
     }
     

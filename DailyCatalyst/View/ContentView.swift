@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var dataController: DataController
     @AppStorage("scrollViewEffect") var scrollViewEffect = true
+    @AppStorage("hideNavBarOnSwipe") var hideNavBarOnSwipe = true
     
     var body: some View {
         GeometryReader {
@@ -33,6 +34,7 @@ struct ContentView: View {
         }
         .navigationTitle(dataController.selectedFilter?.name ?? "Catalysts")
         .toolbar(content: ContentViewToolbar.init)
+        .hideNavBarOnSwipe(hideNavBarOnSwipe)
     }
     
     func delete(_ offsets: IndexSet) {
