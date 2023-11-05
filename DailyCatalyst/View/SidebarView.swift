@@ -36,47 +36,6 @@ struct SidebarView: View {
     
     var body: some View {
         ZStack {
-            if showDimmingAddScreen {
-                HStack {
-                    Button {
-                        showNewCatalyst = true
-                    } label: {
-                        Label("Catalyst", systemImage: "flask")
-                            .imageScale(.large)
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(Circle().foregroundColor(.accentColor))
-                    }
-                    .labelsHidden()
-
-                    Button {
-                        showNewIdentity = true
-                    } label: {
-                        Label("Identity", systemImage: "person")
-                            .imageScale(.large)
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(Circle().foregroundColor(.accentColor))
-                    }
-                    .labelsHidden()
-                    
-                    Button {
-                        showDimmingAddScreen = false
-                    } label: {
-                        Label("Close", systemImage: "xmark")
-                            .imageScale(.large)
-//                            .foregroundStyle(.white)
-                            .padding()
-                            .background(Circle().foregroundStyle(.thinMaterial))
-                    }
-                    .labelsHidden()
-                }
-                
-                Rectangle()
-                    .foregroundStyle(.ultraThinMaterial)
-                    .ignoresSafeArea()
-            }
-            
             List(selection: $dataController.selectedFilter) {
                 Section("Smart Filters") {
                     ForEach(smartFilters) { filter in
@@ -93,13 +52,76 @@ struct SidebarView: View {
                 }
             }
             
+            if showDimmingAddScreen {
+                Rectangle()
+                    .foregroundStyle(.ultraThinMaterial)
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Button {
+                        showNewCatalyst = true
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(height: 100)
+                                .foregroundStyle(.thinMaterial)
+                                .shadow(color: .black.opacity(0.1), radius: 10, y: 10)
+                            
+                            HStack {
+                                Image(systemName: "flask")
+                                    .imageScale(.large)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                    .background(Circle().foregroundColor(.accentColor))
+                                
+                                Text("Catalyst")
+                                    .font(.title3)
+                                
+                                Spacer()
+                            }
+                            .padding()
+                        }
+                        .padding(.horizontal)
+                    }
+                    .labelStyle(.iconOnly)
+                    .padding()
+
+                    Button {
+                        showNewIdentity = true
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(height: 100)
+                                .foregroundStyle(.thinMaterial)
+                                .shadow(color: .black.opacity(0.1), radius: 10, y: 10)
+                            
+                            HStack {
+                                Image(systemName: "person")
+                                    .imageScale(.large)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                    .background(Circle().foregroundColor(.accentColor))
+                                
+                                Text("Identity")
+                                    .font(.title3)
+                                
+                                Spacer()
+                            }
+                            .padding()
+                        }
+                        .padding(.horizontal)
+                    }
+                    .labelStyle(.iconOnly)
+                    .padding()
+                }
+            }
+            
             VStack {
                 Spacer()
                 
-                
                 Button {
                     withAnimation {
-                        showDimmingAddScreen = true
+                        showDimmingAddScreen.toggle()
                     }
                 } label: {
                     Label("Add", systemImage: "plus")
