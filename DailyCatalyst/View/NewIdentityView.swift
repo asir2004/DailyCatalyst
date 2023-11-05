@@ -55,7 +55,15 @@ struct NewIdentityView: View {
                 
                 Section {
                     ForEach(identities) { identity in
-                        Label(identity.identityName, systemImage: identity.identityIcon)
+                        HStack {
+                            Label(identity.identityName, systemImage: identity.identityIcon)
+                            
+                            Spacer()
+                            
+                            Text(identity.identityCreationDateFormatted)
+                                .foregroundStyle(.secondary)
+                                .font(.caption)
+                        }
                     }
                 }
             }
@@ -90,6 +98,7 @@ struct NewIdentityView: View {
                 newIdentity.id = UUID()
                 newIdentity.name = newIdentityName
                 newIdentity.icon = newIdentityIcon
+                newIdentity.creationDate = .now
                 
                 try? viewContext.save()
             }

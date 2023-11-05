@@ -19,6 +19,14 @@ extension Identity {
     var identityIcon: String {
         icon ?? "person"
     }
+    
+    var identityCreationDateFormatted: String {
+        if creationDate != nil {
+            creationDate!.formatted(date: .numeric, time: .omitted)
+        } else {
+            "No Date"
+        }
+    }
 
     var identityActiveCatalysts: [Catalyst] {
         let result = catalysts?.allObjects as? [Catalyst] ?? []
