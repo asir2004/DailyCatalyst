@@ -10,8 +10,15 @@ import SwiftUI
 struct ContentViewToolbar: View {
     @EnvironmentObject var dataController: DataController
     
+    var isEditing: Binding<Bool>
+    
     var body: some View {
-        EditButton()
+        Button {
+            isEditing.wrappedValue.toggle()
+        } label: {
+            Text(isEditing.wrappedValue ? "Edit" : "Done")
+        }
+        
         Menu {
             Button(dataController.filterEnabled ? "Turn Filter Off" : "Turn Filter On") {
                 dataController.filterEnabled.toggle()
@@ -57,5 +64,5 @@ struct ContentViewToolbar: View {
 }
 
 #Preview {
-    ContentViewToolbar()
+    ContentViewToolbar(isEditing: .constant(true))
 }
