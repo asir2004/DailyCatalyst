@@ -12,11 +12,14 @@ struct ContentView: View {
     @AppStorage("scrollViewEffect") var scrollViewEffect = true
     @AppStorage("hideNavBarOnSwipe") var hideNavBarOnSwipe = true
     
+    @State private var isEditing = false
+    
     var body: some View {
         GeometryReader {
             let size = $0.size
             StaggeredGrid(columns: 2, list: dataController.catalystsForSelectedFilter(), content: { catalyst in
-                CatalystRowTransparent(catalyst: catalyst, width: size.width / 2)
+                @State var isSelected = false
+                CatalystRowTransparent(catalyst: catalyst, width: size.width / 2, isEditing: isEditing, isSelected: $isSelected)
                     .if(scrollViewEffect) { view in
                         view.scrollTransition(axis: .vertical) { content, phase in
                             content
@@ -33,7 +36,14 @@ struct ContentView: View {
             .safeAreaPadding(.horizontal)
         }
         .navigationTitle(dataController.selectedFilter?.name ?? "Catalysts")
-        .toolbar(content: ContentViewToolbar.init)
+//        .toolbar(content: ContentViewToolbar.init)
+        .toolbar {
+            Button {
+                isEditing.toggle()
+            } label: {
+                Text(isEditing ? "Edit" : "Done")
+            }
+        }
         .hideNavBarOnSwipe(hideNavBarOnSwipe)
     }
     
