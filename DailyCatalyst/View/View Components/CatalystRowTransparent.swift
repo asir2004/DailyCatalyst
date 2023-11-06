@@ -26,14 +26,13 @@ struct CatalystRowTransparent: View {
                         isSelected.wrappedValue.toggle()
                     } label: {
                         Rectangle()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .foregroundStyle(isSelected.wrappedValue ? .blue : .white)
                     }
                 }
                 
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundStyle(.thinMaterial)
-                    
+                
                 if (catalyst.image != nil) {
                     if let image = UIImage(data: catalyst.image!) {
                         Image(uiImage: image)
