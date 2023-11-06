@@ -15,10 +15,22 @@ struct CatalystRowTransparent: View {
     @AppStorage("cardPlainHeight") var cardPlainHeight = 150
     
     var width: CGFloat
+    var isEditing: Bool
+    var isSelected: Binding<Bool>
     
     var body: some View {
         NavigationLink(destination: CatalystView(catalyst: catalyst)) {
             ZStack {
+                if isEditing {
+                    Button {
+                        isSelected.wrappedValue.toggle()
+                    } label: {
+                        Rectangle()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .foregroundStyle(isSelected.wrappedValue ? .blue : .white)
+                    }
+                }
+                
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundStyle(.thinMaterial)
                     
@@ -134,5 +146,5 @@ struct CatalystRowTransparent: View {
 }
 
 #Preview {
-    CatalystRowTransparent(catalyst: .example, width: 200)
+    CatalystRowTransparent(catalyst: .example, width: 200, isEditing: true, isSelected: Binding.constant(true))
 }
