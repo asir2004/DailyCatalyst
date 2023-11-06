@@ -53,22 +53,24 @@ struct NewIdentityView: View {
                     }
                 }
                 
-                Section {
-                    ForEach(identities) { identity in
-                        HStack {
-                            Label(identity.identityName, systemImage: identity.identityIcon)
-                            
-                            Spacer()
-                            
-                            Text(identity.identityCreationDateFormatted)
-                                .foregroundStyle(.secondary)
-                                .font(.caption)
+                if identity == nil {
+                    Section {
+                        ForEach(identities) { identity in
+                            HStack {
+                                Label(identity.identityName, systemImage: identity.identityIcon)
+                                
+                                Spacer()
+                                
+                                Text(identity.identityCreationDateFormatted)
+                                    .foregroundStyle(.secondary)
+                                    .font(.caption)
+                            }
                         }
                     }
                 }
             }
         }
-        .navigationTitle("New Identity")
+        .navigationTitle(identity != nil ? "Rename Identity" : "New Identity")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             Button("Done") {
