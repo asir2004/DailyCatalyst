@@ -20,6 +20,32 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
+                Section("Quick Help") {
+                    HStack {
+                        Image(systemName: "heart.rectangle")
+                            .frame(width: 30)
+                            .foregroundStyle(.yellow)
+                        
+                        Text("This is an app you can store things that make you happy in different identities.")
+                    }
+                    
+                    HStack {
+                        Image(systemName: "person.2")
+                            .frame(width: 30)
+                            .foregroundStyle(.yellow)
+                        
+                        Text("For example, I, as a motion designer, have made the very first 3D animation few weeks ago. At the same time, as a iOS dev amateur, have made the Core Data model in this app work few days ago.")
+                    }
+                    
+                    HStack {
+                        Image(systemName: "star")
+                            .frame(width: 30)
+                            .foregroundStyle(.yellow)
+                        
+                        Text("I can mark pretty happy things as 4 or 5 stars, then they will be more bright in Catalyst (I call it so) list.")
+                    }
+                }
+                
                 Section("Visual Effects") {
                     VStack(alignment: .leading) {
                         Label("Color Scheme", systemImage: returnColorSchemeIcon())
