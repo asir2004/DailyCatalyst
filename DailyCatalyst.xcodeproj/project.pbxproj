@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EA0B98442AE57B4300E6F0AB /* EmptyImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */; };
+		EA19784A2AF909D400222DDA /* RectKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1978492AF909D400222DDA /* RectKey.swift */; };
 		EA1C5F512AE9F2CF00767CBD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C5F502AE9F2CF00767CBD /* SettingsView.swift */; };
 		EA2390112AAD611900F6AB28 /* Navigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */; };
 		EA2C3BCA2AC41F7100D2FBB3 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyImagePicker.swift; sourceTree = "<group>"; };
+		EA1978492AF909D400222DDA /* RectKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectKey.swift; sourceTree = "<group>"; };
 		EA1C5F502AE9F2CF00767CBD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Extension.swift"; sourceTree = "<group>"; };
 		EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -242,11 +244,11 @@
 		EADD7CDC2A9068CA00541B76 /* View Components */ = {
 			isa = PBXGroup;
 			children = (
+				EAA597872AF86CB10013C19F /* View+Extension.swift */,
 				EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */,
 				EA3A7A782ADFB8CD006A93BC /* EmojiFunc.swift */,
 				EA398E512A7B907F00530474 /* NoCatalystView.swift */,
 				EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */,
-				EAA597872AF86CB10013C19F /* View+Extension.swift */,
 				EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */,
 				EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */,
 				EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */,
@@ -282,6 +284,7 @@
 				EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */,
 				EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */,
 				EA1C5F502AE9F2CF00767CBD /* SettingsView.swift */,
+				EA1978492AF909D400222DDA /* RectKey.swift */,
 				EAE516442AF75BCE00D37877 /* Quoted Views */,
 				EA452D662AF233C8008362F1 /* Deprecated Views */,
 				EADD7CDC2A9068CA00541B76 /* View Components */,
@@ -449,6 +452,7 @@
 				EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */,
 				EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */,
 				EA0B98442AE57B4300E6F0AB /* EmptyImagePicker.swift in Sources */,
+				EA19784A2AF909D400222DDA /* RectKey.swift in Sources */,
 				EAD087962AC5C49100078E81 /* AnimatedAwardView.swift in Sources */,
 				EA3A7A792ADFB8CD006A93BC /* EmojiFunc.swift in Sources */,
 				EA3A7A772ADFB396006A93BC /* CatalystRowTransparent.swift in Sources */,
