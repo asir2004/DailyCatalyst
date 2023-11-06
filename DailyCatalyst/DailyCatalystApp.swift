@@ -12,7 +12,9 @@ import TipKit
 struct DailyCatalystApp: App {
     @StateObject var dataController = DataController()
     @Environment(\.scenePhase) var scenePhase
-    @AppStorage("colorScheme") private var colorScheme = "system"
+    
+    @AppStorage("isSystemColorScheme") var isSystemColorScheme = true
+    @AppStorage("activateDarkMode") var activateDarkMode: Bool = false
     
     var body: some Scene {
         WindowGroup {
@@ -41,15 +43,10 @@ struct DailyCatalystApp: App {
     }
     
     func returnColorScheme() -> ColorScheme? {
-        switch colorScheme {
-        case "system":
+        if isSystemColorScheme {
             return .none
-        case "light":
-            return .light
-        case "dark":
-            return .dark
-        default:
-            return .none
+        } else {
+            return activateDarkMode ? .dark : .light
         }
     }
 }
