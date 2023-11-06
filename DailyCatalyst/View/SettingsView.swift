@@ -9,7 +9,7 @@ import SwiftUI
 import UserNotifications
 
 struct SettingsView: View {
-    @AppStorage("colorScheme") var colorScheme = "system"
+    @AppStorage("isSystemColorScheme") var isSystemColorScheme = true
     @AppStorage("scrollViewEffect") var scrollViewEffect = true
     @AppStorage("hideNavBarOnSwipe") var hideNavBarOnSwipe = true
     @AppStorage("cardPictureHeight") var cardWithPictureHeight = 200
@@ -17,49 +17,25 @@ struct SettingsView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @AppStorage("toggleDarkMode") var toggleDarkMode: Bool = false
+    @AppStorage("activateDarkMode") var activateDarkMode: Bool = false
+    
     var body: some View {
         NavigationStack {
             List {
-                Section("Quick Help") {
-                    HStack {
-                        Image(systemName: "heart.rectangle")
-                            .frame(width: 30)
-                            .foregroundStyle(.yellow)
-                        
-                        Text("This is an app you can store things that make you happy in different identities.")
-                    }
-                    
-                    HStack {
-                        Image(systemName: "person.2")
-                            .frame(width: 30)
-                            .foregroundStyle(.yellow)
-                        
-                        Text("For example, I, as a motion designer, have made the very first 3D animation few weeks ago. At the same time, as a iOS dev amateur, have made the Core Data model in this app work few days ago.")
-                    }
-                    
-                    HStack {
-                        Image(systemName: "star")
-                            .frame(width: 30)
-                            .foregroundStyle(.yellow)
-                        
-                        Text("I can mark pretty happy things as 4 or 5 stars, then they will be more bright in Catalyst (I call it so) list.")
-                    }
-                }
-                
                 Section("Visual Effects") {
-                    VStack(alignment: .leading) {
-                        Label("Color Scheme", systemImage: returnColorSchemeIcon())
+                    HStack {
+                        Label("Use System Color Scheme", systemImage: returnColorSchemeIcon())
                             .imageScale(.large)
                             .frame(height: 30)
                             .contentTransition(.symbolEffect(.replace.offUp))
                         
-                        Picker("Color Scheme Picker", selection: $colorScheme) {
-                            Text("System").tag("system")
-                            Text("Light").tag("light")
-                            Text("Dark").tag("dark")
-                        }
-                        .pickerStyle(.segmented)
+                        Spacer()
+                        
+                        Toggle("Use System Color Scheme", isOn: $isSystemColorScheme)
+                            .labelsHidden()
                     }
+                    .frame(height: 30)
                     
                     HStack {
                         Label("Scroll Effect", systemImage: returnScrollEffectIcon())
@@ -159,6 +135,32 @@ struct SettingsView: View {
                             .frame(height: 30)
                     }
                 }
+                
+                Section("Quick Help") {
+                    HStack {
+                        Image(systemName: "heart.rectangle")
+                            .frame(width: 30)
+                            .foregroundStyle(.yellow)
+                        
+                        Text("This is an app you can store things that make you happy in different identities.")
+                    }
+                    
+                    HStack {
+                        Image(systemName: "person.2")
+                            .frame(width: 30)
+                            .foregroundStyle(.yellow)
+                        
+                        Text("For example, I, as a motion designer, have made the very first 3D animation few weeks ago. At the same time, as a iOS dev amateur, have made the Core Data model in this app work few days ago.")
+                    }
+                    
+                    HStack {
+                        Image(systemName: "star")
+                            .frame(width: 30)
+                            .foregroundStyle(.yellow)
+                        
+                        Text("I can mark pretty happy things as 4 or 5 stars, then they will be more bright in Catalyst (I call it so) list.")
+                    }
+                }
             }
             .navigationTitle("Settings")
             .toolbar {
@@ -168,6 +170,15 @@ struct SettingsView: View {
                     }
                 }
             }
+        }
+    }
+    
+    func returnColorSchemeIcon() -> String {
+        switch isSystemColorScheme {
+        case true:
+            return "circle.fill"
+        case false:
+            return "circle.slash.fill"
         }
     }
     
@@ -186,19 +197,6 @@ struct SettingsView: View {
             return "rectangle.and.arrow.up.right.and.arrow.down.left"
         case false:
             return "rectangle.and.arrow.up.right.and.arrow.down.left.slash"
-        }
-    }
-    
-    func returnColorSchemeIcon() -> String {
-        switch colorScheme {
-        case "system":
-            return "cloud.sun"
-        case "light":
-            return "sun.max"
-        case "dark":
-            return "moon"
-        default:
-            return "questionmark"
         }
     }
 }
