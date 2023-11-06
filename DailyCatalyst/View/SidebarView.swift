@@ -14,6 +14,9 @@ struct SidebarView: View {
     let smartFilters: [Filter] = [.all, .recent]
     
     @AppStorage("hideNavBarOnSwipe") var hideNavBarOnSwipe = true
+    @AppStorage("isSystemColorScheme") var isSystemColorScheme = true
+    @AppStorage("toggleDarkMode") var toggleDarkMode: Bool = false
+    @AppStorage("activateDarkMode") var activateDarkMode: Bool = false
     
     @State private var identityToRename: Identity?
     @State private var renamingIdentity = false
@@ -27,6 +30,11 @@ struct SidebarView: View {
     @State private var showDimmingAddScreen = false
     @State private var showingAwards = false
     @State private var showingSettings = false
+    
+    @State private var currentImage: UIImage?
+    @State private var previousImage: UIImage?
+    @State private var maskAnimation: Bool = false
+    @State private var buttonRect: CGRect = .zero
     
     var identityFilters: [Filter] {
         identities.map { identity in
@@ -203,6 +211,79 @@ struct SidebarView: View {
 //                TextField("Rename", text: $identityName)
 //            }
 //        }
+        .createImages(
+            toggleDarkMode: toggleDarkMode,
+            currentImage: $currentImage,
+            previousImage: $previousImage,
+            activateDarkMode: $activateDarkMode
+        )
+        .overlay(content: {
+            GeometryReader { geometry in
+                let size = geometry.size
+                
+                if let previousImage, let currentImage {
+                    ZStack {
+                        Image(uiImage: previousImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: size.width, height: size.height)
+                        
+                        Image(uiImage: currentImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: size.width, height: size.height)
+                            .mask(alignment: .topLeading) {
+                                Circle()
+                                    .frame(width: buttonRect.width * (maskAnimation ? 80 : 1), height: buttonRect.height * (maskAnimation ? 80 : 1), alignment: .topLeading)
+                                    .frame(width: buttonRect.width, height: buttonRect.height)
+                                    .offset(x: -buttonRect.minX, y: buttonRect.minY)
+                                    .ignoresSafeArea()
+                            }
+                    }
+                    .task {
+                        guard !maskAnimation else { return }
+                        withAnimation(.easeInOut(duration: 0.9), completionCriteria: .logicallyComplete) {
+                            maskAnimation = true
+                        } completion: {
+                            self.currentImage = nil
+                            self.previousImage = nil
+                            maskAnimation = false
+                        }
+                    }
+                }
+            }
+            /// Reverse masking
+            .mask {
+                Rectangle()
+                    .overlay(alignment: .topLeading) {
+                        Circle()
+                            .frame(width: buttonRect.width, height: buttonRect.height)
+                            .offset(x: buttonRect.minX, y: buttonRect.minY)
+                            .blendMode(.destinationOut)
+                    }
+            }
+            .ignoresSafeArea()
+        })
+        .if(!isSystemColorScheme) { view in
+            view
+                .overlay(alignment: .bottomLeading) {
+                    Button {
+                        toggleDarkMode.toggle()
+                    } label: {
+                        Image(systemName: toggleDarkMode ? "sun.min.fill" : "moon.fill")
+                            .font(.title2)
+                            .foregroundStyle(Color.primary)
+                            .symbolEffect(.bounce, value: toggleDarkMode)
+                            .frame(width: 40, height: 40)
+                    }
+                    .padding(10)
+                    .rect { rect in
+                        buttonRect = rect
+                    }
+                    .disabled(currentImage != nil || previousImage != nil || maskAnimation)
+                }
+                .preferredColorScheme(activateDarkMode ? .dark : .light)
+        }
         .sheet(isPresented: $renamingIdentity) {
             NavigationStack {
                 NewIdentityView(identity: identityToRename)
