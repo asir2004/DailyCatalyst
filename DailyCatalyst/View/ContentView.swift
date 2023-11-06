@@ -17,18 +17,18 @@ struct ContentView: View {
             let size = $0.size
             StaggeredGrid(columns: 2, list: dataController.catalystsForSelectedFilter(), content: { catalyst in
                 CatalystRowTransparent(catalyst: catalyst, width: size.width / 2)
-                #if scrollViewEffect
-                    .scrollTransition(axis: .vertical) { content, phase in
-                        content
-                            .scaleEffect(
-                                x: phase.isIdentity ? 1.0 : 0.8,
-                                y: phase.isIdentity ? 1.0 : 0.8
-                            )
-                            .blur(radius: phase.isIdentity ? 0 : 10)
-                            .opacity(phase.isIdentity ? 1.0 : 0)
-                            .offset(y: phase.isIdentity ? 0 : 50)
+                    .if(scrollViewEffect) { view in
+                        view.scrollTransition(axis: .vertical) { content, phase in
+                            content
+                                .scaleEffect(
+                                    x: phase.isIdentity ? 1.0 : 0.8,
+                                    y: phase.isIdentity ? 1.0 : 0.8
+                                )
+                                .blur(radius: phase.isIdentity ? 0 : 10)
+                                .opacity(phase.isIdentity ? 1.0 : 0)
+                                .offset(y: phase.isIdentity ? 0 : 50)
+                        }
                     }
-                #endif
             })
             .safeAreaPadding(.horizontal)
         }

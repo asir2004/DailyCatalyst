@@ -180,13 +180,6 @@ struct ImagePicker: View {
     }
 }
 
-extension View {
-    @ViewBuilder
-    func optionalViewModifier<Content: View>(@ViewBuilder content: @escaping (Self) -> Content) -> some View {
-        content(self)
-    }
-}
-
 #Preview {
     ImagePicker(catalyst: .example, title: "Image Picker", subTitle: "Tap or Drag & Drop", systemImage: "square.and.arrow.up", tint: .blue, isEditing: true) { image in
         print(image)
