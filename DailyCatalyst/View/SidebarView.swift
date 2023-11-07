@@ -129,8 +129,9 @@ struct SidebarView: View {
             if showAddScreenLayer {
                 Color(.black.opacity(0.25))
                     .ignoresSafeArea()
-                
+                    
                 AddScreenLayer()
+                    .frame(height: 400)
                     .offset(y: -100)
             }
             
