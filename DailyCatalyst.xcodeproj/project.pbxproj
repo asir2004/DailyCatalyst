@@ -32,6 +32,7 @@
 		EA6D13D02AE695D900AFBAF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */; };
 		EA6D13D42AE695D900AFBAF7 /* DailyCatalystWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EA6D13C02AE695D700AFBAF7 /* DailyCatalystWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
+		EA860E442AFA526A006A0BD6 /* AddScreenLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
 		EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */; };
 		EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA597872AF86CB10013C19F /* View+Extension.swift */; };
@@ -109,6 +110,7 @@
 		EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA6D13D12AE695D900AFBAF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIdentityView.swift; sourceTree = "<group>"; };
+		EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenLayer.swift; sourceTree = "<group>"; };
 		EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedHStackView.swift; sourceTree = "<group>"; };
 		EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
 		EAA597872AF86CB10013C19F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				EAB7FCD92A7AC0780022F01D /* SidebarView.swift */,
+				EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */,
 				EA31488A2AD3DB92005CEF84 /* SidebarViewToolbar.swift */,
 				EAD51EFB2A790FFC00A777E7 /* ContentView.swift */,
 				EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */,
@@ -452,6 +455,7 @@
 				EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */,
 				EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */,
 				EA0B98442AE57B4300E6F0AB /* EmptyImagePicker.swift in Sources */,
+				EA860E442AFA526A006A0BD6 /* AddScreenLayer.swift in Sources */,
 				EA19784A2AF909D400222DDA /* RectKey.swift in Sources */,
 				EAD087962AC5C49100078E81 /* AnimatedAwardView.swift in Sources */,
 				EA3A7A792ADFB8CD006A93BC /* EmojiFunc.swift in Sources */,
