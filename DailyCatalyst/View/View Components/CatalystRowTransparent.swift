@@ -72,14 +72,16 @@ struct CatalystRowTransparent: View {
                     HStack {
                         VStack(alignment: .leading) {
                             HStack {
-                                if catalyst.catalystIdentities != [] {
-                                    ForEach(catalyst.catalystIdentities, id: \.self) { identity in
-                                        Image(systemName: identity.identityIcon)
+                                VStack(spacing: 5) {
+                                    if catalyst.catalystIdentities != [] {
+                                        ForEach(catalyst.catalystIdentities, id: \.self) { identity in
+                                            Image(systemName: identity.identityIcon)
+                                                .imageScale(.small)
+                                        }
+                                    } else {
+                                        Image(systemName: "person")
                                             .imageScale(.small)
                                     }
-                                } else {
-                                    Image(systemName: "person")
-                                        .imageScale(.small)
                                 }
                                 
                                 Text(catalyst.catalystIdentitiesList)
