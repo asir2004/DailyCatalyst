@@ -123,6 +123,7 @@ struct NewCatalystView: View {
                 }
             }
         }
+        .listStyle(.plain)
         .toolbar {
             Button("Done") {
                 save()
@@ -130,7 +131,7 @@ struct NewCatalystView: View {
         }
     }
     
-    private func save() {
+    func save() {
         let newCatalyst = Catalyst(context: viewContext)
         
         newCatalyst.title = newCatalystTitle

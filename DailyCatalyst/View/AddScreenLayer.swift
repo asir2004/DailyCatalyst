@@ -224,8 +224,8 @@ struct AddScreenLayer: View {
         ],
         buttons: [
             0: [["Catalyst": "flask"], ["Identity": "person"]],
-            1: [["Cancel": "xmark.circle"], ["Continue": "checkmark.circle"]],
-            2: [["Cancel": "xmark.circle"], ["Continue": "checkmark.circle"]],
+            1: [["Save": "checkmark"], ["Save": "checkmark"]],
+            2: [["Save": "checkmark"], ["Save": "checkmark"]],
         ]
     )
     
@@ -236,22 +236,47 @@ struct AddScreenLayer: View {
 
             layers.getCurrentContent()
                 .id("layer.stack.content.\(layers.index)")
+                .frame(height: 200)
 
             HStack {
-                if layers.index == 0 {
+                switch layers.index {
+                case 0: Group {
                     LayerButton(
                         text: Binding.constant(layers.getCurrentButtons()[0].keys.first ?? ""),
                         icon: Binding.constant(layers.getCurrentButtons()[0].values.first ?? ""),
                         background: .blue) {
-                        layers.set(index: 1)
-                    }
+                            layers.set(index: 1)
+                        }
                     
                     LayerButton(
                         text: Binding.constant(layers.getCurrentButtons()[1].keys.first ?? ""),
                         icon: Binding.constant(layers.getCurrentButtons()[1].values.first ?? ""),
                         background: .orange) {
-                        layers.set(index: 2)
-                    }
+                            layers.set(index: 2)
+                        }
+                }
+                    
+                case 1: Group {
+                    LayerButton(
+                        text: Binding.constant(layers.getCurrentButtons()[0].keys.first ?? ""),
+                        icon: Binding.constant(layers.getCurrentButtons()[0].values.first ?? ""),
+                        background: .blue) {
+                            NewCatalystView().save()
+                        }
+                }
+                    
+                case 2: Group {
+                    LayerButton(
+                        text: Binding.constant(layers.getCurrentButtons()[0].keys.first ?? ""),
+                        icon: Binding.constant(layers.getCurrentButtons()[0].values.first ?? ""),
+                        background: .yellow) {
+                            NewIdentityView().save()
+                        }
+                }
+                    
+                default: Group{
+                    
+                }
                 }
             }
         }

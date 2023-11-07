@@ -88,7 +88,7 @@ struct NewIdentityView: View {
         })
     }
     
-    private func save() {
+    func save() {
         if identity != nil {
             identity!.name = newIdentityName
             identity!.icon = newIdentityIcon
