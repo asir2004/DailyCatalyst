@@ -219,8 +219,8 @@ struct AddScreenLayer: View {
         ],
         contents: [
             0: AnyView(AddScreenWelcome()),
-            1: AnyView(NewCatalystView()),
-            2: AnyView(NewIdentityViewHeader()),
+            1: AnyView(NewCatalystView().listStyle(.plain)),
+            2: AnyView(NewIdentityView(identity: nil).listStyle(.plain)),
         ],
         buttons: [
             0: [["Catalyst": "flask"], ["Identity": "person"]],
