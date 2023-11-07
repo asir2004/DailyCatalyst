@@ -123,7 +123,6 @@ struct NewCatalystView: View {
                 }
             }
         }
-        .listStyle(.plain)
         .toolbar {
             Button("Done") {
                 save()
