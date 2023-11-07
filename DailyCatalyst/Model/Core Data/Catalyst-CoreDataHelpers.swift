@@ -69,6 +69,10 @@ extension Catalyst {
         catalyst.happeningDate = .now.addingTimeInterval(86400)
         return catalyst
     }
+    
+    func reloadView() {
+        objectWillChange.send()
+    }
 }
 
 extension Catalyst: Comparable {
