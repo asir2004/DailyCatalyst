@@ -41,7 +41,7 @@ struct ContentView: View {
             Button {
                 isEditing.toggle()
             } label: {
-                Text(isEditing ? "Edit" : "Done")
+                Text(isEditing ? "Done" : "Edit")
             }
         }
         .hideNavBarOnSwipe(hideNavBarOnSwipe)
