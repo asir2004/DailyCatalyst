@@ -36,6 +36,9 @@ struct CatalystView: View {
                     .frame(height:
                         catalyst.image == nil ? (isEditing ? 300 : 200) : 300
                     )
+                    .onAppear() {
+                        catalyst.reloadView()
+                    }
                     
                     if (isEditing) {
                         Button {
@@ -50,6 +53,10 @@ struct CatalystView: View {
                 }
                 
                 Section {
+                    Button(action: { catalyst.reloadView() } ) {
+                        Text("Update View")
+                    }
+                    
                     HStack(alignment: .center) {
                         ZStack {
                             Circle()
