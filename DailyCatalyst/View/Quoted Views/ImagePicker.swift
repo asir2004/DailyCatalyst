@@ -140,6 +140,14 @@ struct ImagePicker: View {
                     }
                 }
             }
+            .onChange(of: catalyst) {
+                if (catalyst.image != nil) {
+                    if let image = UIImage(data: catalyst.image!) {
+                        generateImageThumbnail(image, scaledSize)
+                        onImageChange(image)
+                    }
+                }
+            }
             /// Auto clear the previewImage when catalyst.image changed to nil
             .onChange(of: catalyst.image) {
                 if catalyst.image == nil {
