@@ -36,9 +36,6 @@ struct CatalystView: View {
                     .frame(height:
                         catalyst.image == nil ? (isEditing ? 300 : 200) : 300
                     )
-                    .onAppear() {
-                        catalyst.reloadView()
-                    }
                     
                     if (isEditing) {
                         Button {
@@ -53,10 +50,6 @@ struct CatalystView: View {
                 }
                 
                 Section {
-                    Button(action: { catalyst.reloadView() } ) {
-                        Text("Update View")
-                    }
-                    
                     HStack(alignment: .center) {
                         ZStack {
                             Circle()
@@ -131,8 +124,15 @@ struct CatalystView: View {
                         }
                     } label: {
                         HStack {
-                            Image(systemName: catalyst.identities?.count == 0 ? "person" : "person.fill")
-                                .symbolEffect(.bounce.down, value: catalyst.identities?.count)
+                            if catalyst.identities?.count != 0 {
+                                ForEach(catalyst.catalystIdentities, id: \.self) { identity in
+                                    Image(systemName: identity.icon ?? "")
+                                        .symbolEffect(.bounce.down, value: catalyst.identities?.count)
+                                }
+                            } else {
+                                Image(systemName: "person")
+                                    .symbolEffect(.bounce.down, value: catalyst.identities?.count)
+                            }
                             
                             Text(catalyst.catalystIdentitiesList)
                                 .multilineTextAlignment(.leading)
