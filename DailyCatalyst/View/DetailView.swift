@@ -12,7 +12,7 @@ struct DetailView: View {
     
     var body: some View {
         VStack {
-            if var catalyst = dataController.selectedCatalyst {
+            if let catalyst = dataController.selectedCatalyst {
                 CatalystView(catalyst: catalyst)
             } else {
                 NoCatalystView()
