@@ -145,6 +145,8 @@ struct Layer: View {
             ZStack {
                 VStack(alignment: .leading, spacing: 24) {
                     content
+                    // MARK: - Added this line
+                        .ignoresSafeArea()
                 }
                 .padding(32)
                 .frame(maxWidth: .infinity)
