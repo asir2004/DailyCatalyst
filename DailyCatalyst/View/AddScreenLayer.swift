@@ -236,7 +236,6 @@ struct AddScreenLayer: View {
 
             layers.getCurrentContent()
                 .id("layer.stack.content.\(layers.index)")
-                .frame(height: 200)
 
             HStack {
                 switch layers.index {
