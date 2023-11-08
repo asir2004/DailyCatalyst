@@ -148,7 +148,8 @@ struct Layer: View {
                     // MARK: - Added this line
                         .ignoresSafeArea()
                 }
-                .padding(32)
+                // MARK: - Added this line
+                .padding(.vertical, 32)
                 .frame(maxWidth: .infinity)
                 .background(
                     Color(.systemBackground)
