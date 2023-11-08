@@ -14,6 +14,9 @@ struct SettingsView: View {
     @AppStorage("hideNavBarOnSwipe") var hideNavBarOnSwipe = true
     @AppStorage("cardPictureHeight") var cardWithPictureHeight = 200
     @AppStorage("cardPlainHeight") var cardPlainHeight = 150
+    @AppStorage("notificationTimeHour") var notificationTimeHour = 20
+    @AppStorage("notificationTimeMinute") var notificationTimeMinute = 0
+    @AppStorage("useLayersAddScreen") var useLayersAddScreen: Bool = false
     
     @Environment(\.dismiss) var dismiss
     
@@ -24,6 +27,19 @@ struct SettingsView: View {
         NavigationStack {
             List {
                 Section("Visual Effects") {
+                    HStack {
+                        Label("Use Layers Add Screen", systemImage: useLayersAddScreen ? "rectangle.on.rectangle" : "rectangle.on.rectangle.slash")
+                            .imageScale(.large)
+                            .frame(height: 30)
+                            .contentTransition(.symbolEffect(.replace.offUp))
+                        
+                        Spacer()
+                        
+                        Toggle("Use Layers Add Screen", isOn: $useLayersAddScreen)
+                            .labelsHidden()
+                    }
+                    .frame(height: 30)
+                    
                     HStack {
                         Label("Use System Color Scheme", systemImage: returnColorSchemeIcon())
                             .imageScale(.large)
