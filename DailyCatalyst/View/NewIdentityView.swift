@@ -82,8 +82,8 @@ struct NewIdentityView: View {
         }
         .onAppear(perform: {
             if let identity = identity {
-                newIdentityName = identity.name ?? ""
-                newIdentityIcon = identity.icon ?? ""
+                newIdentityName = identity.identityName
+                newIdentityIcon = identity.identityIcon
             }
         })
     }

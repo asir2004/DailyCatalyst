@@ -18,16 +18,14 @@ struct DailyCatalystApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GeometryReader { geometry in
-                let size = geometry.size
-                NavigationSplitView {
-                    SidebarView()
-                } content: {
-                    ContentView()
-                } detail: {
-                    DetailView()
-                }
-                .navigationSplitViewColumnWidth(ideal: size.width / 2)
+            NavigationSplitView {
+                SidebarView()
+                    .navigationSplitViewColumnWidth(1000)
+            } content: {
+                ContentView()
+                    .navigationSplitViewColumnWidth(1000)
+            } detail: {
+                DetailView()
             }
             .task {
                 try? Tips.configure([

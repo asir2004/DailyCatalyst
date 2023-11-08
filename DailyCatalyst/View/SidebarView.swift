@@ -222,6 +222,7 @@ struct SidebarView: View {
 //                TextField("Rename", text: $identityName)
 //            }
 //        }
+        // MARK: -Dark Mode Switch
         .createImages(
             toggleDarkMode: toggleDarkMode,
             currentImage: $currentImage,
