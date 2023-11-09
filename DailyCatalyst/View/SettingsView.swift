@@ -22,10 +22,45 @@ struct SettingsView: View {
     
     @AppStorage("toggleDarkMode") var toggleDarkMode: Bool = false
     @AppStorage("activateDarkMode") var activateDarkMode: Bool = false
+    @AppStorage("accentColor") var accentColor: Color = .accentColor
     
     var body: some View {
         NavigationStack {
             List {
+                Section("Appearance") {
+                    VStack(alignment: .leading) {
+                        Label("Color Palette", systemImage: "paintpalette")
+                            .accentColor(accentColor)
+                            .imageScale(.large)
+                            .frame(height: 30)
+                            .symbolEffect(.bounce, value: cardWithPictureHeight)
+                        
+                        Picker("Card with Picture Height", selection: $accentColor) {
+                            Text("Default")
+                                .tag(Color.accentColor)
+                            Text("Blue Hour")
+                                .tag(Color("Blue Hour"))
+                            Text("Blanket")
+                                .tag(Color("Blanket"))
+                        }
+                        .pickerStyle(.segmented)
+                        .labelsHidden()
+                    }
+                    
+                    HStack {
+                        Label("Use System Color Scheme", systemImage: returnColorSchemeIcon())
+                            .imageScale(.large)
+                            .frame(height: 30)
+                            .contentTransition(.symbolEffect(.replace.offUp))
+                        
+                        Spacer()
+                        
+                        Toggle("Use System Color Scheme", isOn: $isSystemColorScheme)
+                            .labelsHidden()
+                    }
+                    .frame(height: 30)
+                }
+                
                 Section("Visual Effects") {
                     HStack {
                         Label("Use Layers Add Screen", systemImage: useLayersAddScreen ? "rectangle.on.rectangle" : "rectangle.on.rectangle.slash")
@@ -37,19 +72,6 @@ struct SettingsView: View {
                         Spacer()
                         
                         Toggle("Use Layers Add Screen", isOn: $useLayersAddScreen)
-                            .labelsHidden()
-                    }
-                    .frame(height: 30)
-                    
-                    HStack {
-                        Label("Use System Color Scheme", systemImage: returnColorSchemeIcon())
-                            .imageScale(.large)
-                            .frame(height: 30)
-                            .contentTransition(.symbolEffect(.replace.offUp))
-                        
-                        Spacer()
-                        
-                        Toggle("Use System Color Scheme", isOn: $isSystemColorScheme)
                             .labelsHidden()
                     }
                     .frame(height: 30)
@@ -188,6 +210,7 @@ struct SettingsView: View {
                 }
             }
         }
+        .accentColor(.accentColor)
     }
     
     func returnColorSchemeIcon() -> String {
