@@ -32,6 +32,8 @@ struct NewCatalystView: View {
     
     @State private var imageData: Data?
     
+    @FocusState var isInputActive: Bool
+    
     var newCatalystIdentitiesList: String {
         if let newCatalystIdentities {
             if newCatalystIdentities.count == 0 {
@@ -128,6 +130,20 @@ struct NewCatalystView: View {
                 save()
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        isInputActive = false
+                    } label: {
+                        Text("Done")
+                    }
+                }
+            }
+        }
+        .focused($isInputActive)
     }
     
     func save() {
