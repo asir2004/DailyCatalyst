@@ -15,6 +15,7 @@ struct DailyCatalystApp: App {
     
     @AppStorage("isSystemColorScheme") var isSystemColorScheme = true
     @AppStorage("activateDarkMode") var activateDarkMode: Bool = false
+    @AppStorage("accentColor") var accentColor: Color = .accentColor
     
     var body: some Scene {
         WindowGroup {
@@ -41,6 +42,7 @@ struct DailyCatalystApp: App {
                 }
             }
             .preferredColorScheme(returnColorScheme())
+            .accentColor(accentColor)
         }
     }
     
