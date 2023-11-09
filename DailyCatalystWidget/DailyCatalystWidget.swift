@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import CoreData
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -38,16 +39,11 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct DailyCatalystWidgetEntryView : View {
+    @EnvironmentObject var dataController: DataController
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
-        }
+        CatalystWidgetView(catalyst: dataController.randomlyPickACatalyst())
     }
 }
 
