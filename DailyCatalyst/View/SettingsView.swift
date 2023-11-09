@@ -32,6 +32,7 @@ struct SettingsView: View {
                             .imageScale(.large)
                             .frame(height: 30)
                             .contentTransition(.symbolEffect(.replace.offUp))
+                        BorderedText(text: "Beta", color: .orange, font: .footnote)
                         
                         Spacer()
                         
