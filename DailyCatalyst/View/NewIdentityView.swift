@@ -24,6 +24,8 @@ struct NewIdentityView: View {
     
     @State private var feedback = UINotificationFeedbackGenerator()
     
+    @FocusState var isInputActive: Bool
+    
 //    @State var items: [String] = ["", ""]
     
     var body: some View {
@@ -77,6 +79,20 @@ struct NewIdentityView: View {
                 dismiss()
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .keyboard) {
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        isInputActive = false
+                    } label: {
+                        Text("Done")
+                    }
+                }
+            }
+        }
+        .focused($isInputActive)
         .sheet(isPresented: $iconPickerPresented) {
             SymbolPicker(symbol: $newIdentityIcon)
         }
