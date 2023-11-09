@@ -28,6 +28,8 @@ struct Provider: AppIntentTimelineProvider {
             let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
+        
+        getRandomCatalyst()
 
         return Timeline(entries: entries, policy: .atEnd)
     }
@@ -44,6 +46,10 @@ struct DailyCatalystWidgetEntryView : View {
     var body: some View {
         CatalystWidgetView(catalyst: DataController().randomlyPickACatalyst())
     }
+}
+
+func getRandomCatalyst() -> Catalyst {
+    return DataController().randomlyPickACatalyst()
 }
 
 struct DailyCatalystWidget: Widget {
