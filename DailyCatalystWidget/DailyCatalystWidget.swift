@@ -39,11 +39,18 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct DailyCatalystWidgetEntryView : View {
-    @EnvironmentObject var dataController: DataController
     var entry: Provider.Entry
 
     var body: some View {
-        CatalystWidgetView(catalyst: dataController.randomlyPickACatalyst())
+        CatalystWidgetView(catalyst: getRandomCatalyst())
+    }
+    
+    func getRandomCatalyst() -> Catalyst {
+        let context = DataController().container.viewContext
+        let request = Catalyst.fetchRequest()
+        let result = try? context.fetch(request)
+        
+        return result?.randomElement() ?? .example
     }
 }
 
