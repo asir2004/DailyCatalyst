@@ -42,15 +42,7 @@ struct DailyCatalystWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        CatalystWidgetView(catalyst: getRandomCatalyst())
-    }
-    
-    func getRandomCatalyst() -> Catalyst {
-        let context = DataController().container.viewContext
-        let request = Catalyst.fetchRequest()
-        let result = try? context.fetch(request)
-        
-        return result?.randomElement() ?? .example
+        CatalystWidgetView(catalyst: DataController().randomlyPickACatalyst())
     }
 }
 
