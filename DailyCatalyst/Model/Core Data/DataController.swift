@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import SwiftUI
 
 enum SortType: String {
     case dateCreated = "creationDate"
@@ -42,6 +43,9 @@ class DataController: ObservableObject {
     
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Main")
+        let url = URL.storeURL(for: "group.com.markview.dailycatalyst", databaseName: "DailyCatalyst")
+        let storeDescription = NSPersistentStoreDescription(url: url)
+        container.persistentStoreDescriptions = [storeDescription]
         
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(filePath: "/dev/null")
@@ -238,5 +242,45 @@ class DataController: ObservableObject {
 //            fatalError("Unknown award criterion: \(award.criterion)")
             return false
         }
+    }
+    
+    
+    /// Copied from https://stackoverflow.com/questions/34917149/how-to-randomly-choose-an-element-from-coredata-swift
+    
+    func randomlyPickACatalyst() -> Catalyst {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Catalyst")
+        
+        let moc = container.viewContext
+        
+        if let fetchRequestCount = try? moc.count(for: fetchRequest) {
+            fetchRequest.fetchOffset = Int.random(in: 0...fetchRequestCount)
+        }
+
+        fetchRequest.fetchLimit = 1
+
+        var fetchResults: [Catalyst]?
+        moc.performAndWait {
+            fetchResults = try? fetchRequest.execute() as? [Catalyst]
+        }
+
+        if let wrapFetchResults = fetchResults {
+            if wrapFetchResults.count > 0 {
+                return wrapFetchResults.first ?? .example
+            } else {
+                return .example
+            }
+        } else {
+            return .example
+        }
+    }
+}
+
+public extension URL {
+    static func storeURL(for appGroup: String, databaseName: String) -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
+            fatalError("Unable to create URL for \(appGroup)")
+        }
+        
+        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
     }
 }
