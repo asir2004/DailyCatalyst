@@ -61,6 +61,10 @@ struct SidebarView: View {
                         UserFilterRow(filter: filter, rename: rename, delete: delete)
                     }
                 }
+                
+                Section("Test") {
+                    CatalystRowTransparent(catalyst: dataController.randomlyPickACatalyst(), width: 400, isEditing: false, isSelected: Binding.constant(false))
+                }
             }
             
             if useLayersAddScreen {
