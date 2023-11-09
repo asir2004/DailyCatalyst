@@ -21,6 +21,7 @@
 		EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA398E512A7B907F00530474 /* NoCatalystView.swift */; };
 		EA3A7A772ADFB396006A93BC /* CatalystRowTransparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */; };
 		EA3A7A792ADFB8CD006A93BC /* EmojiFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A7A782ADFB8CD006A93BC /* EmojiFunc.swift */; };
+		EA3B48D22AFC973900C32C47 /* BorderedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B48D12AFC973900C32C47 /* BorderedText.swift */; };
 		EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */; };
 		EA5F7D962AD577B2003982D2 /* ContentViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */; };
 		EA6D13C32AE695D700AFBAF7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D13C22AE695D700AFBAF7 /* WidgetKit.framework */; };
@@ -98,6 +99,7 @@
 		EA398E512A7B907F00530474 /* NoCatalystView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCatalystView.swift; sourceTree = "<group>"; };
 		EA3A7A762ADFB396006A93BC /* CatalystRowTransparent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystRowTransparent.swift; sourceTree = "<group>"; };
 		EA3A7A782ADFB8CD006A93BC /* EmojiFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiFunc.swift; sourceTree = "<group>"; };
+		EA3B48D12AFC973900C32C47 /* BorderedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedText.swift; sourceTree = "<group>"; };
 		EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilterRow.swift; sourceTree = "<group>"; };
 		EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewToolbar.swift; sourceTree = "<group>"; };
 		EA6D13C02AE695D700AFBAF7 /* DailyCatalystWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DailyCatalystWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +248,7 @@
 		EADD7CDC2A9068CA00541B76 /* View Components */ = {
 			isa = PBXGroup;
 			children = (
+				EA3B48D12AFC973900C32C47 /* BorderedText.swift */,
 				EAA597872AF86CB10013C19F /* View+Extension.swift */,
 				EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */,
 				EA3A7A782ADFB8CD006A93BC /* EmojiFunc.swift */,
@@ -467,6 +470,7 @@
 				EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */,
 				EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */,
 				EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */,
+				EA3B48D22AFC973900C32C47 /* BorderedText.swift in Sources */,
 				EA2C3BCA2AC41F7100D2FBB3 /* Bundle-Decodable.swift in Sources */,
 				EA398E502A7B907A00530474 /* CatalystView.swift in Sources */,
 				EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */,
