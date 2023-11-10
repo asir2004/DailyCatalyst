@@ -63,7 +63,7 @@ struct SidebarView: View {
                 }
                 
                 Section("Test") {
-                    CatalystRowTransparent(catalyst: dataController.randomlyPickACatalyst(), width: 400, isEditing: false, isSelected: Binding.constant(false))
+                    CatalystRowTransparent(catalyst: Catalyst.example, width: 400, isEditing: false, isSelected: Binding.constant(false))
                 }
             }
             
