@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Catalyst {
     var catalystTitle: String {
@@ -67,6 +68,8 @@ extension Catalyst {
         catalyst.happiness = Int16.random(in: 1...5)
         catalyst.creationDate = .now
         catalyst.happeningDate = .now.addingTimeInterval(86400)
+        catalyst.archived = false
+        
         return catalyst
     }
 }
