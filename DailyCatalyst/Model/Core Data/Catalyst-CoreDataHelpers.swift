@@ -65,10 +65,11 @@ extension Catalyst {
         let catalyst = Catalyst(context: viewContext)
         catalyst.title = "Example Catalyst"
         catalyst.effect = "Example Effect"
-        catalyst.happiness = Int16.random(in: 1...5)
-        catalyst.creationDate = .now
         catalyst.happeningDate = .now.addingTimeInterval(86400)
+        catalyst.creationDate = .now
+        catalyst.happiness = Int16.random(in: 1...5)
         catalyst.archived = false
+        catalyst.addToIdentities(.example)
         
         return catalyst
     }
