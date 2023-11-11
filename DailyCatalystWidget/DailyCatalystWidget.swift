@@ -28,8 +28,6 @@ struct Provider: AppIntentTimelineProvider {
             let entry = SimpleEntry(date: entryDate, configuration: configuration)
             entries.append(entry)
         }
-        
-        getRandomCatalyst()
 
         return Timeline(entries: entries, policy: .atEnd)
     }
@@ -44,7 +42,68 @@ struct DailyCatalystWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        CatalystWidgetView(catalyst: DataController().randomlyPickACatalyst())
+//        Text("Hello World!")
+//        CatalystWidgetView()
+        ZStack {
+//            Image("TestJpeg")
+//                .resizable()
+//                .scaledToFill()
+//                .frame(maxWidth: .infinity)
+//                .clipped()
+//                .mask(RadialGradient(
+//                    gradient: Gradient(stops: [
+//                        .init(color: .black.opacity(0.5), location: 0),
+//                        .init(color: .clear, location: 1)
+//                    ]),
+//                    center: .bottomTrailing,
+//                    startRadius: 0,
+//                    endRadius: 200
+//                ))
+//                .frame(alignment: .bottomTrailing)
+            
+            VStack {
+                HStack {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            VStack(spacing: 5) {
+                                Image(systemName: "person")
+                                    .imageScale(.small)
+                            }
+                            
+                            Text("Identities")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .italic()
+                        }
+                        
+                        Text("Title")
+                            .font(.title2)
+                            .lineLimit(2)
+                        Text("Effect Here")
+                            .font(.subheadline)
+                            .lineLimit(1)
+                            .foregroundStyle(.secondary)
+                        
+                        Spacer()
+                        
+                        Text(Date.now.formatted(date: .numeric, time: .omitted))
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                    
+                    Spacer()
+                }
+                .padding()
+            }
+            
+            Circle()
+                .foregroundStyle(.yellow)
+                .frame(height: 130)
+                .opacity(Double(3) * 0.1)
+                .blur(radius: Double(3) * 50)
+                .frame(alignment: .bottom)
+                .offset(y: 70)
+        }
     }
 }
 
