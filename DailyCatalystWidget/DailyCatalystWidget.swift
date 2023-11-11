@@ -10,13 +10,48 @@ import SwiftUI
 import CoreData
 
 struct Provider: AppIntentTimelineProvider {
+    let dataController = DataController()
+    let coreDataManager: CoreDataManager
+    
+    init() {
+        coreDataManager = CoreDataManager(dataController)
+    }
+    
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), catalyst: DataController().randomlyPickACatalyst())
+        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), catalyst: .example)
     }
     
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: configuration, catalyst: DataController().randomlyPickACatalyst())
     }
+    
+//    func snapshot(for configuration: ConfigurationAppIntent, in context: Context, completion: @escaping (SimpleEntry) -> Void) { //swiftlint:disable:this line_length
+//        catalystForWidget(for: configuration) { selectedCatalyst in
+//            let entry = SimpleEntry(
+//                date: Date(),
+//                configuration: configuration,
+//                catalyst: selectedCatalyst ?? .example
+//            )
+//            completion(entry)
+//        }
+//        
+////        coreDataManager.fetchCatalysts()
+//        
+////        catalystForWidget(for: configuration) { selectedCatalyst in
+////            let currentDate = Date()
+////            var entries: [SimpleEntry] = []
+////
+////            // Create a date that's 60 minutes in the future.
+////            let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 60, to: currentDate)!
+////
+////            // Generate an Entry
+////            let entry = SimpleEntry(date: currentDate, configuration: configuration, catalyst: selectedCatalyst ?? .example)
+////            entries.append(entry)
+////
+////            let timeline = Timeline(entries: entries, policy: .after(nextUpdateDate))
+////            completion(timeline)
+////        }
+//    }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
         let catalyst = DataController().randomlyPickACatalyst()
@@ -24,6 +59,37 @@ struct Provider: AppIntentTimelineProvider {
         let entries: [SimpleEntry] = [entry]
         
         return Timeline(entries: entries, policy: .atEnd)
+        
+//        coreDataManager.fetchCatalysts()
+        
+//        catalystForWidget(for: configuration) { selectedCatalyst in
+////            let entry = SimpleEntry(
+////                date: Date(),
+////                configuration: configuration,
+////                catalyst: selectedCatalyst ?? .example
+////            )
+////            completion(entry)
+//            
+//            let currentDate = Date()
+//            var entries: [SimpleEntry] = []
+//
+//            // Create a date that's 60 minutes in the future.
+//            let nextUpdateDate = Calendar.current.date(byAdding: .minute, value: 60, to: currentDate)!
+//
+//            // Generate an Entry
+//            let entry = SimpleEntry(date: currentDate, configuration: configuration, catalyst: selectedCatalyst ?? .example)
+//            entries.append(entry)
+//
+//            let timeline = Timeline(entries: entries, policy: .after(nextUpdateDate))
+//            completion(timeline)
+//        }
+    }
+    
+    func catalystForWidget(for configuration: ConfigurationAppIntent, completion: @escaping (Catalyst?) -> Void) {
+        var selectedCatalyst: Catalyst?
+        do {
+            completion(selectedCatalyst)
+        }
     }
 }
 
@@ -40,10 +106,6 @@ struct DailyCatalystWidgetEntryView : View {
 //        Text("Hello World!")
         CatalystWidgetView(catalyst: entry.catalyst)
     }
-}
-
-func getRandomCatalyst() -> Catalyst {
-    return DataController().randomlyPickACatalyst()
 }
 
 struct DailyCatalystWidget: Widget {
