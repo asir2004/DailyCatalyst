@@ -11,11 +11,11 @@ import CoreData
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), catalyst: .example)
+        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), catalyst: DataController().randomlyPickACatalyst())
     }
     
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration, catalyst: .example)
+        SimpleEntry(date: Date(), configuration: configuration, catalyst: DataController().randomlyPickACatalyst())
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
@@ -24,10 +24,6 @@ struct Provider: AppIntentTimelineProvider {
         let entries: [SimpleEntry] = [entry]
         
         return Timeline(entries: entries, policy: .atEnd)
-    }
-    
-    func getData() -> Catalyst {
-        DataController().randomlyPickACatalyst()
     }
 }
 
