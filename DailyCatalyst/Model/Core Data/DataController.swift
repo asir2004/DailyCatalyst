@@ -73,9 +73,9 @@ class DataController: ObservableObject {
     
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Main")
-        let url = URL.storeURL(for: "group.com.markview.dailycatalyst", databaseName: "DailyCatalyst")
-        let storeDescription = NSPersistentStoreDescription(url: url)
-        container.persistentStoreDescriptions = [storeDescription]
+//        let url = URL.storeURL(for: "group.com.markview.dailycatalyst", databaseName: "DailyCatalyst")
+//        let storeDescription = NSPersistentStoreDescription(url: url)
+//        container.persistentStoreDescriptions = [storeDescription]
         
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(filePath: "/dev/null")
@@ -305,12 +305,12 @@ class DataController: ObservableObject {
     }
 }
 
-public extension URL {
-    static func storeURL(for appGroup: String, databaseName: String) -> URL {
-        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
-            fatalError("Unable to create URL for \(appGroup)")
-        }
-        
-        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
-    }
-}
+//public extension URL {
+//    static func storeURL(for appGroup: String, databaseName: String) -> URL {
+//        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
+//            fatalError("Unable to create URL for \(appGroup)")
+//        }
+//        
+//        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
+//    }
+//}
