@@ -62,9 +62,9 @@ struct SidebarView: View {
                     }
                 }
                 
-                Section("Test") {
-                    CatalystRowTransparent(catalyst: Catalyst.example, width: 400, isEditing: false, isSelected: Binding.constant(false))
-                }
+//                Section("Test") {
+//                    CatalystRowTransparent(catalyst: Catalyst.example, width: 400, isEditing: false, isSelected: Binding.constant(false))
+//                }
             }
             
             if useLayersAddScreen {
