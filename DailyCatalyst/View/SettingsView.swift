@@ -175,6 +175,11 @@ struct SettingsView: View {
                     }
                 }
                 
+                Section("Testing") {
+                    CatalystRowTransparent(catalyst: DataController().randomlyPickACatalyst(), width: .greatestFiniteMagnitude, isEditing: false, isSelected: Binding.constant(false))
+                        .disabled(true)
+                }
+                
                 Section("Quick Help") {
                     HStack {
                         Image(systemName: "heart.rectangle")
