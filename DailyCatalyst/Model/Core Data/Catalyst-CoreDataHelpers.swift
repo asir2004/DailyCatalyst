@@ -58,18 +58,31 @@ extension Catalyst {
         catalystCreationDate.formatted(date: .numeric, time: .omitted)
     }
     
+//    static var example: Catalyst {
+//        let controller = DataController(inMemory: true)
+//        let viewContext = controller.container.viewContext
+//        
+//        let catalyst = Catalyst(context: viewContext)
+//        catalyst.title = "Example Catalyst"
+//        catalyst.effect = "Example Effect"
+//        catalyst.happeningDate = .now.addingTimeInterval(86400)
+//        catalyst.creationDate = .now
+//        catalyst.happiness = Int16.random(in: 1...5)
+//        catalyst.archived = false
+//        catalyst.addToIdentities(.example)
+//        
+//        return catalyst
+//    }
+    
     static var example: Catalyst {
-        let controller = DataController(inMemory: true)
-        let viewContext = controller.container.viewContext
-        
+        let result = DataController.preview
+        let viewContext = result.container.viewContext
         let catalyst = Catalyst(context: viewContext)
-        catalyst.title = "Example Catalyst"
-        catalyst.effect = "Example Effect"
-        catalyst.happeningDate = .now.addingTimeInterval(86400)
-        catalyst.creationDate = .now
-        catalyst.happiness = Int16.random(in: 1...5)
+        catalyst.title = "An example catalyst"
+        catalyst.effect = "Details of example catalyst"
+        catalyst.happiness = 3
         catalyst.archived = false
-        catalyst.addToIdentities(.example)
+        catalyst.happeningDate = .now
         
         return catalyst
     }
