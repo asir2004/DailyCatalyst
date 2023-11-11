@@ -86,6 +86,19 @@ extension Catalyst {
         
         return catalyst
     }
+    
+    static var example2: Catalyst {
+        let result = DataController.preview
+        let viewContext = result.container.viewContext
+        let catalyst = Catalyst(context: viewContext)
+        catalyst.title = "Example 2"
+        catalyst.effect = "Example 2 Detail"
+        catalyst.happiness = 1
+        catalyst.archived = true
+        catalyst.happeningDate = .now
+        
+        return catalyst
+    }
 }
 
 extension Catalyst: Comparable {
