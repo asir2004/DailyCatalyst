@@ -6,16 +6,13 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct CatalystWidgetView: View {
-    @ObservedObject var catalyst: Catalyst
-    @EnvironmentObject var dataController: DataController
+    @ObservedObject var catalyst: Catalyst = .example
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 20)
-                .foregroundStyle(.thinMaterial)
-            
             if (catalyst.image != nil) {
                 if let image = UIImage(data: catalyst.image!) {
                     Image(uiImage: image)
@@ -104,11 +101,12 @@ struct CatalystWidgetView: View {
                 .frame(alignment: .bottom)
                 .offset(y: 70)
         }
-        .frame(height: 200)
-        .clipShape(RoundedRectangle(cornerRadius: 20))
+//        .frame(height: 200)
+//        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 
 #Preview {
     CatalystWidgetView(catalyst: .example)
+        .previewContext(WidgetPreviewContext(family: .systemMedium))
 }
