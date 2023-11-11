@@ -71,11 +71,35 @@ class DataController: ObservableObject {
         return result
     }()
     
+    static let model: NSManagedObjectModel = {
+        guard let url = Bundle.main.url(forResource: "Main", withExtension: "momd") else {
+            fatalError("Failed to locate model file.")
+        }
+
+        guard let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
+            fatalError("Failed to load model file.")
+        }
+
+        return managedObjectModel
+    }()
+    
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Main")
-//        let url = URL.storeURL(for: "group.com.markview.dailycatalyst", databaseName: "DailyCatalyst")
-//        let storeDescription = NSPersistentStoreDescription(url: url)
-//        container.persistentStoreDescriptions = [storeDescription]
+        // Copied from StackOverflow
+        let storeURL = URL.storeURL(for: "group.com.markview.dailycatalyst", databaseName: "Main")
+        let storeDescription = NSPersistentStoreDescription(url: storeURL)
+        storeDescription.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(
+            containerIdentifier: "Identifier"
+        )
+        container.persistentStoreDescriptions = [storeDescription]
+        
+        guard let description = container.persistentStoreDescriptions.first else {
+//            Log.shared.add(.coreData, .error, "###\(#function): Failed to retrieve a persistent store description.")
+            fatalError("###\(#function): Failed to retrieve a persistent store description.")
+        }
+        
+        description.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
+        description.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
         
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(filePath: "/dev/null")
@@ -98,6 +122,7 @@ class DataController: ObservableObject {
         
         container.loadPersistentStores { storeDescription, error in
             if let error {
+//                Log.shared.add(.cloudKit, .fault, "Fatal error loading store \(error)")
                 fatalError("Fatal error loading store: \(error.localizedDescription)")
             }
         }
@@ -286,7 +311,7 @@ class DataController: ObservableObject {
             fetchRequest.fetchOffset = Int.random(in: 0...fetchRequestCount)
         }
 
-        fetchRequest.fetchLimit = 1
+        fetchRequest.fetchLimit = 3
 
         var fetchResults: [Catalyst]?
         moc.performAndWait {
@@ -294,23 +319,23 @@ class DataController: ObservableObject {
         }
 
         if let wrapFetchResults = fetchResults {
-            if wrapFetchResults.count > 0 {
-                return wrapFetchResults.first ?? .example
-            } else {
-                return .example
-            }
+//            if wrapFetchResults.count > 0 {
+                return wrapFetchResults.first ?? .example2
+//            } else {
+//                return .example // Error happened here.
+//            }
         } else {
             return .example
         }
     }
 }
 
-//public extension URL {
-//    static func storeURL(for appGroup: String, databaseName: String) -> URL {
-//        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
-//            fatalError("Unable to create URL for \(appGroup)")
-//        }
-//        
-//        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
-//    }
-//}
+public extension URL {
+    static func storeURL(for appGroup: String, databaseName: String) -> URL {
+        guard let fileContainer = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroup) else {
+            fatalError("Unable to create URL for \(appGroup)")
+        }
+        
+        return fileContainer.appendingPathComponent("\(databaseName).sqlite")
+    }
+}
