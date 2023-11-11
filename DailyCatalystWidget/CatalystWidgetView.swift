@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct CatalystWidgetView: View {
-    @ObservedObject var catalyst: Catalyst = .example
+    var catalyst: Catalyst = .example
     
     var body: some View {
         ZStack {
@@ -87,11 +87,9 @@ struct CatalystWidgetView: View {
                     
                     Spacer()
                 }
-                .padding()
-                
-                Spacer()
+//                .padding()
             }
-            .frame(height: 200)
+//            .frame(height: 200)
             
             Circle()
                 .foregroundStyle(.yellow)
@@ -108,5 +106,5 @@ struct CatalystWidgetView: View {
 
 #Preview {
     CatalystWidgetView(catalyst: .example)
-        .previewContext(WidgetPreviewContext(family: .systemMedium))
+        .previewContext(WidgetPreviewContext(family: .systemSmall))
 }
