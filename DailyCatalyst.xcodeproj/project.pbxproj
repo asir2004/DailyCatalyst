@@ -45,6 +45,12 @@
 		EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */; };
 		EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657E2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift */; };
 		EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */; };
+		EAC00CD72AFFA388002A1188 /* CatalystWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141F22AFD7026007138B8 /* CatalystWidgetView.swift */; };
+		EAC00CD82AFFA38A002A1188 /* CatalystWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141F22AFD7026007138B8 /* CatalystWidgetView.swift */; };
+		EAC00CD92AFFA7B7002A1188 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141BC2AFD6874007138B8 /* Color+Extensions.swift */; };
+		EAC00CDA2AFFA7C9002A1188 /* Layer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE516402AF75BC400D37877 /* Layer+Extensions.swift */; };
+		EAC00CDC2AFFA7D9002A1188 /* Navigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */; };
+		EAC374A32AFFB724009B5D87 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
 		EAD087962AC5C49100078E81 /* AnimatedAwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */; };
 		EAD087992AC5C7DF00078E81 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = EAD087972AC5C7DF00078E81 /* Awards.json */; };
 		EAD0879A2AC5C7DF00078E81 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD087982AC5C7DF00078E81 /* Colors.xcassets */; };
@@ -58,8 +64,6 @@
 		EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADE562B2A7E83A300F28948 /* NewCatalystView.swift */; };
 		EAE141BD2AFD6874007138B8 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141BC2AFD6874007138B8 /* Color+Extensions.swift */; };
 		EAE141BE2AFD6E8D007138B8 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
-		EAE141C02AFD6F03007138B8 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
-		EAE141F32AFD709A007138B8 /* CatalystWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141F22AFD7026007138B8 /* CatalystWidgetView.swift */; };
 		EAE141F42AFD70E0007138B8 /* EmojiFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A7A782ADFB8CD006A93BC /* EmojiFunc.swift */; };
 		EAE141F52AFD70F9007138B8 /* Catalyst-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */; };
 		EAE141F62AFD7150007138B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDD2A7AC18E0022F01D /* Filter.swift */; };
@@ -457,18 +461,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA6D13C82AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift in Sources */,
-				EAE141C02AFD6F03007138B8 /* DataController.swift in Sources */,
 				EAE141F62AFD7150007138B8 /* Filter.swift in Sources */,
 				EA6D13CE2AE695D700AFBAF7 /* AppIntent.swift in Sources */,
 				EAE141F42AFD70E0007138B8 /* EmojiFunc.swift in Sources */,
+				EAC00CD72AFFA388002A1188 /* CatalystWidgetView.swift in Sources */,
 				EAE141F92AFD7183007138B8 /* Bundle-Decodable.swift in Sources */,
 				EAE141F82AFD7181007138B8 /* Award.swift in Sources */,
 				EAE141F52AFD70F9007138B8 /* Catalyst-CoreDataHelpers.swift in Sources */,
 				EA6D13CA2AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift in Sources */,
 				EA6D13CC2AE695D700AFBAF7 /* DailyCatalystWidget.swift in Sources */,
-				EAE141F32AFD709A007138B8 /* CatalystWidgetView.swift in Sources */,
+				EAC00CDC2AFFA7D9002A1188 /* Navigation+Extension.swift in Sources */,
+				EAC00CD92AFFA7B7002A1188 /* Color+Extensions.swift in Sources */,
 				EAE141F72AFD7175007138B8 /* Identity-CoreDataHelpers.swift in Sources */,
+				EAC374A32AFFB724009B5D87 /* DataController.swift in Sources */,
 				EAE141BE2AFD6E8D007138B8 /* Main.xcdatamodeld in Sources */,
+				EAC00CDA2AFFA7C9002A1188 /* Layer+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +498,7 @@
 				EA35AD512A939A1100B6A4D2 /* ImagePicker.swift in Sources */,
 				EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */,
 				EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */,
+				EAC00CD82AFFA38A002A1188 /* CatalystWidgetView.swift in Sources */,
 				EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */,
 				EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */,
 				EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */,
