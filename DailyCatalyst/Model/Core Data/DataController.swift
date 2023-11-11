@@ -35,10 +35,40 @@ class DataController: ObservableObject {
     
     private var saveTask: Task<Void, Error>?
     
+//    static var preview: DataController = {
+//        let dataController = DataController(inMemory: true)
+//        dataController.createSampleData()
+//        return dataController
+//    }()
+    
     static var preview: DataController = {
-        let dataController = DataController(inMemory: true)
-        dataController.createSampleData()
-        return dataController
+        let result = DataController(inMemory: true)
+        let viewContext = result.container.viewContext
+        let newIdentity = Identity(context: viewContext)
+        newIdentity.name = "Identity Name"
+        newIdentity.icon = "person"
+        newIdentity.color = "red"
+        newIdentity.creationDate = .now
+        
+        let newCatalyst = Catalyst(context: viewContext)
+        newCatalyst.title = "Catalyst Title"
+        newCatalyst.effect = "Catalyst Effect"
+        newCatalyst.happiness = 3
+        newCatalyst.archived = false
+        newCatalyst.creationDate = .now
+//        newCatalyst.modificationDate = .now
+        newCatalyst.happeningDate = .now
+        newCatalyst.addToIdentities(newIdentity)
+        
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
+        
+//        result.createSampleData()
+        return result
     }()
     
     init(inMemory: Bool = false) {
