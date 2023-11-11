@@ -11,31 +11,30 @@ import CoreData
 
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
+        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), catalyst: .example)
     }
-
+    
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration)
+        SimpleEntry(date: Date(), configuration: configuration, catalyst: .example)
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
-
+        let catalyst = DataController().randomlyPickACatalyst()
+        let entry = SimpleEntry(date: Date(), configuration: configuration, catalyst: catalyst)
+        let entries: [SimpleEntry] = [entry]
+        
         return Timeline(entries: entries, policy: .atEnd)
+    }
+    
+    func getData() -> Catalyst {
+        DataController().randomlyPickACatalyst()
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationAppIntent
+    let catalyst: Catalyst
 }
 
 struct DailyCatalystWidgetEntryView : View {
@@ -43,67 +42,7 @@ struct DailyCatalystWidgetEntryView : View {
 
     var body: some View {
 //        Text("Hello World!")
-//        CatalystWidgetView()
-        ZStack {
-//            Image("TestJpeg")
-//                .resizable()
-//                .scaledToFill()
-//                .frame(maxWidth: .infinity)
-//                .clipped()
-//                .mask(RadialGradient(
-//                    gradient: Gradient(stops: [
-//                        .init(color: .black.opacity(0.5), location: 0),
-//                        .init(color: .clear, location: 1)
-//                    ]),
-//                    center: .bottomTrailing,
-//                    startRadius: 0,
-//                    endRadius: 200
-//                ))
-//                .frame(alignment: .bottomTrailing)
-            
-            VStack {
-                HStack {
-                    VStack(alignment: .leading) {
-                        HStack {
-                            VStack(spacing: 5) {
-                                Image(systemName: "person")
-                                    .imageScale(.small)
-                            }
-                            
-                            Text("Identities")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .italic()
-                        }
-                        
-                        Text("Title")
-                            .font(.title2)
-                            .lineLimit(2)
-                        Text("Effect Here")
-                            .font(.subheadline)
-                            .lineLimit(1)
-                            .foregroundStyle(.secondary)
-                        
-                        Spacer()
-                        
-                        Text(Date.now.formatted(date: .numeric, time: .omitted))
-                            .font(.caption2)
-                            .foregroundStyle(.secondary)
-                    }
-                    
-                    Spacer()
-                }
-                .padding()
-            }
-            
-            Circle()
-                .foregroundStyle(.yellow)
-                .frame(height: 130)
-                .opacity(Double(3) * 0.1)
-                .blur(radius: Double(3) * 50)
-                .frame(alignment: .bottom)
-                .offset(y: 70)
-        }
+        CatalystWidgetView(catalyst: entry.catalyst)
     }
 }
 
@@ -139,6 +78,6 @@ extension ConfigurationAppIntent {
 #Preview(as: .systemSmall) {
     DailyCatalystWidget()
 } timeline: {
-    SimpleEntry(date: .now, configuration: .smiley)
-    SimpleEntry(date: .now, configuration: .starEyes)
+    SimpleEntry(date: .now, configuration: .smiley, catalyst: .example)
+    SimpleEntry(date: .now, configuration: .starEyes, catalyst: .example)
 }
