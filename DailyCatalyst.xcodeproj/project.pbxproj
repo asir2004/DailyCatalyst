@@ -37,6 +37,7 @@
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
 		EA9785312B00027F004F4FE2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9785302B00027F004F4FE2 /* CoreDataManager.swift */; };
 		EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */; };
+		EA9D69492B00114F00DF9375 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */; };
 		EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA597872AF86CB10013C19F /* View+Extension.swift */; };
 		EAB293872AC9E9EF006355B1 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = EAB293862AC9E9EF006355B1 /* SymbolPicker */; };
 		EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */; };
@@ -70,7 +71,6 @@
 		EAE141F62AFD7150007138B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDD2A7AC18E0022F01D /* Filter.swift */; };
 		EAE141F72AFD7175007138B8 /* Identity-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657E2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift */; };
 		EAE141F82AFD7181007138B8 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */; };
-		EAE141F92AFD7183007138B8 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */; };
 		EAE141FA2AFD7185007138B8 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = EAD087972AC5C7DF00078E81 /* Awards.json */; };
 		EAE516412AF75BC400D37877 /* Layer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE516402AF75BC400D37877 /* Layer+Extensions.swift */; };
 		EAE516432AF75BC700D37877 /* Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE516422AF75BC700D37877 /* Layer.swift */; };
@@ -105,6 +105,7 @@
 		EA1978492AF909D400222DDA /* RectKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectKey.swift; sourceTree = "<group>"; };
 		EA1C5F502AE9F2CF00767CBD /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Extension.swift"; sourceTree = "<group>"; };
+		EA28C6232B0267B300E68C33 /* DailyCatalystWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyCatalystWidgetExtension.entitlements; sourceTree = "<group>"; };
 		EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		EA2C3BCE2AC46DAB00D2FBB3 /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
@@ -227,6 +228,7 @@
 		EAD51EED2A790FFC00A777E7 = {
 			isa = PBXGroup;
 			children = (
+				EA28C6232B0267B300E68C33 /* DailyCatalystWidgetExtension.entitlements */,
 				EAD51EF82A790FFC00A777E7 /* DailyCatalyst */,
 				EA6D13C62AE695D700AFBAF7 /* DailyCatalystWidget */,
 				EA6D13C12AE695D700AFBAF7 /* Frameworks */,
@@ -469,7 +471,7 @@
 				EAE141F42AFD70E0007138B8 /* EmojiFunc.swift in Sources */,
 				EA9785312B00027F004F4FE2 /* CoreDataManager.swift in Sources */,
 				EAC00CD72AFFA388002A1188 /* CatalystWidgetView.swift in Sources */,
-				EAE141F92AFD7183007138B8 /* Bundle-Decodable.swift in Sources */,
+				EA9D69492B00114F00DF9375 /* Bundle-Decodable.swift in Sources */,
 				EAE141F82AFD7181007138B8 /* Award.swift in Sources */,
 				EAE141F52AFD70F9007138B8 /* Catalyst-CoreDataHelpers.swift in Sources */,
 				EA6D13CA2AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift in Sources */,
@@ -547,6 +549,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DailyCatalystWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TMC46L5FQM;
@@ -578,6 +581,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = DailyCatalystWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TMC46L5FQM;

@@ -69,7 +69,7 @@ struct Provider: AppIntentTimelineProvider {
 ////                catalyst: selectedCatalyst ?? .example
 ////            )
 ////            completion(entry)
-//            
+//
 //            let currentDate = Date()
 //            var entries: [SimpleEntry] = []
 //
@@ -84,13 +84,6 @@ struct Provider: AppIntentTimelineProvider {
 //            completion(timeline)
 //        }
     }
-    
-    func catalystForWidget(for configuration: ConfigurationAppIntent, completion: @escaping (Catalyst?) -> Void) {
-        var selectedCatalyst: Catalyst?
-        do {
-            completion(selectedCatalyst)
-        }
-    }
 }
 
 struct SimpleEntry: TimelineEntry {
@@ -103,7 +96,6 @@ struct DailyCatalystWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-//        Text("Hello World!")
         CatalystWidgetView(catalyst: entry.catalyst)
     }
 }
@@ -133,7 +125,7 @@ extension ConfigurationAppIntent {
     }
 }
 
-#Preview(as: .systemSmall) {
+#Preview(as: .systemMedium) {
     DailyCatalystWidget()
 } timeline: {
     SimpleEntry(date: .now, configuration: .smiley, catalyst: .example)
