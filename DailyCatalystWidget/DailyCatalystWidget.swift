@@ -11,11 +11,11 @@ import CoreData
 
 struct Provider: AppIntentTimelineProvider {
     let dataController = DataController()
-    let coreDataManager: CoreDataManager
+//    let coreDataManager: CoreDataManager
     
-    init() {
-        coreDataManager = CoreDataManager(dataController)
-    }
+//    init() {
+//        coreDataManager = CoreDataManager(dataController)
+//    }
     
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), catalyst: .example)
