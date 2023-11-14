@@ -105,7 +105,7 @@ struct DailyCatalystWidget: Widget {
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            DailyCatalystWidgetEntryView(entry: entry)
+            CatalystWidgetView(catalyst: entry.catalyst)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
     }
