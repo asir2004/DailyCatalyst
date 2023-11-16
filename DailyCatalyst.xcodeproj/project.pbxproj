@@ -27,15 +27,17 @@
 		EA6D13C32AE695D700AFBAF7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D13C22AE695D700AFBAF7 /* WidgetKit.framework */; };
 		EA6D13C52AE695D700AFBAF7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D13C42AE695D700AFBAF7 /* SwiftUI.framework */; };
 		EA6D13C82AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D13C72AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift */; };
-		EA6D13CA2AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D13C92AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift */; };
 		EA6D13CC2AE695D700AFBAF7 /* DailyCatalystWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D13CB2AE695D700AFBAF7 /* DailyCatalystWidget.swift */; };
 		EA6D13CE2AE695D700AFBAF7 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D13CD2AE695D700AFBAF7 /* AppIntent.swift */; };
 		EA6D13D02AE695D900AFBAF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */; };
 		EA6D13D42AE695D900AFBAF7 /* DailyCatalystWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EA6D13C02AE695D700AFBAF7 /* DailyCatalystWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
+		EA8216582B04E78C00CF4545 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
+		EA8216592B04E78C00CF4545 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
+		EA82165A2B04E7A000CF4545 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
+		EA82165B2B04E7A100CF4545 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
 		EA860E442AFA526A006A0BD6 /* AddScreenLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
-		EA9785312B00027F004F4FE2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9785302B00027F004F4FE2 /* CoreDataManager.swift */; };
 		EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */; };
 		EA9D69492B00114F00DF9375 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */; };
 		EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA597872AF86CB10013C19F /* View+Extension.swift */; };
@@ -52,7 +54,6 @@
 		EAC00CD92AFFA7B7002A1188 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141BC2AFD6874007138B8 /* Color+Extensions.swift */; };
 		EAC00CDA2AFFA7C9002A1188 /* Layer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE516402AF75BC400D37877 /* Layer+Extensions.swift */; };
 		EAC00CDC2AFFA7D9002A1188 /* Navigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2390102AAD611900F6AB28 /* Navigation+Extension.swift */; };
-		EAC374A32AFFB724009B5D87 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
 		EAD087962AC5C49100078E81 /* AnimatedAwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD087952AC5C49100078E81 /* AnimatedAwardView.swift */; };
 		EAD087992AC5C7DF00078E81 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = EAD087972AC5C7DF00078E81 /* Awards.json */; };
 		EAD0879A2AC5C7DF00078E81 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD087982AC5C7DF00078E81 /* Colors.xcassets */; };
@@ -60,12 +61,9 @@
 		EAD51EFC2A790FFC00A777E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51EFB2A790FFC00A777E7 /* ContentView.swift */; };
 		EAD51EFE2A790FFD00A777E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD51EFD2A790FFD00A777E7 /* Assets.xcassets */; };
 		EAD51F012A790FFD00A777E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD51F002A790FFD00A777E7 /* Preview Assets.xcassets */; };
-		EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
-		EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
 		EADD7CDE2A9068FD00541B76 /* EmojiCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADD7CDD2A9068FD00541B76 /* EmojiCard.swift */; };
 		EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADE562B2A7E83A300F28948 /* NewCatalystView.swift */; };
 		EAE141BD2AFD6874007138B8 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141BC2AFD6874007138B8 /* Color+Extensions.swift */; };
-		EAE141BE2AFD6E8D007138B8 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
 		EAE141F42AFD70E0007138B8 /* EmojiFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A7A782ADFB8CD006A93BC /* EmojiFunc.swift */; };
 		EAE141F52AFD70F9007138B8 /* Catalyst-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */; };
 		EAE141F62AFD7150007138B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDD2A7AC18E0022F01D /* Filter.swift */; };
@@ -123,15 +121,15 @@
 		EA6D13C22AE695D700AFBAF7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EA6D13C42AE695D700AFBAF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		EA6D13C72AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCatalystWidgetBundle.swift; sourceTree = "<group>"; };
-		EA6D13C92AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCatalystWidgetLiveActivity.swift; sourceTree = "<group>"; };
 		EA6D13CB2AE695D700AFBAF7 /* DailyCatalystWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCatalystWidget.swift; sourceTree = "<group>"; };
 		EA6D13CD2AE695D700AFBAF7 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA6D13D12AE695D900AFBAF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIdentityView.swift; sourceTree = "<group>"; };
+		EA8216522B04E3A300CF4545 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
+		EA8216532B04E3A300CF4545 /* Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalyst.swift; sourceTree = "<group>"; };
 		EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenLayer.swift; sourceTree = "<group>"; };
 		EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedHStackView.swift; sourceTree = "<group>"; };
-		EA9785302B00027F004F4FE2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
 		EAA597872AF86CB10013C19F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleIdentity.swift; sourceTree = "<group>"; };
@@ -188,6 +186,8 @@
 				EAD087972AC5C7DF00078E81 /* Awards.json */,
 				EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */,
 				EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */,
+				EA8216532B04E3A300CF4545 /* Catalyst.swift */,
+				EA8216522B04E3A300CF4545 /* Identity.swift */,
 				EAFF97E82A7BD47500887FCB /* Core Data */,
 			);
 			path = Model;
@@ -214,13 +214,11 @@
 			isa = PBXGroup;
 			children = (
 				EA6D13C72AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift */,
-				EA6D13C92AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift */,
 				EA6D13CB2AE695D700AFBAF7 /* DailyCatalystWidget.swift */,
 				EAE141F22AFD7026007138B8 /* CatalystWidgetView.swift */,
 				EA6D13CD2AE695D700AFBAF7 /* AppIntent.swift */,
 				EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */,
 				EA6D13D12AE695D900AFBAF7 /* Info.plist */,
-				EA9785302B00027F004F4FE2 /* CoreDataManager.swift */,
 			);
 			path = DailyCatalystWidget;
 			sourceTree = "<group>";
@@ -469,18 +467,16 @@
 				EAE141F62AFD7150007138B8 /* Filter.swift in Sources */,
 				EA6D13CE2AE695D700AFBAF7 /* AppIntent.swift in Sources */,
 				EAE141F42AFD70E0007138B8 /* EmojiFunc.swift in Sources */,
-				EA9785312B00027F004F4FE2 /* CoreDataManager.swift in Sources */,
 				EAC00CD72AFFA388002A1188 /* CatalystWidgetView.swift in Sources */,
 				EA9D69492B00114F00DF9375 /* Bundle-Decodable.swift in Sources */,
 				EAE141F82AFD7181007138B8 /* Award.swift in Sources */,
+				EA8216592B04E78C00CF4545 /* DataController.swift in Sources */,
 				EAE141F52AFD70F9007138B8 /* Catalyst-CoreDataHelpers.swift in Sources */,
-				EA6D13CA2AE695D700AFBAF7 /* DailyCatalystWidgetLiveActivity.swift in Sources */,
+				EA82165B2B04E7A100CF4545 /* Main.xcdatamodeld in Sources */,
 				EA6D13CC2AE695D700AFBAF7 /* DailyCatalystWidget.swift in Sources */,
 				EAC00CDC2AFFA7D9002A1188 /* Navigation+Extension.swift in Sources */,
 				EAC00CD92AFFA7B7002A1188 /* Color+Extensions.swift in Sources */,
 				EAE141F72AFD7175007138B8 /* Identity-CoreDataHelpers.swift in Sources */,
-				EAC374A32AFFB724009B5D87 /* DataController.swift in Sources */,
-				EAE141BE2AFD6E8D007138B8 /* Main.xcdatamodeld in Sources */,
 				EAC00CDA2AFFA7C9002A1188 /* Layer+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,17 +499,16 @@
 				EA3A7A772ADFB396006A93BC /* CatalystRowTransparent.swift in Sources */,
 				EA35AD512A939A1100B6A4D2 /* ImagePicker.swift in Sources */,
 				EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */,
+				EA82165A2B04E7A000CF4545 /* Main.xcdatamodeld in Sources */,
 				EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */,
 				EAC00CD82AFFA38A002A1188 /* CatalystWidgetView.swift in Sources */,
 				EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */,
-				EAD51F092A79100700A777E7 /* Main.xcdatamodeld in Sources */,
 				EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */,
 				EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */,
 				EA3B48D22AFC973900C32C47 /* BorderedText.swift in Sources */,
 				EA2C3BCA2AC41F7100D2FBB3 /* Bundle-Decodable.swift in Sources */,
 				EA398E502A7B907A00530474 /* CatalystView.swift in Sources */,
 				EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */,
-				EAD51F0B2A79119400A777E7 /* DataController.swift in Sources */,
 				EADD7CDE2A9068FD00541B76 /* EmojiCard.swift in Sources */,
 				EAE516432AF75BC700D37877 /* Layer.swift in Sources */,
 				EA31488D2AD3E0E9005CEF84 /* CatalystViewToolbar.swift in Sources */,
@@ -528,6 +523,7 @@
 				EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */,
 				EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */,
 				EAD51EFC2A790FFC00A777E7 /* ContentView.swift in Sources */,
+				EA8216582B04E78C00CF4545 /* DataController.swift in Sources */,
 				EAD51EFA2A790FFC00A777E7 /* DailyCatalystApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

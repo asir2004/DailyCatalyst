@@ -206,6 +206,13 @@ class DataController: ObservableObject {
         return difference.sorted()
     }
     
+    func allCatalysts() -> [Catalyst] {
+        let request = Catalyst.fetchRequest()
+        let allCatalysts = (try? container.viewContext.fetch(request)) ?? []
+        
+        return allCatalysts.sorted()
+    }
+    
     func allIdentities() -> [Identity] {
         let request = Identity.fetchRequest()
         let allIdentities = (try? container.viewContext.fetch(request)) ?? []
@@ -214,7 +221,7 @@ class DataController: ObservableObject {
     }
     
     func catalystsForSelectedFilter() -> [Catalyst] {
-        let filter = selectedFilter ?? .all
+        let filter = selectedFilter ?? .recent
         var predicates = [NSPredicate]()
         
         if let identity = filter.identity {
@@ -296,36 +303,6 @@ class DataController: ObservableObject {
         default:
 //            fatalError("Unknown award criterion: \(award.criterion)")
             return false
-        }
-    }
-    
-    
-    /// Copied from https://stackoverflow.com/questions/34917149/how-to-randomly-choose-an-element-from-coredata-swift
-    
-    func randomlyPickACatalyst() -> Catalyst {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Catalyst")
-        
-        let moc = container.viewContext
-        
-        if let fetchRequestCount = try? moc.count(for: fetchRequest) {
-            fetchRequest.fetchOffset = Int.random(in: 0...fetchRequestCount)
-        }
-
-        fetchRequest.fetchLimit = 3
-
-        var fetchResults: [Catalyst]?
-        moc.performAndWait {
-            fetchResults = try? fetchRequest.execute() as? [Catalyst]
-        }
-
-        if let wrapFetchResults = fetchResults {
-//            if wrapFetchResults.count > 0 {
-                return wrapFetchResults.first ?? .example2
-//            } else {
-//                return .example // Error happened here.
-//            }
-        } else {
-            return .example
         }
     }
 }

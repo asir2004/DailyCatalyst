@@ -176,8 +176,7 @@ struct SettingsView: View {
                 }
                 
                 Section("Testing") {
-                    CatalystRowTransparent(catalyst: DataController().randomlyPickACatalyst(), width: .greatestFiniteMagnitude, isEditing: false, isSelected: Binding.constant(false))
-                        .disabled(true)
+                    CatalystRow(catalyst: DataController().allCatalysts().randomElement() ?? .example)
                 }
                 
                 Section("Quick Help") {
@@ -244,8 +243,4 @@ struct SettingsView: View {
             return "rectangle.and.arrow.up.right.and.arrow.down.left.slash"
         }
     }
-}
-
-#Preview {
-    SettingsView()
 }

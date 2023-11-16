@@ -33,6 +33,7 @@ extension Catalyst {
     
     var catalystIdentities: [Identity] {
         let result = identities?.allObjects as? [Identity] ?? []
+//        let result = identities ?? []
         return result.sorted()
     }
     
@@ -74,6 +75,8 @@ extension Catalyst {
 //        return catalyst
 //    }
     
+    // Core Data examples used before
+
     static var example: Catalyst {
         let result = DataController.preview
         let viewContext = result.container.viewContext
@@ -88,8 +91,7 @@ extension Catalyst {
     }
     
     static var example2: Catalyst {
-        let result = DataController.preview
-        let viewContext = result.container.viewContext
+        let viewContext = DataController().container.viewContext
         let catalyst = Catalyst(context: viewContext)
         catalyst.title = "Example 2"
         catalyst.effect = "Example 2 Detail"

@@ -7,40 +7,29 @@
 
 import WidgetKit
 import SwiftUI
-import CoreData
 
-struct Provider: AppIntentTimelineProvider {
+struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), catalyst: .example)
+        SimpleEntry(date: Date(), catalyst: .example2)
     }
     
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), catalyst: DataController().randomlyPickACatalyst())
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+        let entry = SimpleEntry(date: Date(), catalyst: .example2)
+        completion(entry)
     }
     
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        // Create a timeline entry for "now."
-        let date = Date()
-        let entry = SimpleEntry(
-            date: date,
-            catalyst: DataController().randomlyPickACatalyst()
-        )
-
-
-        // Create a date that's 5 seconds in the future.
-        let nextUpdateDate = Calendar.current.date(byAdding: .second, value: 5, to: date)!
-
-
-        // Create the timeline with the entry and a reload policy with the date
-        // for the next update.
-        let timeline = Timeline(
-            entries:[entry],
-            policy: .after(nextUpdateDate)
-        )
-
-
-        // Call the completion to pass the timeline to WidgetKit.
-        return timeline
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+        var entries: [SimpleEntry] = []
+        
+        let currentDate = Date()
+        for hourOffset in 0..<5 {
+            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+            let entry = SimpleEntry(date: entryDate, catalyst: .example2)
+            entries.append(entry)
+        }
+        
+        let timeline = Timeline(entries: entries, policy: .atEnd)
+        completion(timeline)
     }
 }
 
@@ -49,29 +38,30 @@ struct SimpleEntry: TimelineEntry {
     let catalyst: Catalyst
 }
 
-struct DailyCatalystWidgetEntryView : View {
-    var entry: Provider.Entry
-
-    var body: some View {
-        CatalystWidgetView(catalyst: entry.catalyst)
-    }
-}
+//struct DailyCatalystWidgetEntryView : View {
+//    var entry: Provider.Entry
+//
+//    var body: some View {
+//        Text("Hello World!")
+//    }
+//}
 
 struct DailyCatalystWidget: Widget {
     let kind: String = "DailyCatalystWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
             CatalystWidgetView(catalyst: entry.catalyst)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(.clear, for: .widget)
         }
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .configurationDisplayName("Daily Catalyst Widget")
+        .description("Test Description")
     }
 }
 
 #Preview(as: .systemMedium) {
     DailyCatalystWidget()
 } timeline: {
-    SimpleEntry(date: .now, catalyst: .example)
-    SimpleEntry(date: .now, catalyst: .example)
+    SimpleEntry(date: .now, catalyst: .example2)
+    SimpleEntry(date: .now, catalyst: .example2)
 }

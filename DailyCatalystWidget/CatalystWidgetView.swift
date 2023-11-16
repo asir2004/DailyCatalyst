@@ -9,7 +9,7 @@ import SwiftUI
 import WidgetKit
 
 struct CatalystWidgetView: View {
-    var catalyst: Catalyst
+    let catalyst: Catalyst
     
     var body: some View {
         ZStack {

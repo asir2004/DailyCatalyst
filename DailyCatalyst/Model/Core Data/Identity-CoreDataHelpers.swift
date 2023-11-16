@@ -30,6 +30,7 @@ extension Identity {
 
     var identityActiveCatalysts: [Catalyst] {
         let result = catalysts?.allObjects as? [Catalyst] ?? []
+//        let result = catalysts ?? []
         return result.filter { $0.archived == false }
     }
 
@@ -56,4 +57,21 @@ extension Identity: Comparable {
             return left < right
         }
     }
+    
+    // Modified after SwiftData
+    
+//    public static func < (lhs: Identity, rhs: Identity) -> Bool {
+//        let left = lhs.identityName.localizedLowercase
+//        let right = rhs.identityName.localizedLowercase
+//        
+//        if left == right {
+//            return lhs.identityID.uuidString < rhs.identityID.uuidString
+//        } else {
+//            return left < right
+//        }
+//    }
+//    
+//    public static func == (lhs: Identity, rhs: Identity) -> Bool {
+//        return lhs.identityID == rhs.identityID
+//    }
 }

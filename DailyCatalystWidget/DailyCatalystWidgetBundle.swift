@@ -12,6 +12,5 @@ import SwiftUI
 struct DailyCatalystWidgetBundle: WidgetBundle {
     var body: some Widget {
         DailyCatalystWidget()
-        DailyCatalystWidgetLiveActivity()
     }
 }
