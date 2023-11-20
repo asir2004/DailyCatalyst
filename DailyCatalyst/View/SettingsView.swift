@@ -176,7 +176,7 @@ struct SettingsView: View {
                 }
                 
                 Section("Testing") {
-                    CatalystRow(catalyst: DataController().allCatalysts().randomElement() ?? .example)
+                    CatalystRow(catalyst: DataController().randomCatalyst())
                 }
                 
                 Section("Quick Help") {

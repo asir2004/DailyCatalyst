@@ -305,6 +305,10 @@ class DataController: ObservableObject {
             return false
         }
     }
+    
+    func randomCatalyst() -> Catalyst {
+        return allCatalysts().randomElement() ?? .example
+    }
 }
 
 public extension URL {
