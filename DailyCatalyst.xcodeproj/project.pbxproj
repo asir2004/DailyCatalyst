@@ -24,6 +24,8 @@
 		EA3B48D22AFC973900C32C47 /* BorderedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3B48D12AFC973900C32C47 /* BorderedText.swift */; };
 		EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */; };
 		EA5F7D962AD577B2003982D2 /* ContentViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */; };
+		EA668C022B11CC090020D77E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA668C012B11CC090020D77E /* MainView.swift */; };
+		EA668C042B11CC950020D77E /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA668C032B11CC950020D77E /* CardsView.swift */; };
 		EA6D13C32AE695D700AFBAF7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D13C22AE695D700AFBAF7 /* WidgetKit.framework */; };
 		EA6D13C52AE695D700AFBAF7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D13C42AE695D700AFBAF7 /* SwiftUI.framework */; };
 		EA6D13C82AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D13C72AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift */; };
@@ -117,6 +119,8 @@
 		EA3B48D12AFC973900C32C47 /* BorderedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedText.swift; sourceTree = "<group>"; };
 		EA44E62E2AD62927002B36B4 /* UserFilterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilterRow.swift; sourceTree = "<group>"; };
 		EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewToolbar.swift; sourceTree = "<group>"; };
+		EA668C012B11CC090020D77E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EA668C032B11CC950020D77E /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		EA6D13C02AE695D700AFBAF7 /* DailyCatalystWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DailyCatalystWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA6D13C22AE695D700AFBAF7 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		EA6D13C42AE695D700AFBAF7 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -249,6 +253,8 @@
 				EAB7FCD82A7ABF960022F01D /* Info.plist */,
 				EAB7FCD72A7ABF8D0022F01D /* DailyCatalyst.entitlements */,
 				EAD51EF92A790FFC00A777E7 /* DailyCatalystApp.swift */,
+				EA668C012B11CC090020D77E /* MainView.swift */,
+				EA668C032B11CC950020D77E /* CardsView.swift */,
 				EA2C3BCB2AC41F8100D2FBB3 /* Model */,
 				EAFF97E72A7BD1FA00887FCB /* View */,
 				EAD51EFD2A790FFD00A777E7 /* Assets.xcassets */,
@@ -485,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA668C042B11CC950020D77E /* CardsView.swift in Sources */,
 				EAB7FCDE2A7AC18E0022F01D /* Filter.swift in Sources */,
 				EA2C3BCD2AC46D3700D2FBB3 /* Award.swift in Sources */,
 				EAE516412AF75BC400D37877 /* Layer+Extensions.swift in Sources */,
@@ -502,6 +509,7 @@
 				EA82165A2B04E7A000CF4545 /* Main.xcdatamodeld in Sources */,
 				EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */,
 				EAC00CD82AFFA38A002A1188 /* CatalystWidgetView.swift in Sources */,
+				EA668C022B11CC090020D77E /* MainView.swift in Sources */,
 				EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */,
 				EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */,
 				EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */,

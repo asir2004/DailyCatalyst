@@ -19,14 +19,15 @@ struct DailyCatalystApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationSplitView {
-                SidebarView()
-                    .navigationSplitViewColumnWidth(1000)
-            } content: {
-                ContentView()
-                    .navigationSplitViewColumnWidth(1000)
-            } detail: {
-                DetailView()
+            TabView {
+                MainView()
+                    .tabItem {
+                        Label("Catalysts", systemImage: "flask")
+                    }
+                CardsView()
+                    .tabItem {
+                        Label("Cards", systemImage: "rectangle.on.rectangle")
+                    }
             }
             .task {
                 try? Tips.configure([
