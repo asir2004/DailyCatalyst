@@ -34,12 +34,10 @@
 		EA6D13D02AE695D900AFBAF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */; };
 		EA6D13D42AE695D900AFBAF7 /* DailyCatalystWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EA6D13C02AE695D700AFBAF7 /* DailyCatalystWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */; };
-		EA8216582B04E78C00CF4545 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
-		EA8216592B04E78C00CF4545 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
-		EA82165A2B04E7A000CF4545 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
-		EA82165B2B04E7A100CF4545 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
 		EA860E442AFA526A006A0BD6 /* AddScreenLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
+		EA8EA8632B2CD2F60044AE52 /* Catalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8EA8622B2CD2F60044AE52 /* Catalyst.swift */; };
+		EA8EA8652B2CD2FA0044AE52 /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8EA8642B2CD2FA0044AE52 /* Identity.swift */; };
 		EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */; };
 		EA9D69492B00114F00DF9375 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */; };
 		EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA597872AF86CB10013C19F /* View+Extension.swift */; };
@@ -47,9 +45,6 @@
 		EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */; };
 		EAB7FCDA2A7AC0780022F01D /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCD92A7AC0780022F01D /* SidebarView.swift */; };
 		EAB7FCDC2A7AC07F0022F01D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDB2A7AC07F0022F01D /* DetailView.swift */; };
-		EAB7FCDE2A7AC18E0022F01D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDD2A7AC18E0022F01D /* Filter.swift */; };
-		EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */; };
-		EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657E2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift */; };
 		EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD65802A7AFCA3002A0BDC /* CatalystRow.swift */; };
 		EAC00CD72AFFA388002A1188 /* CatalystWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141F22AFD7026007138B8 /* CatalystWidgetView.swift */; };
 		EAC00CD82AFFA38A002A1188 /* CatalystWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141F22AFD7026007138B8 /* CatalystWidgetView.swift */; };
@@ -67,9 +62,6 @@
 		EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADE562B2A7E83A300F28948 /* NewCatalystView.swift */; };
 		EAE141BD2AFD6874007138B8 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE141BC2AFD6874007138B8 /* Color+Extensions.swift */; };
 		EAE141F42AFD70E0007138B8 /* EmojiFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3A7A782ADFB8CD006A93BC /* EmojiFunc.swift */; };
-		EAE141F52AFD70F9007138B8 /* Catalyst-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */; };
-		EAE141F62AFD7150007138B8 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDD2A7AC18E0022F01D /* Filter.swift */; };
-		EAE141F72AFD7175007138B8 /* Identity-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657E2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift */; };
 		EAE141F82AFD7181007138B8 /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */; };
 		EAE141FA2AFD7185007138B8 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = EAD087972AC5C7DF00078E81 /* Awards.json */; };
 		EAE516412AF75BC400D37877 /* Layer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE516402AF75BC400D37877 /* Layer+Extensions.swift */; };
@@ -134,6 +126,8 @@
 		EA8216532B04E3A300CF4545 /* Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalyst.swift; sourceTree = "<group>"; };
 		EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenLayer.swift; sourceTree = "<group>"; };
 		EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedHStackView.swift; sourceTree = "<group>"; };
+		EA8EA8622B2CD2F60044AE52 /* Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalyst.swift; sourceTree = "<group>"; };
+		EA8EA8642B2CD2FA0044AE52 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 		EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
 		EAA597872AF86CB10013C19F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleIdentity.swift; sourceTree = "<group>"; };
@@ -192,6 +186,7 @@
 				EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */,
 				EA8216532B04E3A300CF4545 /* Catalyst.swift */,
 				EA8216522B04E3A300CF4545 /* Identity.swift */,
+				EA8EA8612B2CD2D50044AE52 /* SwiftData */,
 				EAFF97E82A7BD47500887FCB /* Core Data */,
 			);
 			path = Model;
@@ -225,6 +220,15 @@
 				EA6D13D12AE695D900AFBAF7 /* Info.plist */,
 			);
 			path = DailyCatalystWidget;
+			sourceTree = "<group>";
+		};
+		EA8EA8612B2CD2D50044AE52 /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				EA8EA8622B2CD2F60044AE52 /* Catalyst.swift */,
+				EA8EA8642B2CD2FA0044AE52 /* Identity.swift */,
+			);
+			path = SwiftData;
 			sourceTree = "<group>";
 		};
 		EAD51EED2A790FFC00A777E7 = {
@@ -470,19 +474,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA6D13C82AE695D700AFBAF7 /* DailyCatalystWidgetBundle.swift in Sources */,
-				EAE141F62AFD7150007138B8 /* Filter.swift in Sources */,
 				EA6D13CE2AE695D700AFBAF7 /* AppIntent.swift in Sources */,
 				EAE141F42AFD70E0007138B8 /* EmojiFunc.swift in Sources */,
 				EAC00CD72AFFA388002A1188 /* CatalystWidgetView.swift in Sources */,
 				EA9D69492B00114F00DF9375 /* Bundle-Decodable.swift in Sources */,
 				EAE141F82AFD7181007138B8 /* Award.swift in Sources */,
-				EA8216592B04E78C00CF4545 /* DataController.swift in Sources */,
-				EAE141F52AFD70F9007138B8 /* Catalyst-CoreDataHelpers.swift in Sources */,
-				EA82165B2B04E7A100CF4545 /* Main.xcdatamodeld in Sources */,
 				EA6D13CC2AE695D700AFBAF7 /* DailyCatalystWidget.swift in Sources */,
 				EAC00CDC2AFFA7D9002A1188 /* Navigation+Extension.swift in Sources */,
 				EAC00CD92AFFA7B7002A1188 /* Color+Extensions.swift in Sources */,
-				EAE141F72AFD7175007138B8 /* Identity-CoreDataHelpers.swift in Sources */,
 				EAC00CDA2AFFA7C9002A1188 /* Layer+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,12 +491,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA668C042B11CC950020D77E /* CardsView.swift in Sources */,
-				EAB7FCDE2A7AC18E0022F01D /* Filter.swift in Sources */,
 				EA2C3BCD2AC46D3700D2FBB3 /* Award.swift in Sources */,
 				EAE516412AF75BC400D37877 /* Layer+Extensions.swift in Sources */,
 				EA2C3BCF2AC46DAB00D2FBB3 /* AwardsView.swift in Sources */,
-				EABD657F2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift in Sources */,
-				EABD657D2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift in Sources */,
 				EA0B98442AE57B4300E6F0AB /* EmptyImagePicker.swift in Sources */,
 				EA860E442AFA526A006A0BD6 /* AddScreenLayer.swift in Sources */,
 				EA19784A2AF909D400222DDA /* RectKey.swift in Sources */,
@@ -506,7 +502,6 @@
 				EA3A7A772ADFB396006A93BC /* CatalystRowTransparent.swift in Sources */,
 				EA35AD512A939A1100B6A4D2 /* ImagePicker.swift in Sources */,
 				EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */,
-				EA82165A2B04E7A000CF4545 /* Main.xcdatamodeld in Sources */,
 				EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */,
 				EAC00CD82AFFA38A002A1188 /* CatalystWidgetView.swift in Sources */,
 				EA668C022B11CC090020D77E /* MainView.swift in Sources */,
@@ -522,6 +517,7 @@
 				EA31488D2AD3E0E9005CEF84 /* CatalystViewToolbar.swift in Sources */,
 				EA6D6F4D2A7FE9CF008B43AB /* NewIdentityView.swift in Sources */,
 				EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */,
+				EA8EA8632B2CD2F60044AE52 /* Catalyst.swift in Sources */,
 				EA5F7D962AD577B2003982D2 /* ContentViewToolbar.swift in Sources */,
 				EA2390112AAD611900F6AB28 /* Navigation+Extension.swift in Sources */,
 				EA1C5F512AE9F2CF00767CBD /* SettingsView.swift in Sources */,
@@ -529,9 +525,9 @@
 				EA31488B2AD3DB92005CEF84 /* SidebarViewToolbar.swift in Sources */,
 				EAE141BD2AFD6874007138B8 /* Color+Extensions.swift in Sources */,
 				EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */,
+				EA8EA8652B2CD2FA0044AE52 /* Identity.swift in Sources */,
 				EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */,
 				EAD51EFC2A790FFC00A777E7 /* ContentView.swift in Sources */,
-				EA8216582B04E78C00CF4545 /* DataController.swift in Sources */,
 				EAD51EFA2A790FFC00A777E7 /* DailyCatalystApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

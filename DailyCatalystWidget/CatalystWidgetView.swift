@@ -13,38 +13,18 @@ struct CatalystWidgetView: View {
     
     var body: some View {
         ZStack {
-            if (catalyst.image != nil) {
-                if let image = UIImage(data: catalyst.image!) {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(maxWidth: .infinity)
-                        .clipped()
-                        .mask(RadialGradient(
-                            gradient: Gradient(stops: [
-                                .init(color: .black.opacity(0.5), location: 0),
-                                .init(color: .clear, location: 1)
-                            ]),
-                            center: .bottomTrailing,
-                            startRadius: 0,
-                            endRadius: 200
-                        ))
-                        .frame(alignment: .bottomTrailing)
-                }
-            } else {
-                HStack {
-                    Spacer()
-                    
-                    VStack {
-                        Text(emojiFromHappiness(happiness: Int(catalyst.happiness)))
-                            .font(.system(size: 100))
-                            .mask(LinearGradient(gradient: Gradient(stops: [
-                                .init(color: .black.opacity(0.2), location: 0),
-                                .init(color: .clear, location: 1),
-                                .init(color: .black, location: 1),
-                                .init(color: .clear, location: 1)
-                            ]), startPoint: .trailing, endPoint: .leading))
-                    }
+            HStack {
+                Spacer()
+                
+                VStack {
+                    Text(emojiFromHappiness(happiness: Int(catalyst.happiness)))
+                        .font(.system(size: 100))
+                        .mask(LinearGradient(gradient: Gradient(stops: [
+                            .init(color: .black.opacity(0.2), location: 0),
+                            .init(color: .clear, location: 1),
+                            .init(color: .black, location: 1),
+                            .init(color: .clear, location: 1)
+                        ]), startPoint: .trailing, endPoint: .leading))
                 }
             }
             
@@ -98,6 +78,27 @@ struct CatalystWidgetView: View {
                 .blur(radius: Double(catalyst.happiness) * 50)
                 .frame(alignment: .bottom)
                 .offset(y: 70)
+        }
+        .background {
+            if (catalyst.image != nil) {
+                if let image = UIImage(data: catalyst.image!) {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: .infinity)
+                        .clipped()
+                        .mask(RadialGradient(
+                            gradient: Gradient(stops: [
+                                .init(color: .black.opacity(0.5), location: 0),
+                                .init(color: .clear, location: 1)
+                            ]),
+                            center: .bottomTrailing,
+                            startRadius: 0,
+                            endRadius: 200
+                        ))
+                        .frame(alignment: .bottomTrailing)
+                }
+            }
         }
 //        .frame(height: 200)
 //        .clipShape(RoundedRectangle(cornerRadius: 20))

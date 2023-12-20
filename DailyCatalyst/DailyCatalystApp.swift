@@ -10,7 +10,7 @@ import TipKit
 
 @main
 struct DailyCatalystApp: App {
-    @StateObject var dataController = DataController()
+//    @StateObject var dataController = DataController()
     @Environment(\.scenePhase) var scenePhase
     
     @AppStorage("isSystemColorScheme") var isSystemColorScheme = true
@@ -35,13 +35,14 @@ struct DailyCatalystApp: App {
                     .datastoreLocation(.applicationDefault)
                 ])
             }
-            .environment(\.managedObjectContext, dataController.container.viewContext)
-            .environmentObject(dataController)
-            .onChange(of: scenePhase) {
-                if scenePhase != .active {
-                    dataController.save()
-                }
-            }
+//            .environment(\.managedObjectContext, dataController.container.viewContext)
+//            .environmentObject(dataController)
+//            .onChange(of: scenePhase) {
+//                if scenePhase != .active {
+//                    dataController.save()
+//                }
+//            }
+            .modelContainer(for: Catalyst.self)
             .preferredColorScheme(returnColorScheme())
             .accentColor(accentColor)
         }
