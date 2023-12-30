@@ -64,8 +64,13 @@ struct CardsView: View {
                 }
                 
                 Section("Summarize") {
-                    Button(isLoading ? "Loading…" : "Summarize my Catalysts") {
-                                            }
+                    Button {
+                        Task {
+                            await summarize()
+                        }
+                    } label: {
+                        Text(isLoading ? "Loading…" : "Summarize my Catalysts")
+                    }
                     .disabled(isLoading)
                     
                     Text(.init(summarizeOutput))
