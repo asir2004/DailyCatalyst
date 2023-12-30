@@ -129,8 +129,6 @@
 		EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA6D13D12AE695D900AFBAF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA6D6F4C2A7FE9CF008B43AB /* NewIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewIdentityView.swift; sourceTree = "<group>"; };
-		EA8216522B04E3A300CF4545 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
-		EA8216532B04E3A300CF4545 /* Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalyst.swift; sourceTree = "<group>"; };
 		EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenLayer.swift; sourceTree = "<group>"; };
 		EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedHStackView.swift; sourceTree = "<group>"; };
 		EA88DFCB2B3EFAB500CF83AA /* SwiftDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataController.swift; sourceTree = "<group>"; };
@@ -193,8 +191,6 @@
 				EAD087972AC5C7DF00078E81 /* Awards.json */,
 				EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */,
 				EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */,
-				EA8216532B04E3A300CF4545 /* Catalyst.swift */,
-				EA8216522B04E3A300CF4545 /* Identity.swift */,
 				EA8EA8612B2CD2D50044AE52 /* SwiftData */,
 				EAFF97E82A7BD47500887FCB /* Core Data */,
 			);
