@@ -267,7 +267,7 @@
 				EA668C032B11CC950020D77E /* CardsView.swift */,
 				EA4623332B40070100DA968D /* SummarizePageOneCard.swift */,
 				EA2C3BCB2AC41F8100D2FBB3 /* Model */,
-				EAFF97E72A7BD1FA00887FCB /* View */,
+				EAFF97E72A7BD1FA00887FCB /* MainView - View */,
 				EAD51EFD2A790FFD00A777E7 /* Assets.xcassets */,
 				EAD087982AC5C7DF00078E81 /* Colors.xcassets */,
 				EAD51EFF2A790FFD00A777E7 /* Preview Content */,
@@ -314,7 +314,7 @@
 			path = "Quoted Views";
 			sourceTree = "<group>";
 		};
-		EAFF97E72A7BD1FA00887FCB /* View */ = {
+		EAFF97E72A7BD1FA00887FCB /* MainView - View */ = {
 			isa = PBXGroup;
 			children = (
 				EAB7FCD92A7AC0780022F01D /* SidebarView.swift */,
@@ -334,7 +334,7 @@
 				EA452D662AF233C8008362F1 /* Deprecated Views */,
 				EADD7CDC2A9068CA00541B76 /* View Components */,
 			);
-			path = View;
+			path = "MainView - View";
 			sourceTree = "<group>";
 		};
 		EAFF97E82A7BD47500887FCB /* Core Data */ = {
