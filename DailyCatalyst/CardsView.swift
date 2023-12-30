@@ -29,7 +29,7 @@ struct CardsView: View {
                         Spacer()
                         
                         ZStack {
-                            ForEach(dataController.catalystsForSelectedFilter().indices.prefix(5)) { index in
+                            ForEach(dataController.catalystsForSelectedFilter().shuffled().indices.prefix(5)) { index in
                                 SummarizePageOneCard(catalyst: dataController.catalystsForSelectedFilter()[index])
                                     .rotationEffect(Angle(degrees: (isLoading ? 0 : -30) + (isLoading ? 0 : 15) * Double(index)), anchor: .bottom)
                                     .scaleEffect(0.65)
@@ -49,15 +49,26 @@ struct CardsView: View {
                             await summarize()
                         }
                     } label: {
-                        Text(isLoading ? "Loading…" : "Summarize my Catalysts")
+                        HStack {
+                            if isLoading {
+                                ProgressView()
+                                    .padding(.trailing)
+                            } else {
+                                Image(systemName: "square.and.pencil")
+                                    .padding(.trailing)
+                            }
+                            
+                            Text(isLoading ? "Loading…" : "Summarize my Catalysts")
+                        }
                     }
                     .disabled(isLoading)
                     
                     Text(.init(summarizeOutput))
+                        .foregroundStyle((summarizeOutput == "Summary" || isLoading) ? .secondary : .primary)
                 }
             }
+            .navigationTitle("Summarize by AI")
         }
-        .navigationTitle("Summarize by AI")
     }
     
     func summarize() async {
