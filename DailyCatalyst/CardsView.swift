@@ -18,7 +18,7 @@ struct CardsView: View {
     @State private var summarizePrompt = "这是我最近做的事情, 请你给我一点总结和激励: "
     @State private var summarizeOutput = "Summary"
     
-    @State private var isLoading = true
+    @State private var isLoading = false
     @State private var errorMessage: String?
     
     var body: some View {
@@ -36,6 +36,7 @@ struct CardsView: View {
                                     .animation(.spring(.bouncy(duration: 0.5, extraBounce: 0.15), blendDuration: 3), value: isLoading)
                             }
                         }
+                        .offset(y: isLoading ? 0 : -10)
                         
                         Spacer()
                     }
@@ -55,10 +56,6 @@ struct CardsView: View {
                     Text(.init(summarizeOutput))
                 }
             }
-        }
-        .onAppear() {
-            sleep(1)
-            isLoading = false
         }
         .navigationTitle("Summarize by AI")
     }
