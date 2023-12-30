@@ -13,7 +13,7 @@ struct SummarizePageOneCard: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
-                .foregroundStyle(.thinMaterial)
+                .foregroundStyle(.ultraThinMaterial)
             
             HStack {
                 VStack(alignment: .leading, spacing: 5) {
