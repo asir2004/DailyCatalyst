@@ -29,9 +29,9 @@ struct CardsView: View {
                         Spacer()
                         
                         ZStack {
-                            ForEach(dataController.catalystsForSelectedFilter().shuffled().indices.prefix(5)) { index in
+                            ForEach(dataController.catalystsForSelectedFilter().indices.suffix(5)) { index in
                                 SummarizePageOneCard(catalyst: dataController.catalystsForSelectedFilter()[index])
-                                    .rotationEffect(Angle(degrees: (isLoading ? 0 : -30) + (isLoading ? 0 : 15) * Double(index)), anchor: .bottom)
+                                    .rotationEffect(Angle(degrees: (isLoading ? 0 : -45) + (isLoading ? 0 : 15) * Double(index)), anchor: .bottom)
                                     .scaleEffect(0.65)
                                     .animation(.spring(.bouncy(duration: 0.5, extraBounce: 0.15), blendDuration: 3), value: isLoading)
                             }
