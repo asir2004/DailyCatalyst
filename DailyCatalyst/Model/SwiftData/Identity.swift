@@ -10,7 +10,6 @@ import SwiftData
 
 @Model
 final class Identity {
-    var id: UUID
     var name: String
     var creationDate: Date
     var icon: String
@@ -18,8 +17,7 @@ final class Identity {
     @Relationship(inverse: \Catalyst.identity)
     var catalysts: [Catalyst]
     
-    init(id: UUID, name: String, creationDate: Date, icon: String, catalysts: [Catalyst]) {
-        self.id = id
+    init(name: String, creationDate: Date, icon: String, catalysts: [Catalyst]) {
         self.name = name
         self.creationDate = creationDate
         self.icon = icon
@@ -29,6 +27,19 @@ final class Identity {
 
 extension Identity {
     static var example: Identity {
-        Identity(id: UUID(), name: "Identity", creationDate: .now, icon: "person", catalysts: [.example])
+        Identity(name: "Identity", creationDate: .now, icon: "person", catalysts: [.example])
+    }
+}
+
+extension Identity: Comparable {
+    public static func <(lhs: Identity, rhs: Identity) -> Bool {
+        let left = lhs.name.localizedLowercase
+        let right = rhs.name.localizedLowercase
+        
+        if left == right {
+            return lhs.id < rhs.id
+        } else {
+            return left < right
+        }
     }
 }
