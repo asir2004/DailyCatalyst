@@ -10,7 +10,6 @@ import SwiftData
 
 @Model
 final class Catalyst {
-    var id: UUID
     var title: String
     var happeningDate: Date
     var creationDate: Date
@@ -18,8 +17,7 @@ final class Catalyst {
     var happiness: Int
     var identity: Identity
     
-    init(id: UUID, title: String, happeningDate: Date, creationDate: Date, archived: Bool, happiness: Int, identity: Identity) {
-        self.id = id
+    init(title: String, happeningDate: Date, creationDate: Date, archived: Bool, happiness: Int, identity: Identity) {
         self.title = title
         self.happeningDate = happeningDate
         self.creationDate = creationDate
@@ -27,10 +25,35 @@ final class Catalyst {
         self.happiness = happiness
         self.identity = identity
     }
+    
+    var catalystStatus: String {
+        if archived {
+            return "Archived"
+        } else {
+            return "Open"
+        }
+    }
+    
+    var creationDateFormatted: String {
+        creationDate.formatted(date: .numeric, time: .omitted)
+    }
 }
 
 extension Catalyst {
     static var example: Catalyst {
-        Catalyst(id: UUID(), title: "Example", happeningDate: .now, creationDate: .now, archived: false, happiness: 3, identity: .example)
+        Catalyst(title: "Example", happeningDate: .now, creationDate: .now, archived: false, happiness: 3, identity: .example)
+    }
+}
+
+extension Catalyst: Comparable {
+    public static func <(lhs: Catalyst, rhs: Catalyst) -> Bool {
+        let left = lhs.title.localizedLowercase
+        let right = rhs.title.localizedLowercase
+        
+        if left == right {
+            return lhs.creationDate < rhs.creationDate
+        } else {
+            return left < right
+        }
     }
 }
