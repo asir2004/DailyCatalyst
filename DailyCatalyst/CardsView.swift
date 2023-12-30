@@ -52,10 +52,10 @@ struct CardsView: View {
                         HStack {
                             if isLoading {
                                 ProgressView()
-                                    .padding(.trailing)
+                                    .padding(.trailing, 3)
                             } else {
                                 Image(systemName: "square.and.pencil")
-                                    .padding(.trailing)
+                                    .padding(.trailing, 3)
                             }
                             
                             Text(isLoading ? "Loading…" : "Summarize my Catalysts")
