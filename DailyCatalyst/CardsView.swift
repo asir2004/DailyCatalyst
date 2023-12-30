@@ -19,12 +19,29 @@ struct CardsView: View {
     @State private var summarizePrompt = "这是我最近做的事情, 请你给我一点总结和激励: "
     @State private var summarizeOutput = "Summary"
     
+    @State private var isRotated = false
+    
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    ForEach(dataController.catalystsForSelectedFilter()) { catalyst in
-                        SummarizePageOneCard(catalyst: catalyst)
+                    Button(isRotated ? "Toggle Rotation: On" : "Off") {
+                        isRotated.toggle()
+                    }
+                    
+                    HStack {
+                        Spacer()
+                        
+                        ZStack {
+                            ForEach(dataController.catalystsForSelectedFilter().indices.prefix(5)) { index in
+                                SummarizePageOneCard(catalyst: dataController.catalystsForSelectedFilter()[index])
+                                    .rotationEffect(Angle(degrees: (isRotated ? -30 : 0) + (isRotated ? 15 : 0) * Double(index)), anchor: .bottom)
+                                    .scaleEffect(0.65)
+                                    .animation(.spring(.bouncy(duration: 0.5, extraBounce: 0.15), blendDuration: 3), value: isRotated)
+                            }
+                        }
+                        
+                        Spacer()
                     }
                 }
                 
@@ -62,6 +79,11 @@ struct CardsView: View {
                     
                     Text(.init(summarizeOutput))
                 }
+            }
+        }
+        .onAppear() {
+            withAnimation {
+                isRotated = true
             }
         }
         .navigationTitle("Summarize by AI")
