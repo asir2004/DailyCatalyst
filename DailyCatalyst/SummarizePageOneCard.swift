@@ -30,11 +30,32 @@ struct SummarizePageOneCard: View {
             }
             .padding()
             
-            Text(emojiFromHappiness(happiness: Int(catalyst.happiness)))
-                .font(.system(size: 200))
-                .offset(y: 125)
-                .opacity(0.15)
-                .blur(radius: 10)
+            if (catalyst.image != nil) {
+                if let image = UIImage(data: catalyst.image!) {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: 250, maxHeight: 350)
+                        .clipped()
+                        .mask(RadialGradient(
+                            gradient: Gradient(stops: [
+                                .init(color: .black.opacity(0.5), location: 0),
+                                .init(color: .clear, location: 1)
+                            ]),
+                            center: .bottomTrailing,
+                            startRadius: 0,
+                            endRadius: min(image.size.height, 430)
+                        ))
+                        .frame(alignment: .bottomTrailing)
+                        .ignoresSafeArea()
+                }
+            } else {
+                Text(emojiFromHappiness(happiness: Int(catalyst.happiness)))
+                    .font(.system(size: 200))
+                    .offset(y: 125)
+                    .opacity(0.15)
+                    .blur(radius: 10)
+            }
         }
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .frame(width: 250, height: 350)
