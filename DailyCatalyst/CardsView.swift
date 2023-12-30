@@ -15,9 +15,6 @@ struct CardsView: View {
     let model = GenerativeModel(name: "gemini-pro", apiKey: "AIzaSyDpW5cnlKt8wLfmOrgevh8L0x_0Q4JFxms")
     @EnvironmentObject var dataController: DataController
     
-    @State private var inputText = ""
-    @State private var outputText = "Hello, World!"
-    
     @State private var summarizePrompt = "这是我最近做的事情, 请你给我一点总结和激励: "
     @State private var summarizeOutput = "Summary"
     
@@ -28,10 +25,6 @@ struct CardsView: View {
         NavigationStack {
             List {
                 Section {
-                    Button(isLoading ? "Off" : "Toggle Rotation: On") {
-                        isLoading.toggle()
-                    }
-                    
                     HStack {
                         Spacer()
                         
@@ -46,21 +39,7 @@ struct CardsView: View {
                         
                         Spacer()
                     }
-                }
-                
-                Section("Talk") {
-                    TextField("Input Text", text: $inputText)
-                    
-                    Button("Send") {
-                        Task {
-                            let response = try await model.generateContent(inputText)
-                            if let text = response.text {
-                                outputText = text
-                            }
-                        }
-                    }
-                    
-                    Text(.init(outputText))
+                    .frame(height: 300)
                 }
                 
                 Section("Summarize") {
