@@ -21,6 +21,8 @@ struct CardsView: View {
     @State private var isLoading = false
     @State private var errorMessage: String?
     
+    @State private var indexTemp = 0
+    
     var body: some View {
         NavigationStack {
             List {
@@ -29,9 +31,9 @@ struct CardsView: View {
                         Spacer()
                         
                         ZStack {
-                            ForEach(dataController.catalystsForSelectedFilter().indices.suffix(5)) { index in
+                            ForEach(dataController.catalystsForSelectedFilter().indices.prefix(5)) { index in
                                 SummarizePageOneCard(catalyst: dataController.catalystsForSelectedFilter()[index])
-                                    .rotationEffect(Angle(degrees: (isLoading ? 0 : -45) + (isLoading ? 0 : 15) * Double(index)), anchor: .bottom)
+                                    .rotationEffect(Angle(degrees: (isLoading ? 0 : -30) + (isLoading ? 0 : 15) * Double(index)), anchor: .bottom)
                                     .scaleEffect(0.65)
                                     .animation(.spring(.bouncy(duration: 0.5, extraBounce: 0.15), blendDuration: 3), value: isLoading)
                             }
@@ -68,6 +70,9 @@ struct CardsView: View {
                 }
             }
             .navigationTitle("Summarize by AI")
+            .onChange(of: dataController.allCatalysts()) {
+                dataController.catalystsForSelectedFilter()
+            }
         }
     }
     
