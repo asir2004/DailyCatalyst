@@ -9,6 +9,12 @@ import SwiftUI
 import TipKit
 import SymbolPicker
 
+enum AddScreenStyle: String {
+    case layers
+    case screen
+    case menu
+}
+
 struct SidebarView: View {
     @EnvironmentObject var dataController: DataController
     let smartFilters: [Filter] = [.all, .recent]
@@ -18,7 +24,7 @@ struct SidebarView: View {
     @AppStorage("toggleDarkMode") var toggleDarkMode: Bool = false
     @AppStorage("activateDarkMode") var activateDarkMode: Bool = false
     
-    @AppStorage("useLayersAddScreen") var useLayersAddScreen: Bool = false
+    @AppStorage("useLayersAddScreen") var addScreenStyle: AddScreenStyle = .menu
     
     @State private var identityToRename: Identity?
     @State private var renamingIdentity = false
@@ -30,6 +36,7 @@ struct SidebarView: View {
     @State private var showNewCatalyst = false
     @State private var showNewIdentity = false
     @State private var showDimmingAddScreen = false
+    @State private var showAddMenu = false
     @State private var showingAwards = false
     @State private var showingSettings = false
     @State private var showAddScreenLayer = false
@@ -67,127 +74,137 @@ struct SidebarView: View {
 //                }
             }
             
-            if useLayersAddScreen {
-                if showAddScreenLayer {
-                    Color(.black.opacity(0.25))
-                        .ignoresSafeArea()
+            switch addScreenStyle {
+            case .layers:
+                Group {
+                    if showAddScreenLayer {
+                        Color(.black.opacity(0.25))
+                            .ignoresSafeArea()
                         
-                    AddScreenLayer()
-                        .frame(height: 400)
-                        .offset(y: -100)
-                }
-            } else {
-                if showDimmingAddScreen {
-                    Rectangle()
-                        .foregroundStyle(.ultraThinMaterial)
-                        .ignoresSafeArea()
-                    
-                    VStack {
-                        Button {
-                            showNewCatalyst = true
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .frame(height: 100)
-                                    .foregroundStyle(.thinMaterial)
-                                    .shadow(color: .black.opacity(0.1), radius: 10, y: 10)
-                                
-                                HStack {
-                                    Image(systemName: "flask")
-                                        .imageScale(.large)
-                                        .foregroundStyle(.white)
-                                        .padding()
-                                        .background(Circle().foregroundColor(.accentColor))
-                                    
-                                    Text("Catalyst")
-                                        .font(.title2)
-                                        .foregroundStyle(.primary)
-                                    
-                                    Spacer()
-                                }
-                                .padding()
-                            }
-                            .padding(.horizontal)
-                        }
-                        .padding()
-                        
-                        Button {
-                            showNewIdentity = true
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .frame(height: 100)
-                                    .foregroundStyle(.thinMaterial)
-                                    .shadow(color: .black.opacity(0.1), radius: 10, y: 10)
-                                
-                                HStack {
-                                    Image(systemName: "person")
-                                        .imageScale(.large)
-                                        .foregroundStyle(.white)
-                                        .padding()
-                                        .background(Circle().foregroundColor(.accentColor))
-                                    
-                                    Text("Identity")
-                                        .font(.title2)
-                                        .foregroundStyle(.primary)
-                                    
-                                    Spacer()
-                                }
-                                .padding()
-                            }
-                            .padding(.horizontal)
-                        }
-                        //                    .labelStyle(.iconOnly)
-                        .padding()
+                        AddScreenLayer()
+                            .frame(height: 400)
+                            .offset(y: -100)
                     }
                 }
+            case .screen:
+                Group {
+                    if showDimmingAddScreen {
+                        Rectangle()
+                            .foregroundStyle(.ultraThinMaterial)
+                            .ignoresSafeArea()
+                        
+                        VStack {
+                            Button {
+                                showNewCatalyst = true
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .frame(height: 100)
+                                        .foregroundStyle(.thinMaterial)
+                                        .shadow(color: .black.opacity(0.1), radius: 10, y: 10)
+                                    
+                                    HStack {
+                                        Image(systemName: "flask")
+                                            .imageScale(.large)
+                                            .foregroundStyle(.white)
+                                            .padding()
+                                            .background(Circle().foregroundColor(.accentColor))
+                                        
+                                        Text("Catalyst")
+                                            .font(.title2)
+                                            .foregroundStyle(.primary)
+                                        
+                                        Spacer()
+                                    }
+                                    .padding()
+                                }
+                                .padding(.horizontal)
+                            }
+                            .padding()
+                            
+                            Button {
+                                showNewIdentity = true
+                            } label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .frame(height: 100)
+                                        .foregroundStyle(.thinMaterial)
+                                        .shadow(color: .black.opacity(0.1), radius: 10, y: 10)
+                                    
+                                    HStack {
+                                        Image(systemName: "person")
+                                            .imageScale(.large)
+                                            .foregroundStyle(.white)
+                                            .padding()
+                                            .background(Circle().foregroundColor(.accentColor))
+                                        
+                                        Text("Identity")
+                                            .font(.title2)
+                                            .foregroundStyle(.primary)
+                                        
+                                        Spacer()
+                                    }
+                                    .padding()
+                                }
+                                .padding(.horizontal)
+                            }
+                            //                    .labelStyle(.iconOnly)
+                            .padding()
+                        }
+                    }
+                }
+            case .menu:
+                Group { }
             }
             
             VStack {
                 Spacer()
                 
-                Button {
-                    withAnimation {
-                        if useLayersAddScreen {
-                            showAddScreenLayer.toggle()
-                        } else {
-                            showDimmingAddScreen.toggle()
+                if addScreenStyle == .menu {
+                    Menu {
+                        Button {
+                            showNewCatalyst = true
+                        } label: {
+                            Image(systemName: "flask")
+                            Text("Catalyst")
                         }
+                        
+                        Button {
+                            showNewIdentity = true
+                        } label: {
+                            Image(systemName: "person")
+                            Text("Identity")
+                        }
+                    } label: {
+                        Label("Add", systemImage: "plus")
+                            .imageScale(.large)
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(Circle().foregroundColor(.accentColor))
                     }
-                } label: {
-                    Label("Add", systemImage: "plus")
-                        .imageScale(.large)
-                        .foregroundStyle(.white)
-                        .padding()
-                        .background(Circle().foregroundColor(.accentColor))
-                        .rotationEffect(showDimmingAddScreen ? .degrees(45) : .degrees(0))
+                    .labelStyle(.iconOnly)
+                    .padding()
+                } else {
+                    Button {
+                        withAnimation {
+                            switch addScreenStyle {
+                            case .layers: showAddScreenLayer.toggle()
+                            case .screen: showDimmingAddScreen.toggle()
+                            case .menu: showAddMenu.toggle()
+                            }
+                        }
+                    } label: {
+                        Label("Add", systemImage: "plus")
+                            .imageScale(.large)
+                            .foregroundStyle(.white)
+                            .padding()
+                            .background(Circle().foregroundColor(.accentColor))
+                            .rotationEffect(showDimmingAddScreen ? .degrees(45) : .degrees(0))
+                            .animation(.spring(.bouncy(duration: 0.5, extraBounce: 0.15), blendDuration: 3), value: showDimmingAddScreen)
+                    }
+                    .labelStyle(.iconOnly)
+                    .padding()
                 }
-                .labelStyle(.iconOnly)
-                .padding()
-                
-//                Menu {
-//                    Button {
-//                        showNewCatalyst = true
-//                    } label: {
-//                        Image(systemName: "flask")
-//                        Text("Catalyst")
-//                    }
-//                    
-//                    Button {
-//                        showNewIdentity = true
-//                    } label: {
-//                        Image(systemName: "person")
-//                        Text("Identity")
-//                    }
-//                } label: {
-//                    Label("Add", systemImage: "plus")
-//                        .imageScale(.large)
-//                        .foregroundStyle(.white)
-//                        .padding()
-//                        .background(Circle().foregroundColor(.accentColor))
-//                }
-//                .labelStyle(.iconOnly)
-//                .padding()
             }
         }
         .hideNavBarOnSwipe(hideNavBarOnSwipe)
