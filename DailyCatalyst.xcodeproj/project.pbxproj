@@ -45,6 +45,7 @@
 		EA79000F2B3FF6FF00C711E9 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = EA79000E2B3FF6FF00C711E9 /* GoogleGenerativeAI */; };
 		EA860E442AFA526A006A0BD6 /* AddScreenLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
+		EA9911822B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9911812B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift */; };
 		EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */; };
 		EA9D69492B00114F00DF9375 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */; };
 		EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA597872AF86CB10013C19F /* View+Extension.swift */; };
@@ -134,6 +135,7 @@
 		EA88DFCB2B3EFAB500CF83AA /* SwiftDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataController.swift; sourceTree = "<group>"; };
 		EA8EA8622B2CD2F60044AE52 /* Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalyst.swift; sourceTree = "<group>"; };
 		EA8EA8642B2CD2FA0044AE52 /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
+		EA9911812B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SummaryOutput-CoreDataHelpers.swift"; sourceTree = "<group>"; };
 		EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
 		EAA597872AF86CB10013C19F /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		EAB6E8A62A8F54A600986A61 /* SingleIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleIdentity.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				EAD51F0A2A79119400A777E7 /* DataController.swift */,
 				EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */,
 				EABD657E2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift */,
+				EA9911812B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift */,
 				EAB7FCDD2A7AC18E0022F01D /* Filter.swift */,
 				EAD51F072A79100700A777E7 /* Main.xcdatamodeld */,
 			);
@@ -528,6 +531,7 @@
 				EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */,
 				EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */,
 				EA3B48D22AFC973900C32C47 /* BorderedText.swift in Sources */,
+				EA9911822B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift in Sources */,
 				EA2C3BCA2AC41F7100D2FBB3 /* Bundle-Decodable.swift in Sources */,
 				EA7900042B3FF54900C711E9 /* Identity-CoreDataHelpers.swift in Sources */,
 				EA398E502A7B907A00530474 /* CatalystView.swift in Sources */,
