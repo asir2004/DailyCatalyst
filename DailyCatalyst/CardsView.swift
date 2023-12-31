@@ -30,59 +30,72 @@ struct CardsView: View {
     @State private var errorMessage: String?
     
     let exampleCatalysts: [Catalyst] = [.example, .example2, .example, .example, .example]
+    let exampleSummaries: [SummaryOutput] = [.example, .example2]
+    
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.creationDate),
+        SortDescriptor(\.id)
+    ]) var summaries: FetchedResults<SummaryOutput>
     
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
                 ScrollView(.horizontal) {
-                    List {
-                        Section {
-                            HStack {
-                                Spacer()
-                                
-                                ZStack {
-                                    ForEach(isPreview ? exampleCatalysts.indices.prefix(5) : dataController.catalystsForSelectedFilter().indices.prefix(5)) { index in
-                                        SummarizePageOneCard(catalyst: isPreview ? exampleCatalysts[index] : dataController.catalystsForSelectedFilter()[index])
-                                            .rotationEffect(Angle(degrees: (isLoading ? 0 : -30) + (isLoading ? 0 : 15) * Double(index)), anchor: .bottom)
-                                            .scaleEffect(0.65)
-                                            .animation(.spring(.bouncy(duration: 0.5, extraBounce: 0.15), blendDuration: 3), value: isLoading)
-                                    }
-                                }
-                                .offset(y: isLoading ? 0 : -10)
-                                
-                                Spacer()
-                            }
-                            .frame(height: 300)
-                        }
+                    HStack {
+                        Spacer()
                         
-                        Section("Summarize") {
-                            Button {
-                                Task {
-                                    await summarize()
-                                }
-                            } label: {
+                        List {
+                            Section {
                                 HStack {
-                                    if isLoading {
-                                        ProgressView()
-                                            .padding(.trailing, 3)
-                                    } else {
-                                        Image(systemName: "square.and.pencil")
-                                            .padding(.trailing, 3)
-                                    }
+                                    Spacer()
                                     
-                                    Text(isLoading ? "Loading…" : "Summarize my Catalysts")
+                                    ZStack {
+                                        ForEach(isPreview ? exampleCatalysts.indices.prefix(5) : dataController.catalystsForSelectedFilter().indices.prefix(5)) { index in
+                                            SummarizePageOneCard(catalyst: isPreview ? exampleCatalysts[index] : dataController.catalystsForSelectedFilter()[index])
+                                                .rotationEffect(Angle(degrees: (isLoading ? 0 : -30) + (isLoading ? 0 : 15) * Double(index)), anchor: .bottom)
+                                                .scaleEffect(0.65)
+                                                .animation(.spring(.bouncy(duration: 0.5, extraBounce: 0.15), blendDuration: 3), value: isLoading)
+                                        }
+                                    }
+                                    .offset(y: isLoading ? 0 : -10)
+                                    
+                                    Spacer()
                                 }
+                                .frame(height: 300)
                             }
-                            .disabled(isLoading)
                             
-                            Text(.init(summarizeOutput))
-                                .foregroundStyle((summarizeOutput == "Summary" || isLoading) ? .secondary : .primary)
+                            Section("Summarize") {
+                                Button {
+                                    Task {
+                                        await summarize()
+                                    }
+                                } label: {
+                                    HStack {
+                                        if isLoading {
+                                            ProgressView()
+                                                .padding(.trailing, 3)
+                                        } else {
+                                            Image(systemName: "square.and.pencil")
+                                                .padding(.trailing, 3)
+                                        }
+                                        
+                                        Text(isLoading ? "Loading…" : "Summarize my Catalysts")
+                                    }
+                                }
+                                .disabled(isLoading)
+                                
+                                Text(.init(summarizeOutput))
+                                    .foregroundStyle((summarizeOutput == "Summary" || isLoading) ? .secondary : .primary)
+                            }
                         }
+                        .frame(width: geometry.size.width - 40, height: geometry.size.height - 100)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        
+                        Spacer()
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height - 100)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .padding()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
                 }
+                .gridColumnAlignment(.center)
             }
             .navigationTitle("Summarize by AI")
         }
