@@ -88,12 +88,12 @@ struct CardsView: View {
                                     .foregroundStyle((summarizeOutput == "Summary" || isLoading) ? .secondary : .primary)
                             }
                         }
-                        .frame(width: geometry.size.width - 40, height: geometry.size.height - 100)
+                        .frame(width: geometry.size.width - 40, height: geometry.size.height - 40)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         
                         Spacer()
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .frame(width: geometry.size.width)
                 }
                 .gridColumnAlignment(.center)
             }
