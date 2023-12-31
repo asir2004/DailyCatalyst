@@ -191,7 +191,7 @@
 				EAD087972AC5C7DF00078E81 /* Awards.json */,
 				EA2C3BCC2AC46D3700D2FBB3 /* Award.swift */,
 				EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */,
-				EA8EA8612B2CD2D50044AE52 /* SwiftData */,
+				EA8EA8612B2CD2D50044AE52 /* Swift Data */,
 				EAFF97E82A7BD47500887FCB /* Core Data */,
 			);
 			path = Model;
@@ -235,14 +235,14 @@
 			path = DailyCatalystWidget;
 			sourceTree = "<group>";
 		};
-		EA8EA8612B2CD2D50044AE52 /* SwiftData */ = {
+		EA8EA8612B2CD2D50044AE52 /* Swift Data */ = {
 			isa = PBXGroup;
 			children = (
 				EA8EA8622B2CD2F60044AE52 /* Catalyst.swift */,
 				EA8EA8642B2CD2FA0044AE52 /* Identity.swift */,
 				EA88DFCB2B3EFAB500CF83AA /* SwiftDataController.swift */,
 			);
-			path = SwiftData;
+			path = "Swift Data";
 			sourceTree = "<group>";
 		};
 		EAD51EED2A790FFC00A777E7 = {
