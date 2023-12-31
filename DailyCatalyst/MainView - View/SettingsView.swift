@@ -16,7 +16,7 @@ struct SettingsView: View {
     @AppStorage("cardPlainHeight") var cardPlainHeight = 150
     @AppStorage("notificationTimeHour") var notificationTimeHour = 20
     @AppStorage("notificationTimeMinute") var notificationTimeMinute = 0
-    @AppStorage("useLayersAddScreen") var useLayersAddScreen: Bool = false
+    @AppStorage("useLayersAddScreen") var addScreenStyle: AddScreenStyle = .menu
     
     @Environment(\.dismiss) var dismiss
     
@@ -63,7 +63,7 @@ struct SettingsView: View {
                 
                 Section("Visual Effects") {
                     HStack {
-                        Label("Use Layers Add Screen", systemImage: useLayersAddScreen ? "rectangle.on.rectangle" : "rectangle.on.rectangle.slash")
+                        Label("Add Screen Style", systemImage: addScreenStyleImage())
                             .imageScale(.large)
                             .frame(height: 30)
                             .contentTransition(.symbolEffect(.replace.offUp))
@@ -71,7 +71,14 @@ struct SettingsView: View {
                         
                         Spacer()
                         
-                        Toggle("Use Layers Add Screen", isOn: $useLayersAddScreen)
+                        Picker("Add Screen Style", selection: $addScreenStyle) {
+                            Label("Layers", systemImage: "rectangle.on.rectangle")
+                                .tag(AddScreenStyle.layers)
+                            Label("Screen", systemImage: "rectangle.portrait")
+                                .tag(AddScreenStyle.screen)
+                            Label("Menu", systemImage: "rectangle.split.1x2")
+                                .tag(AddScreenStyle.menu)
+                        }
                             .labelsHidden()
                     }
                     .frame(height: 30)
@@ -241,6 +248,14 @@ struct SettingsView: View {
             return "rectangle.and.arrow.up.right.and.arrow.down.left"
         case false:
             return "rectangle.and.arrow.up.right.and.arrow.down.left.slash"
+        }
+    }
+    
+    func addScreenStyleImage() -> String {
+        switch addScreenStyle {
+        case .layers: return "rectangle.on.rectangle"
+        case .screen: return "rectangle.portrait"
+        case .menu: return "rectangle.split.1x2"
         }
     }
 }
