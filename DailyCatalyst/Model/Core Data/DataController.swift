@@ -263,7 +263,7 @@ class DataController: ObservableObject {
         
         let request = Catalyst.fetchRequest()
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-        request.sortDescriptors = [NSSortDescriptor(key: sortType.rawValue, ascending: sortNewestFirst)]
+        request.sortDescriptors = [NSSortDescriptor(key: sortType.rawValue, ascending: !sortNewestFirst)]
         
         let allCatalysts = (try? container.viewContext.fetch(request)) ?? []
         return allCatalysts
