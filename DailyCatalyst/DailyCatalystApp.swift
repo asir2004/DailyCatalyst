@@ -56,3 +56,16 @@ struct DailyCatalystApp: App {
         }
     }
 }
+
+#Preview {
+    TabView {
+        Text("Main View")
+            .tabItem {
+                Label("Catalysts", systemImage: "flask")
+            }
+        CardsView(isPreview: true)
+            .tabItem {
+                Label("Cards", systemImage: "rectangle.on.rectangle")
+            }
+    }
+}
