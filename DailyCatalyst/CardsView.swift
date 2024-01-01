@@ -25,10 +25,13 @@ struct CardsView: View {
     @State private var isLoading = false
     @State private var errorMessage: String?
     
+    @State private var showAlert = false
+    @State private var selectedSummary: SummaryOutput?
+    
 //    let exampleCatalysts: [Catalyst] = [.example, .example2, .example, .example, .example]
 //    let exampleSummaries: [SummaryOutput] = [.example, .example2]
     
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.creationDate)]) private var summaries: FetchedResults<SummaryOutput>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.creationDate, order: .reverse)]) private var summaries: FetchedResults<SummaryOutput>
     
 //    let summaries = NSFetchRequest<SummaryOutput>(entityName: "SummaryOutput")
     
@@ -98,18 +101,27 @@ struct CardsView: View {
                         
                         List {
                             Section("History") {
-                                Label("Here's for history!", systemImage: "clock")
-                                
-                                ForEach(summaries) { summary in
+                                ForEach(summaries, id: \.self) { summary in
                                     VStack(alignment: .leading) {
-                                        Text(summary.summaryCreationDate.formatted())
-                                            .foregroundStyle(.secondary)
-                                            .padding(.bottom)
+                                        HStack {
+                                            Text(summary.summaryCreationDate.formatted())
+                                                .foregroundStyle(.secondary)
+                                                .padding(.bottom)
+                                            
+                                            Spacer()
+                                            
+                                            Button(role: .destructive) {
+                                                showAlert.toggle()
+                                                selectedSummary = summary
+                                            } label: {
+                                                Label("Remove", systemImage: "trash")
+                                            }
+                                            .buttonStyle(.bordered)
+                                        }
                                         
                                         Text(.init(summary.summaryDetail))
                                     }
                                 }
-                                .onDelete(perform: delete)
                             }
                         }
                         .frame(width: max(geometry.size.width - 40, 0), height: max(geometry.size.height - 40, 0))
@@ -122,6 +134,14 @@ struct CardsView: View {
                 .scrollIndicators(.never)
             }
             .navigationTitle("Summarize by AI")
+        }
+        .alert("Delete Summary?", isPresented: $showAlert) {
+            Button("Remove", role: .destructive) {
+                viewContext.delete(selectedSummary!)
+                showAlert.toggle()
+            }
+            
+            Button("Cancel", role: .cancel) { }
         }
     }
     
@@ -158,7 +178,7 @@ struct CardsView: View {
         }
     }
     
-    func delete(at offsets: IndexSet) {
+    func onDelete(at offsets: IndexSet) {
         for index in offsets {
             let summary = summaries[index]
             viewContext.delete(summary)
