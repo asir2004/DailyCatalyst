@@ -31,6 +31,7 @@ struct NewCatalystView: View {
     @State private var newCatalystIdentities: [Identity]?
     
     @State private var imageData: Data?
+    @State private var imagePreviewData: Data?
     
     @FocusState var isInputActive: Bool
     
@@ -52,7 +53,7 @@ struct NewCatalystView: View {
         List {
             Section("Add New Catalyst") {
                 HStack(alignment: .top) {
-                    EmptyImagePicker(systemImage: "square.and.arrow.down", tint: .yellow, isEditing: true, photoData: $imageData) { image in
+                    EmptyImagePicker(systemImage: "square.and.arrow.down", tint: .yellow, isEditing: true, photoData: $imageData, photoPreviewData: $imagePreviewData) { image in
                         print(image)
                     }
                     .frame(width: 100, height: 100)
@@ -156,6 +157,7 @@ struct NewCatalystView: View {
         newCatalyst.happiness = Int16(newCatalystHappiness)
         newCatalyst.archived = false
         newCatalyst.image = imageData
+        newCatalyst.imagePreview = imagePreviewData
         
         if let newCatalystIdentities {
             for identity in newCatalystIdentities {
