@@ -90,6 +90,7 @@ struct EmptyImagePicker: View {
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                     photoData = data
+                                    generateImageThumbnail(UIImage(data: data)!, scaledSize)
                                     photoPreviewData = previewImage?.pngData()
                                 }
                             }
@@ -103,6 +104,7 @@ struct EmptyImagePicker: View {
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                     photoData = data
+                                    generateImageThumbnail(UIImage(data: data)!, scaledSize)
                                     photoPreviewData = previewImage?.pngData()
                                 }
                             }
@@ -119,6 +121,11 @@ struct EmptyImagePicker: View {
                         .padding(1)
                 }
                 .opacity(isEditing ? 1 : 0)
+            }
+            .onChange(of: previewImage) {
+                if let previewImage = previewImage {
+                    photoPreviewData = previewImage.pngData()
+                }
             }
         }
     }
