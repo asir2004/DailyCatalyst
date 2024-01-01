@@ -36,13 +36,19 @@ struct CardsView: View {
         self.isPreview = isPreview
     }
     
+    var hMargin: CGFloat {
+        #if os(macOS)
+        40.0
+        #else
+        20.0
+        #endif
+    }
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
                 ScrollView(.horizontal) {
                     HStack {
-                        Spacer()
-                        
                         List {
                             Section {
                                 HStack {
@@ -90,11 +96,30 @@ struct CardsView: View {
                         .frame(width: max(geometry.size.width - 40, 0), height: max(geometry.size.height - 40, 0))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         
-                        Spacer()
+                        List {
+                            Section("History") {
+                                Label("Here's for history!", systemImage: "clock")
+                                
+                                ForEach(summaries) { summary in
+                                    VStack(alignment: .leading) {
+                                        Text(summary.summaryCreationDate.formatted())
+                                            .foregroundStyle(.secondary)
+                                            .padding(.bottom)
+                                        
+                                        Text(.init(summary.summaryDetail))
+                                    }
+                                }
+                                .onDelete(perform: delete)
+                            }
+                        }
+                        .frame(width: max(geometry.size.width - 40, 0), height: max(geometry.size.height - 40, 0))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
-                    .frame(width: geometry.size.width)
+                    .scrollTargetLayout()
                 }
-                .gridColumnAlignment(.center)
+                .contentMargins(.horizontal, hMargin)
+                .scrollTargetBehavior(.paging)
+                .scrollIndicators(.never)
             }
             .navigationTitle("Summarize by AI")
         }
@@ -130,6 +155,13 @@ struct CardsView: View {
         } catch {
             logger.error("\(error.localizedDescription)")
             errorMessage = error.localizedDescription
+        }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        for index in offsets {
+            let summary = summaries[index]
+            viewContext.delete(summary)
         }
     }
 }
