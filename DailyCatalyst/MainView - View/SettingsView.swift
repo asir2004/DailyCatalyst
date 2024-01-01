@@ -33,7 +33,7 @@ struct SettingsView: View {
                             .accentColor(accentColor)
                             .imageScale(.large)
                             .frame(height: 30)
-                            .symbolEffect(.bounce, value: cardWithPictureHeight)
+                            .symbolEffect(.bounce, value: accentColor)
                         
                         Picker("Card with Picture Height", selection: $accentColor) {
                             Text("Default")
