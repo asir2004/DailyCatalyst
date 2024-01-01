@@ -16,10 +16,6 @@ struct CardsView: View {
     
     var isPreview = false
     
-    init(isPreview: Bool = false) {
-        self.isPreview = isPreview
-    }
-    
     @EnvironmentObject var dataController: DataController
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -29,13 +25,16 @@ struct CardsView: View {
     @State private var isLoading = false
     @State private var errorMessage: String?
     
-    let exampleCatalysts: [Catalyst] = [.example, .example2, .example, .example, .example]
-    let exampleSummaries: [SummaryOutput] = [.example, .example2]
+//    let exampleCatalysts: [Catalyst] = [.example, .example2, .example, .example, .example]
+//    let exampleSummaries: [SummaryOutput] = [.example, .example2]
     
-    @FetchRequest(sortDescriptors: [
-        SortDescriptor(\.creationDate),
-        SortDescriptor(\.id)
-    ]) var summaries: FetchedResults<SummaryOutput>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.creationDate)]) private var summaries: FetchedResults<SummaryOutput>
+    
+//    let summaries = NSFetchRequest<SummaryOutput>(entityName: "SummaryOutput")
+    
+    init(isPreview: Bool = false) {
+        self.isPreview = isPreview
+    }
     
     var body: some View {
         NavigationStack {
@@ -50,8 +49,8 @@ struct CardsView: View {
                                     Spacer()
                                     
                                     ZStack {
-                                        ForEach(isPreview ? exampleCatalysts.indices.prefix(5) : dataController.catalystsForSelectedFilter().indices.prefix(5)) { index in
-                                            SummarizePageOneCard(catalyst: isPreview ? exampleCatalysts[index] : dataController.catalystsForSelectedFilter()[index])
+                                        ForEach(dataController.catalystsForSelectedFilter().indices.prefix(5)) { index in
+                                            SummarizePageOneCard(catalyst: dataController.catalystsForSelectedFilter()[index])
                                                 .rotationEffect(Angle(degrees: (isLoading ? 0 : -30) + (isLoading ? 0 : 15) * Double(index)), anchor: .bottom)
                                                 .scaleEffect(0.65)
                                                 .animation(.spring(.bouncy(duration: 0.5, extraBounce: 0.15), blendDuration: 3), value: isLoading)
@@ -88,7 +87,7 @@ struct CardsView: View {
                                     .foregroundStyle((summarizeOutput == "Summary" || isLoading) ? .secondary : .primary)
                             }
                         }
-                        .frame(width: geometry.size.width - 40, height: geometry.size.height - 40)
+                        .frame(width: max(geometry.size.width - 40, 0), height: max(geometry.size.height - 40, 0))
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         
                         Spacer()
