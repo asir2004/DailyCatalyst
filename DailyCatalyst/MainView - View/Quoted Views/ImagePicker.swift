@@ -101,11 +101,15 @@ struct ImagePicker: View {
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                     photoData = data
-                                    if let image = UIImage(data: catalyst.image!) {
-                                        generateImageThumbnail(image, scaledSize)
-                                        photoPreviewData = previewImage!.pngData()
-                                        catalyst.imagePreview = photoPreviewData
+                                    if let catalystImage = catalyst.image {
+                                        if let image = UIImage(data: catalystImage) {
+                                            generateImageThumbnail(image, scaledSize)
+                                        }
                                     }
+                                    if let previewImage = previewImage {
+                                        photoPreviewData = previewImage.pngData()
+                                    }
+                                    catalyst.imagePreview = photoPreviewData
                                     catalyst.image = photoData
                                     dataController.queueSave()
                                 }
@@ -120,11 +124,15 @@ struct ImagePicker: View {
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                     photoData = data
-                                    if let image = UIImage(data: catalyst.image!) {
-                                        generateImageThumbnail(image, scaledSize)
-                                        photoPreviewData = previewImage!.pngData()
-                                        catalyst.imagePreview = photoPreviewData
+                                    if let catalystImage = catalyst.image {
+                                        if let image = UIImage(data: catalystImage) {
+                                            generateImageThumbnail(image, scaledSize)
+                                        }
                                     }
+                                    if let previewImage = previewImage {
+                                        photoPreviewData = previewImage.pngData()
+                                    }
+                                    catalyst.imagePreview = photoPreviewData
                                     catalyst.image = photoData
                                     dataController.queueSave()
                                 }
