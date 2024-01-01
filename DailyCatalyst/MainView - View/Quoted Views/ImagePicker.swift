@@ -103,10 +103,10 @@ struct ImagePicker: View {
                                     photoData = data
                                     if let image = UIImage(data: catalyst.image!) {
                                         generateImageThumbnail(image, scaledSize)
+                                        photoPreviewData = previewImage!.pngData()
+                                        catalyst.imagePreview = photoPreviewData
                                     }
-                                    photoPreviewData = previewImage?.pngData()
                                     catalyst.image = photoData
-                                    catalyst.imagePreview = photoPreviewData
                                     dataController.queueSave()
                                 }
                             }
@@ -122,10 +122,10 @@ struct ImagePicker: View {
                                     photoData = data
                                     if let image = UIImage(data: catalyst.image!) {
                                         generateImageThumbnail(image, scaledSize)
+                                        photoPreviewData = previewImage!.pngData()
+                                        catalyst.imagePreview = photoPreviewData
                                     }
-                                    photoPreviewData = previewImage?.pngData()
                                     catalyst.image = photoData
-                                    catalyst.imagePreview = photoPreviewData
                                     dataController.queueSave()
                                 }
                             }
@@ -165,6 +165,12 @@ struct ImagePicker: View {
                     previewImage = nil
                     photoItem = nil
                     photoData = nil
+                }
+            }
+            .onChange(of: previewImage) {
+                if let previewImage = previewImage {
+                    photoPreviewData = previewImage.pngData()
+                    catalyst.imagePreview = photoPreviewData
                 }
             }
         }
