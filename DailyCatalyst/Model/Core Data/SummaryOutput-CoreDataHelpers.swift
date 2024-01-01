@@ -8,6 +8,18 @@
 import Foundation
 
 extension SummaryOutput {
+    var summaryId: UUID {
+        id ?? UUID()
+    }
+    
+    var summaryDetail: String {
+        detail ?? ""
+    }
+    
+    var summaryCreationDate: Date {
+        creationDate ?? .now
+    }
+    
     static var example: SummaryOutput {
         let controller = DataController(inMemory: true)
         let viewContext = controller.container.viewContext
@@ -34,5 +46,18 @@ You have met many great, creative people!
         summary.creationDate = .now
         
         return summary
+    }
+}
+
+extension SummaryOutput: Comparable {
+    public static func <(lhs: SummaryOutput, rhs: SummaryOutput) -> Bool {
+        let left = lhs.summaryDetail
+        let right = rhs.summaryDetail
+        
+        if left == right {
+            return lhs.summaryId.uuidString < rhs.summaryId.uuidString
+        } else {
+            return left < right
+        }
     }
 }
