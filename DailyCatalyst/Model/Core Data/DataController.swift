@@ -220,6 +220,13 @@ class DataController: ObservableObject {
         return allIdentities.sorted()
     }
     
+//    func allSummaries() -> [SummaryOutput] {
+//        let request = SummaryOutput.fetchRequest()
+//        let allSummaries = (try? container.viewContext.fetch(request)) ?? []
+//        
+//        return allSummaries
+//    }
+    
     func catalystsForSelectedFilter() -> [Catalyst] {
         let filter = selectedFilter ?? .recent
         var predicates = [NSPredicate]()
