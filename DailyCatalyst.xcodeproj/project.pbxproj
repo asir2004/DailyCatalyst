@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA0724A02B42BC220052EA3F /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
+		EA0724A12B42BC220052EA3F /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
+		EA0724A22B42BD350052EA3F /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA668C032B11CC950020D77E /* CardsView.swift */; };
+		EA0724A32B42BEDB0052EA3F /* SummaryOutput-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9911812B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift */; };
+		EA0724A42B42BEDB0052EA3F /* SummaryOutput-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9911812B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift */; };
 		EA0B98442AE57B4300E6F0AB /* EmptyImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0B98432AE57B4300E6F0AB /* EmptyImagePicker.swift */; };
 		EA19784A2AF909D400222DDA /* RectKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1978492AF909D400222DDA /* RectKey.swift */; };
 		EA1C5F512AE9F2CF00767CBD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1C5F502AE9F2CF00767CBD /* SettingsView.swift */; };
@@ -26,7 +31,6 @@
 		EA4623342B40070100DA968D /* SummarizePageOneCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4623332B40070100DA968D /* SummarizePageOneCard.swift */; };
 		EA5F7D962AD577B2003982D2 /* ContentViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F7D952AD577B2003982D2 /* ContentViewToolbar.swift */; };
 		EA668C022B11CC090020D77E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA668C012B11CC090020D77E /* MainView.swift */; };
-		EA668C042B11CC950020D77E /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA668C032B11CC950020D77E /* CardsView.swift */; };
 		EA6D13C32AE695D700AFBAF7 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D13C22AE695D700AFBAF7 /* WidgetKit.framework */; };
 		EA6D13C52AE695D700AFBAF7 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6D13C42AE695D700AFBAF7 /* SwiftUI.framework */; };
 		EA6D13D02AE695D900AFBAF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA6D13CF2AE695D900AFBAF7 /* Assets.xcassets */; };
@@ -38,14 +42,11 @@
 		EA7900062B3FF54A00C711E9 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7FCDD2A7AC18E0022F01D /* Filter.swift */; };
 		EA7900072B3FF54A00C711E9 /* Identity-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657E2A7AF671002A0BDC /* Identity-CoreDataHelpers.swift */; };
 		EA7900082B3FF54A00C711E9 /* Catalyst-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD657C2A7AF420002A0BDC /* Catalyst-CoreDataHelpers.swift */; };
-		EA7900092B3FF54C00C711E9 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
-		EA79000A2B3FF54C00C711E9 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F072A79100700A777E7 /* Main.xcdatamodeld */; };
 		EA79000B2B3FF54E00C711E9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
 		EA79000C2B3FF54F00C711E9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD51F0A2A79119400A777E7 /* DataController.swift */; };
 		EA79000F2B3FF6FF00C711E9 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = EA79000E2B3FF6FF00C711E9 /* GoogleGenerativeAI */; };
 		EA860E442AFA526A006A0BD6 /* AddScreenLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA860E432AFA526A006A0BD6 /* AddScreenLayer.swift */; };
 		EA86A7292AA0CF9E007D090F /* WrappedHStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA86A7282AA0CF9E007D090F /* WrappedHStackView.swift */; };
-		EA9911822B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9911812B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift */; };
 		EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9BFB332AE3129000D15AE5 /* StaggeredGrid.swift */; };
 		EA9D69492B00114F00DF9375 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2C3BC92AC41F7100D2FBB3 /* Bundle-Decodable.swift */; };
 		EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA597872AF86CB10013C19F /* View+Extension.swift */; };
@@ -412,7 +413,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					EA6D13BF2AE695D700AFBAF7 = {
 						CreatedOnToolsVersion = 15.0;
@@ -501,8 +502,9 @@
 				EAC00CDC2AFFA7D9002A1188 /* Navigation+Extension.swift in Sources */,
 				EAC00CD92AFFA7B7002A1188 /* Color+Extensions.swift in Sources */,
 				EA7900062B3FF54A00C711E9 /* Filter.swift in Sources */,
+				EA0724A42B42BEDB0052EA3F /* SummaryOutput-CoreDataHelpers.swift in Sources */,
 				EA7900072B3FF54A00C711E9 /* Identity-CoreDataHelpers.swift in Sources */,
-				EA79000A2B3FF54C00C711E9 /* Main.xcdatamodeld in Sources */,
+				EA0724A12B42BC220052EA3F /* Main.xcdatamodeld in Sources */,
 				EAC00CDA2AFFA7C9002A1188 /* Layer+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,7 +513,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA668C042B11CC950020D77E /* CardsView.swift in Sources */,
 				EA2C3BCD2AC46D3700D2FBB3 /* Award.swift in Sources */,
 				EAE516412AF75BC400D37877 /* Layer+Extensions.swift in Sources */,
 				EA2C3BCF2AC46DAB00D2FBB3 /* AwardsView.swift in Sources */,
@@ -526,12 +527,13 @@
 				EAB6E8A72A8F54A600986A61 /* SingleIdentity.swift in Sources */,
 				EAA597882AF86CB10013C19F /* View+Extension.swift in Sources */,
 				EAC00CD82AFFA38A002A1188 /* CatalystWidgetView.swift in Sources */,
+				EA0724A22B42BD350052EA3F /* CardsView.swift in Sources */,
 				EA668C022B11CC090020D77E /* MainView.swift in Sources */,
 				EA44E62F2AD62927002B36B4 /* UserFilterRow.swift in Sources */,
 				EA398E522A7B907F00530474 /* NoCatalystView.swift in Sources */,
 				EA9BFB342AE3129000D15AE5 /* StaggeredGrid.swift in Sources */,
 				EA3B48D22AFC973900C32C47 /* BorderedText.swift in Sources */,
-				EA9911822B41F7580099FFD0 /* SummaryOutput-CoreDataHelpers.swift in Sources */,
+				EA0724A32B42BEDB0052EA3F /* SummaryOutput-CoreDataHelpers.swift in Sources */,
 				EA2C3BCA2AC41F7100D2FBB3 /* Bundle-Decodable.swift in Sources */,
 				EA7900042B3FF54900C711E9 /* Identity-CoreDataHelpers.swift in Sources */,
 				EA398E502A7B907A00530474 /* CatalystView.swift in Sources */,
@@ -550,10 +552,10 @@
 				EAB7FCDA2A7AC0780022F01D /* SidebarView.swift in Sources */,
 				EA31488B2AD3DB92005CEF84 /* SidebarViewToolbar.swift in Sources */,
 				EAE141BD2AFD6874007138B8 /* Color+Extensions.swift in Sources */,
-				EA7900092B3FF54C00C711E9 /* Main.xcdatamodeld in Sources */,
 				EADE562C2A7E83A300F28948 /* NewCatalystView.swift in Sources */,
 				EABD65812A7AFCA3002A0BDC /* CatalystRow.swift in Sources */,
 				EAD51EFC2A790FFC00A777E7 /* ContentView.swift in Sources */,
+				EA0724A02B42BC220052EA3F /* Main.xcdatamodeld in Sources */,
 				EAD51EFA2A790FFC00A777E7 /* DailyCatalystApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,6 +638,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -698,6 +701,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
