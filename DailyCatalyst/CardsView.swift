@@ -114,7 +114,7 @@ struct CardsView: View {
                                                 showAlert.toggle()
                                                 selectedSummary = summary
                                             } label: {
-                                                Label("Remove", systemImage: "trash")
+                                                Text("Remove")
                                             }
                                             .buttonStyle(.bordered)
                                         }
