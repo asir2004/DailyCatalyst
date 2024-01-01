@@ -63,7 +63,7 @@ struct DailyCatalystApp: App {
             .tabItem {
                 Label("Catalysts", systemImage: "flask")
             }
-        CardsView(isPreview: true)
+        CardsView()
             .tabItem {
                 Label("Cards", systemImage: "rectangle.on.rectangle")
             }
