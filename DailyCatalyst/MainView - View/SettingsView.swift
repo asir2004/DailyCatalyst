@@ -79,7 +79,8 @@ struct SettingsView: View {
                             Label("Menu", systemImage: "rectangle.split.1x2")
                                 .tag(AddScreenStyle.menu)
                         }
-                            .labelsHidden()
+                        .pickerStyle(.menu)
+                        .labelsHidden()
                     }
                     .frame(height: 30)
                     
