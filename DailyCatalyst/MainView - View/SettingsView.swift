@@ -18,6 +18,17 @@ struct SettingsView: View {
     @AppStorage("notificationTimeMinute") var notificationTimeMinute = 0
     @AppStorage("useLayersAddScreen") var addScreenStyle: AddScreenStyle = .menu
     
+    var addScreenStyleTitle: String {
+        switch addScreenStyle {
+        case .layers:
+            "Layers"
+        case .screen:
+            "Screen"
+        case .menu:
+            "Menu"
+        }
+    }
+    
     @Environment(\.dismiss) var dismiss
     
     @AppStorage("toggleDarkMode") var toggleDarkMode: Bool = false
@@ -71,16 +82,22 @@ struct SettingsView: View {
                         
                         Spacer()
                         
-                        Picker("Add Screen Style", selection: $addScreenStyle) {
-                            Label("Layers", systemImage: "rectangle.on.rectangle")
-                                .tag(AddScreenStyle.layers)
-                            Label("Screen", systemImage: "rectangle.portrait")
-                                .tag(AddScreenStyle.screen)
-                            Label("Menu", systemImage: "rectangle.split.1x2")
-                                .tag(AddScreenStyle.menu)
+                        Menu {
+                            Picker("Add Screen Style", selection: $addScreenStyle) {
+                                Label("Layers", systemImage: "rectangle.on.rectangle")
+                                    .tag(AddScreenStyle.layers)
+                                Label("Screen", systemImage: "rectangle.portrait")
+                                    .tag(AddScreenStyle.screen)
+                                Label("Menu", systemImage: "rectangle.split.1x2")
+                                    .tag(AddScreenStyle.menu)
+                            }
+                        } label: {
+                            HStack {
+                                Text(addScreenStyleTitle)
+                                Image(systemName: "chevron.up.chevron.down")
+                            }
                         }
-                        .pickerStyle(.menu)
-                        .labelsHidden()
+                        .foregroundStyle(.secondary)
                     }
                     .frame(height: 30)
                     
