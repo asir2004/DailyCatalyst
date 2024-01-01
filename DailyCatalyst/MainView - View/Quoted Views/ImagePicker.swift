@@ -23,6 +23,7 @@ struct ImagePicker: View {
     @State private var showImagePicker: Bool = false
     @State private var photoItem: PhotosPickerItem?
     @State private var photoData: Data?
+    @State private var photoPreviewData: Data?
     
     @State private var previewImage: UIImage?
     
@@ -100,7 +101,12 @@ struct ImagePicker: View {
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                     photoData = data
+                                    if let image = UIImage(data: catalyst.image!) {
+                                        generateImageThumbnail(image, scaledSize)
+                                    }
+                                    photoPreviewData = previewImage?.pngData()
                                     catalyst.image = photoData
+                                    catalyst.imagePreview = photoPreviewData
                                     dataController.queueSave()
                                 }
                             }
@@ -114,7 +120,12 @@ struct ImagePicker: View {
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                     photoData = data
+                                    if let image = UIImage(data: catalyst.image!) {
+                                        generateImageThumbnail(image, scaledSize)
+                                    }
+                                    photoPreviewData = previewImage?.pngData()
                                     catalyst.image = photoData
+                                    catalyst.imagePreview = photoPreviewData
                                     dataController.queueSave()
                                 }
                             }
