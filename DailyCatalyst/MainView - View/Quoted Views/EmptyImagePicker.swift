@@ -16,6 +16,7 @@ struct EmptyImagePicker: View {
     var tint: Color
     var isEditing: Bool
     @Binding var photoData: Data?
+    @Binding var photoPreviewData: Data?
     var onImageChange: (UIImage) -> ()
     
     @State private var showImagePicker: Bool = false
@@ -89,6 +90,7 @@ struct EmptyImagePicker: View {
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                     photoData = data
+                                    photoPreviewData = previewImage?.pngData()
                                 }
                             }
                         }
@@ -101,6 +103,7 @@ struct EmptyImagePicker: View {
                             Task {
                                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                                     photoData = data
+                                    photoPreviewData = previewImage?.pngData()
                                 }
                             }
                         }
