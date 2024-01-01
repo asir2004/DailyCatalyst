@@ -33,8 +33,8 @@ struct CatalystRowTransparent: View {
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundStyle(.thinMaterial)
                 
-                if (catalyst.image != nil) {
-                    if let image = UIImage(data: catalyst.image!) {
+                if (catalyst.imagePreview != nil) {
+                    if let image = UIImage(data: catalyst.imagePreview!) {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFill()
