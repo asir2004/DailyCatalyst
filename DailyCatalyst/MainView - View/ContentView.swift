@@ -20,6 +20,7 @@ struct ContentView: View {
             StaggeredGrid(columns: 2, list: dataController.catalystsForSelectedFilter(), content: { catalyst in
                 @State var isSelected = false
                 CatalystRowTransparent(catalyst: catalyst, width: size.width / 2, isEditing: isEditing, isSelected: $isSelected)
+                // MARK: Here causes the bug that can't select correct card
                     .if(scrollViewEffect) { view in
                         view.scrollTransition(axis: .vertical) { content, phase in
                             content
