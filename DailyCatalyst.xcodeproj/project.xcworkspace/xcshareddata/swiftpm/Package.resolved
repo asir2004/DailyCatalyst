@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "generative-ai-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/google/generative-ai-swift",
+      "state" : {
+        "revision" : "fead3038a70047a72ea2cf39e96d3add71c372de",
+        "version" : "0.4.4"
+      }
+    },
+    {
+      "identity" : "symbolpicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/xnth97/SymbolPicker",
+      "state" : {
+        "revision" : "e0601230feea4289760c0e5b68dbafa15aa59bfb",
+        "version" : "1.5.1"
+      }
+    }
+  ],
+  "version" : 2
+}
