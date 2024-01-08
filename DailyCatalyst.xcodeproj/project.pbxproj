@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -370,8 +370,8 @@
 			);
 			mainGroup = EAD51EED2A790FFC00A777E7;
 			packageReferences = (
-				EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Coding/Local Dependencies/SymbolPicker-main" */,
-				EA79000D2B3FF69400C711E9 /* XCLocalSwiftPackageReference "/Users/asir/Coding/Local Dependencies/generative-ai-swift-main" */,
+				EACB54F02B4C356D00CE5106 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+				EACB54F12B4C35A900CE5106 /* XCRemoteSwiftPackageReference "SymbolPicker" */,
 			);
 			productRefGroup = EAD51EF72A790FFC00A777E7 /* Products */;
 			projectDirPath = "";
@@ -689,16 +689,24 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		EA79000D2B3FF69400C711E9 /* XCLocalSwiftPackageReference "/Users/asir/Coding/Local Dependencies/generative-ai-swift-main" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "/Users/asir/Coding/Local Dependencies/generative-ai-swift-main";
+/* Begin XCRemoteSwiftPackageReference section */
+		EACB54F02B4C356D00CE5106 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.4;
+			};
 		};
-		EAB293852AC9E9EF006355B1 /* XCLocalSwiftPackageReference "../../Coding/Local Dependencies/SymbolPicker-main" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../Coding/Local Dependencies/SymbolPicker-main";
+		EACB54F12B4C35A900CE5106 /* XCRemoteSwiftPackageReference "SymbolPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xnth97/SymbolPicker";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		EA79000E2B3FF6FF00C711E9 /* GoogleGenerativeAI */ = {
