@@ -41,6 +41,7 @@ struct CatalystView: View {
                         Button {
                             withAnimation {
                                 catalyst.image = nil
+                                catalyst.imagePreview = nil
                             }
                         } label: {
                             Label("Clear Photo", systemImage: "trash")
