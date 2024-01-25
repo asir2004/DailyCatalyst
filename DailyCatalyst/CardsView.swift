@@ -96,7 +96,12 @@ struct CardsView: View {
                                     .foregroundStyle((summarizeOutput == "Summary" || isLoading) ? .secondary : .primary)
                             }
                         }
+                        #if os(iOS)
                         .frame(width: max(geometry.size.width - 40, 0), height: max(geometry.size.height - 40, 0))
+                        #endif
+                        #if os(visionOS)
+                        .frame(width: max(geometry.size.width / 2 - 20, 0), height: max(geometry.size.height - 40, 0))
+                        #endif
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         
                         List {
@@ -124,7 +129,12 @@ struct CardsView: View {
                                 }
                             }
                         }
+                        #if os(iOS)
                         .frame(width: max(geometry.size.width - 40, 0), height: max(geometry.size.height - 40, 0))
+                        #endif
+                        #if os(visionOS)
+                        .frame(width: max(geometry.size.width / 2 - 20, 0), height: max(geometry.size.height - 40, 0))
+                        #endif
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                     .scrollTargetLayout()
