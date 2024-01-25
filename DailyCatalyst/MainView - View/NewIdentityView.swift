@@ -22,7 +22,9 @@ struct NewIdentityView: View {
     
     @State private var iconPickerPresented = false
     
+    #if os(ios)
     @State private var feedback = UINotificationFeedbackGenerator()
+    #endif
     
     @FocusState var isInputActive: Bool
     
@@ -48,7 +50,9 @@ struct NewIdentityView: View {
                             save()
                             newIdentityName = ""
                             dismiss()
+                            #if os(iOS)
                             feedback.notificationOccurred(.success)
+                            #endif
                             
                         }
                         .disabled(newIdentityName.isEmpty)
@@ -79,7 +83,8 @@ struct NewIdentityView: View {
                 dismiss()
             }
         }
-        .toolbar {
+#if os(iOS)
+        .toolbar { 
             ToolbarItem(placement: .keyboard) {
                 HStack {
                     Spacer()
@@ -91,7 +96,9 @@ struct NewIdentityView: View {
                     }
                 }
             }
+            
         }
+#endif
         .focused($isInputActive)
         .sheet(isPresented: $iconPickerPresented) {
             SymbolPicker(symbol: $newIdentityIcon)
