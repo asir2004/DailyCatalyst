@@ -131,6 +131,7 @@ struct NewCatalystView: View {
                 save()
             }
         }
+        #if os(ios)
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 HStack {
@@ -144,6 +145,7 @@ struct NewCatalystView: View {
                 }
             }
         }
+        #endif
         .focused($isInputActive)
     }
     
