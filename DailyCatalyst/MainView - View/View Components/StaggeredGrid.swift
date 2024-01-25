@@ -52,7 +52,7 @@ struct StaggeredGrid<Content: View, T : Identifiable>: View where T: Hashable {
             HStack(alignment:.top){
                 ForEach(setUpList(),id:\.self){ columnsData in
                     // 优化使用LazyStack…
-                    LazyVStack(spacing:spacing){
+                    VStack(spacing:spacing){
                         ForEach(columnsData) { object in
                             content(object)
                         }
