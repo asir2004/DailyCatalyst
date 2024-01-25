@@ -154,6 +154,7 @@ struct CatalystView: View {
             .toolbar {
                 CatalystViewToolbar(catalyst: catalyst, imagePickerIsEditing: $isEditing)
             }
+            #if os(iOS)
             .toolbar {
                 ToolbarItem(placement: .keyboard) {
                     HStack {
@@ -167,6 +168,7 @@ struct CatalystView: View {
                     }
                 }
             }
+            #endif
             .focused($isInputActive)
         }
     }
