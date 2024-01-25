@@ -13,7 +13,9 @@ struct TagsView: View {
     
     var items: [String]
     var groupedItems: [[String]] = [[String]]()
+    #if os(iOS)
     let screenWidth = UIScreen.main.bounds.width
+    #endif
     
     init(entities: [Identity], items: [String]) {
         self.entities = entities
